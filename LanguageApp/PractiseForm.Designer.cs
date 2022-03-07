@@ -48,6 +48,7 @@ namespace LanguageApp
             this.btnCheck2 = new System.Windows.Forms.Button();
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
+            this.btnMoreQuestions = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHome
@@ -221,11 +222,22 @@ namespace LanguageApp
             this.lblDeutsch.Text = "German Words";
             this.lblDeutsch.Click += new System.EventHandler(this.lblDeutsch_Click);
             // 
+            // btnMoreQuestions
+            // 
+            this.btnMoreQuestions.Location = new System.Drawing.Point(205, 286);
+            this.btnMoreQuestions.Name = "btnMoreQuestions";
+            this.btnMoreQuestions.Size = new System.Drawing.Size(338, 60);
+            this.btnMoreQuestions.TabIndex = 21;
+            this.btnMoreQuestions.Text = "Load More Questions";
+            this.btnMoreQuestions.UseVisualStyleBackColor = true;
+            this.btnMoreQuestions.Click += new System.EventHandler(this.btnMoreQuestions_Click);
+            // 
             // PractiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 311);
+            this.ClientSize = new System.Drawing.Size(984, 383);
+            this.Controls.Add(this.btnMoreQuestions);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
             this.Controls.Add(this.btnCheck2);
@@ -274,5 +286,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnCheck2;
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
+        private System.Windows.Forms.Button btnMoreQuestions;
     }
 }

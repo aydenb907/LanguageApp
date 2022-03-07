@@ -63,28 +63,29 @@ namespace LanguageApp
             }
 
             List<string> sentences = Info.sentences;
-            Random rand = new Random();
-            random = rand.Next(0,4);
-            label1.Text = sentences[random];
+
+            Random rand = new Random();        
+            random = rand.Next(0,sentences.Count-1);
+            label1.Text = sentences[random];  
             sentences.Remove(sentences[random]);
 
             Random rand2 = new Random();
-            random2 = rand2.Next(0, 3);
+            random2 = rand2.Next(0, sentences.Count-1);   
             label2.Text = sentences[random2];
             sentences.Remove(sentences[random2]);
 
             Random rand3 = new Random();
-            random3 = rand3.Next(0, 2);
+            random3 = rand3.Next(0, sentences.Count-1);
             label3.Text = sentences[random3];
             sentences.Remove(sentences[random3]);
 
             Random rand4 = new Random();
-            random4 = rand4.Next(0, 1);
+            random4 = rand4.Next(0, sentences.Count-1);
             label4.Text = sentences[random4];
             sentences.Remove(sentences[random4]);
 
             Random rand5 = new Random();
-            random5 = rand5.Next(0);
+            random5 = rand5.Next(0, sentences.Count-1);
             label5.Text = sentences[random5];
             sentences.Remove(sentences[random5]);
 
@@ -116,6 +117,27 @@ namespace LanguageApp
 
         private void lblDeutsch_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnMoreQuestions_Click(object sender, EventArgs e)
+        {
+            if (Info.sentences.Count == 0)
+            {
+                MessageBox.Show("No more new example questions.");
+                this.Hide();
+                Info i = new Info();
+                i.FormClosed += (s, args) => this.Close();
+                i.Show();
+            }
+            else
+            {
+                this.Hide();
+                PractiseForm p = new PractiseForm();
+                p.FormClosed += (s, args) => this.Close();
+                p.Show();
+            }
+  
 
         }
 

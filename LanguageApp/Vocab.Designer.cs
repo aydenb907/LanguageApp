@@ -33,6 +33,7 @@ namespace LanguageApp
             this.btn2 = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnLesson = new System.Windows.Forms.Button();
+            this.btnMemorise = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn1
@@ -75,11 +76,22 @@ namespace LanguageApp
             this.btnLesson.UseVisualStyleBackColor = true;
             this.btnLesson.Click += new System.EventHandler(this.btnLesson_Click);
             // 
+            // btnMemorise
+            // 
+            this.btnMemorise.Location = new System.Drawing.Point(239, 334);
+            this.btnMemorise.Name = "btnMemorise";
+            this.btnMemorise.Size = new System.Drawing.Size(284, 58);
+            this.btnMemorise.TabIndex = 4;
+            this.btnMemorise.Text = "Memorise These";
+            this.btnMemorise.UseVisualStyleBackColor = true;
+            this.btnMemorise.Click += new System.EventHandler(this.btnMemorise_Click);
+            // 
             // Vocab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 450);
+            this.ClientSize = new System.Drawing.Size(816, 450);
+            this.Controls.Add(this.btnMemorise);
             this.Controls.Add(this.btnLesson);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btn2);
@@ -97,5 +109,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnLesson;
+        private System.Windows.Forms.Button btnMemorise;
     }
 }

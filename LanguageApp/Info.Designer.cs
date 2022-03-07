@@ -33,6 +33,8 @@ namespace LanguageApp
             this.lblLesson = new System.Windows.Forms.Label();
             this.btnPractise = new System.Windows.Forms.Button();
             this.btnVocab = new System.Windows.Forms.Button();
+            this.lblEnglisch = new System.Windows.Forms.Label();
+            this.lblDeutsch = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnHome
@@ -71,15 +73,35 @@ namespace LanguageApp
             this.btnVocab.Name = "btnVocab";
             this.btnVocab.Size = new System.Drawing.Size(242, 39);
             this.btnVocab.TabIndex = 4;
-            this.btnVocab.Text = "Practise Vocab";
+            this.btnVocab.Text = "Learn Words";
             this.btnVocab.UseVisualStyleBackColor = true;
             this.btnVocab.Click += new System.EventHandler(this.btnVocab_Click);
+            // 
+            // lblEnglisch
+            // 
+            this.lblEnglisch.AutoSize = true;
+            this.lblEnglisch.Location = new System.Drawing.Point(514, 14);
+            this.lblEnglisch.Name = "lblEnglisch";
+            this.lblEnglisch.Size = new System.Drawing.Size(75, 13);
+            this.lblEnglisch.TabIndex = 20;
+            this.lblEnglisch.Text = "English Words";
+            // 
+            // lblDeutsch
+            // 
+            this.lblDeutsch.AutoSize = true;
+            this.lblDeutsch.Location = new System.Drawing.Point(677, 14);
+            this.lblDeutsch.Name = "lblDeutsch";
+            this.lblDeutsch.Size = new System.Drawing.Size(78, 13);
+            this.lblDeutsch.TabIndex = 21;
+            this.lblDeutsch.Text = "German Words";
             // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 301);
+            this.ClientSize = new System.Drawing.Size(826, 345);
+            this.Controls.Add(this.lblDeutsch);
+            this.Controls.Add(this.lblEnglisch);
             this.Controls.Add(this.btnVocab);
             this.Controls.Add(this.btnPractise);
             this.Controls.Add(this.lblLesson);
@@ -98,5 +120,7 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblLesson;
         private System.Windows.Forms.Button btnPractise;
         private System.Windows.Forms.Button btnVocab;
+        private System.Windows.Forms.Label lblEnglisch;
+        private System.Windows.Forms.Label lblDeutsch;
     }
 }

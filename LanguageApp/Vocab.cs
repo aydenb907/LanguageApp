@@ -71,5 +71,15 @@ namespace LanguageApp
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
+
+        private void btnMemorise_Click(object sender, EventArgs e)
+        {
+            Info.sentences = englishWords;
+            Info.answers = germanWords;
+            this.Hide();
+            PractiseForm p = new PractiseForm();
+            p.FormClosed += (s, args) => this.Close();
+            p.Show();
+        }
     }
 }
