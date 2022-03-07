@@ -46,6 +46,8 @@ namespace LanguageApp
             this.btnCheck5 = new System.Windows.Forms.Button();
             this.btnCheck3 = new System.Windows.Forms.Button();
             this.btnCheck2 = new System.Windows.Forms.Button();
+            this.lblEnglisch = new System.Windows.Forms.Label();
+            this.lblDeutsch = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnHome
@@ -199,11 +201,33 @@ namespace LanguageApp
             this.btnCheck2.UseVisualStyleBackColor = true;
             this.btnCheck2.Click += new System.EventHandler(this.btnCheck2_Click);
             // 
+            // lblEnglisch
+            // 
+            this.lblEnglisch.AutoSize = true;
+            this.lblEnglisch.Location = new System.Drawing.Point(611, 10);
+            this.lblEnglisch.Name = "lblEnglisch";
+            this.lblEnglisch.Size = new System.Drawing.Size(75, 13);
+            this.lblEnglisch.TabIndex = 19;
+            this.lblEnglisch.Text = "English Words";
+            this.lblEnglisch.Click += new System.EventHandler(this.lblEnglisch_Click);
+            // 
+            // lblDeutsch
+            // 
+            this.lblDeutsch.AutoSize = true;
+            this.lblDeutsch.Location = new System.Drawing.Point(810, 10);
+            this.lblDeutsch.Name = "lblDeutsch";
+            this.lblDeutsch.Size = new System.Drawing.Size(78, 13);
+            this.lblDeutsch.TabIndex = 20;
+            this.lblDeutsch.Text = "German Words";
+            this.lblDeutsch.Click += new System.EventHandler(this.lblDeutsch_Click);
+            // 
             // PractiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 311);
+            this.ClientSize = new System.Drawing.Size(984, 311);
+            this.Controls.Add(this.lblDeutsch);
+            this.Controls.Add(this.lblEnglisch);
             this.Controls.Add(this.btnCheck2);
             this.Controls.Add(this.btnCheck3);
             this.Controls.Add(this.btnCheck5);
@@ -248,5 +272,7 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnCheck5;
         private System.Windows.Forms.Button btnCheck3;
         private System.Windows.Forms.Button btnCheck2;
+        private System.Windows.Forms.Label lblEnglisch;
+        private System.Windows.Forms.Label lblDeutsch;
     }
 }

@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Vocab.resx">
+      <DependentUpon>Vocab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Info.resx">
       <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,9 +93,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vocab.resx">
-      <DependentUpon>Vocab.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

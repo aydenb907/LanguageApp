@@ -50,6 +50,18 @@ namespace LanguageApp
 
         private void PractiseForm_Load(object sender, EventArgs e)
         {
+            lblEnglisch.Text = "";
+            lblDeutsch.Text = "";
+            foreach(string word in Info.englishWords)
+            {
+               
+                lblEnglisch.Text += $"\n{word}";
+            }
+            foreach (string word in Info.germanWords)
+            {
+                lblDeutsch.Text += $"\n{word}";
+            }
+
             List<string> sentences = Info.sentences;
             Random rand = new Random();
             random = rand.Next(0,4);
@@ -93,6 +105,16 @@ namespace LanguageApp
         }
 
         private void txtAnswer1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEnglisch_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblDeutsch_Click(object sender, EventArgs e)
         {
 
         }

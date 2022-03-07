@@ -32,7 +32,6 @@ namespace LanguageApp
             this.btnHome = new System.Windows.Forms.Button();
             this.lblLesson = new System.Windows.Forms.Label();
             this.btnPractise = new System.Windows.Forms.Button();
-            this.lblList = new System.Windows.Forms.Label();
             this.btnVocab = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,15 +65,6 @@ namespace LanguageApp
             this.btnPractise.UseVisualStyleBackColor = true;
             this.btnPractise.Click += new System.EventHandler(this.btnPractise_Click);
             // 
-            // lblList
-            // 
-            this.lblList.AutoSize = true;
-            this.lblList.Location = new System.Drawing.Point(584, 14);
-            this.lblList.Name = "lblList";
-            this.lblList.Size = new System.Drawing.Size(79, 13);
-            this.lblList.TabIndex = 3;
-            this.lblList.Text = "Vocabulary List";
-            // 
             // btnVocab
             // 
             this.btnVocab.Location = new System.Drawing.Point(221, 160);
@@ -91,7 +81,6 @@ namespace LanguageApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 301);
             this.Controls.Add(this.btnVocab);
-            this.Controls.Add(this.lblList);
             this.Controls.Add(this.btnPractise);
             this.Controls.Add(this.lblLesson);
             this.Controls.Add(this.btnHome);
@@ -108,7 +97,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblLesson;
         private System.Windows.Forms.Button btnPractise;
-        private System.Windows.Forms.Label lblList;
         private System.Windows.Forms.Button btnVocab;
     }
 }
