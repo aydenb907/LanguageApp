@@ -12,7 +12,7 @@ namespace LanguageApp
 {
     public partial class PractiseForm : Form
     {
-        private int random, random2, random3, random4, random5;
+        private string answer1, answer2, answer3, answer4, answer5;
         
         public PractiseForm()
         {
@@ -63,44 +63,53 @@ namespace LanguageApp
             }
 
             List<string> sentences = Info.sentences;
+            List<string> answers = Info.answers;
 
-            Random rand = new Random();        
-            random = rand.Next(0,sentences.Count-1);
-            label1.Text = sentences[random];  
+            Random rand = new Random();
+            int random = rand.Next(0, sentences.Count-1);
+            label1.Text = sentences[random];
             sentences.Remove(sentences[random]);
+            answer1 = answers[random];
+            answers.Remove(answers[random]);
 
-            Random rand2 = new Random();
-            random2 = rand2.Next(0, sentences.Count-1);   
-            label2.Text = sentences[random2];
-            sentences.Remove(sentences[random2]);
+          
+            random = rand.Next(0, sentences.Count-1);
+            label2.Text = sentences[random];
+            sentences.Remove(sentences[random]);
+            answer2 = answers[random];
+            answers.Remove(answers[random]);
 
-            Random rand3 = new Random();
-            random3 = rand3.Next(0, sentences.Count-1);
-            label3.Text = sentences[random3];
-            sentences.Remove(sentences[random3]);
+            random = rand.Next(0, sentences.Count-1);
+            label3.Text = sentences[random];
+            sentences.Remove(sentences[random]);
+            answer3 = answers[random];
+            answers.Remove(answers[random]);
 
-            Random rand4 = new Random();
-            random4 = rand4.Next(0, sentences.Count-1);
-            label4.Text = sentences[random4];
-            sentences.Remove(sentences[random4]);
+         
+            random = rand.Next(0, sentences.Count-1);
+            label4.Text = sentences[random];
+            sentences.Remove(sentences[random]);
+            answer4 = answers[random];
+            answers.Remove(answers[random]);
 
-            Random rand5 = new Random();
-            random5 = rand5.Next(0, sentences.Count-1);
-            label5.Text = sentences[random5];
-            sentences.Remove(sentences[random5]);
+            random = rand.Next(0, sentences.Count-1);
+            label5.Text = sentences[random];
+            sentences.Remove(sentences[random]);
+            answer5 = answers[random];
+            answers.Remove(answers[random]);
 
         }
 
         private void btnCheck1_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer1.Text;
-           if (userAnswer == Info.answers[random])
+           if (userAnswer == answer1)
             {
                 MessageBox.Show("Correct!");
             }
            else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{Info.answers[random]}");
+                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer1}");
             }
 
         }
@@ -144,52 +153,52 @@ namespace LanguageApp
         private void btnCheck2_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer2.Text;
-            if (userAnswer == Info.answers[random2])
+            if (userAnswer == answer2)
             {
                 MessageBox.Show("Correct!");
             }
             else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{Info.answers[random2]}");
+                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer2}");
             }
         }
 
         private void btnCheck3_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer3.Text;
-            if (userAnswer == Info.answers[random3])
+            if (userAnswer == answer3)
             {
                 MessageBox.Show("Correct!");
             }
             else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{Info.answers[random3]}");
+                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer3}");
             }
         }
 
         private void btnCheck4_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer4.Text;
-            if (userAnswer == Info.answers[random4])
+            if (userAnswer == answer4)
             {
                 MessageBox.Show("Correct!");
             }
             else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{Info.answers[random4]}");
+                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer4}");
             }
         }
 
         private void btnCheck5_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer5.Text;
-            if (userAnswer == Info.answers[random5])
+            if (userAnswer == answer5)
             {
                 MessageBox.Show("Correct!");
             }
             else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{Info.answers[random5]}");
+                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer5}");
             }
         }
     }

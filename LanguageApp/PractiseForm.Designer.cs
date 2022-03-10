@@ -236,7 +236,7 @@ namespace LanguageApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 383);
+            this.ClientSize = new System.Drawing.Size(984, 367);
             this.Controls.Add(this.btnMoreQuestions);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);

@@ -35,6 +35,7 @@ namespace LanguageApp
             this.btnVocab = new System.Windows.Forms.Button();
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
+            this.btnGrammarTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHome
@@ -95,11 +96,22 @@ namespace LanguageApp
             this.lblDeutsch.TabIndex = 21;
             this.lblDeutsch.Text = "German Words";
             // 
+            // btnGrammarTest
+            // 
+            this.btnGrammarTest.Location = new System.Drawing.Point(221, 275);
+            this.btnGrammarTest.Name = "btnGrammarTest";
+            this.btnGrammarTest.Size = new System.Drawing.Size(242, 37);
+            this.btnGrammarTest.TabIndex = 22;
+            this.btnGrammarTest.Text = "Test For This Lesson";
+            this.btnGrammarTest.UseVisualStyleBackColor = true;
+            this.btnGrammarTest.Click += new System.EventHandler(this.btnGrammarTest_Click);
+            // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 345);
+            this.Controls.Add(this.btnGrammarTest);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
             this.Controls.Add(this.btnVocab);
@@ -122,5 +134,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnVocab;
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
+        private System.Windows.Forms.Button btnGrammarTest;
     }
 }
