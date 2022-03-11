@@ -51,6 +51,9 @@ namespace LanguageApp
 
         private void Info_Load(object sender, EventArgs e)
         {
+            lblAvgScore.Text = $"Average Score: {Test.avgScores[MainForm.lesson]} \nNumber of Attempts: {Test.attempts[MainForm.lesson]}";
+
+
             if (MainForm.lesson == 1)
             {
                 lblLesson.Text = "1";
@@ -69,6 +72,9 @@ namespace LanguageApp
                 germanWords = new List<string>() { "g1", "g2", "g3" };
                 sentences = new List<string>() { "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8" };
                 answers = new List<string>() { "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8" };
+                testQuestions = new List<string>() { "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10" };
+                testAnswers = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "answer 6", "answer 7", "answer 8", "answer 9", "answer 10" };
+
             }
             else
             {

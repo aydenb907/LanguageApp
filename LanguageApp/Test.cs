@@ -13,8 +13,10 @@ namespace LanguageApp
     public partial class Test : Form
     {
         private List<string> correctAnswers = new List<string>();
-        private static int number = 0;
-        private static int totalScore = 0;
+        private static List<int> totalScores = new List<int>() {0, 0, 0, 0, 0, 0 };
+        public static List<int> attempts = new List<int>() { 0, 0, 0, 0, 0, 0 };
+        public static List<float> avgScores = new List<float>() { 0, 0, 0, 0, 0, 0 };
+
         public Test()
         {
             InitializeComponent();
@@ -114,11 +116,13 @@ namespace LanguageApp
                 }
             }
 
-            totalScore += score;
-            number++;
+            int n = MainForm.lesson;
+            totalScores[n] += score;
+            attempts[n]++;
 
-            float avgScore = totalScore / number;
-            MessageBox.Show($"Score: {score}/10 \nAverage Score: {avgScore}");
+            avgScores[n] = totalScores[n] / attempts[n];
+
+            MessageBox.Show($"Score: {score} \nAverage Score: {avgScores[n]}");
 
             this.Hide();
             Info i = new Info();
