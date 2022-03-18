@@ -96,16 +96,16 @@ namespace LanguageApp
 
             List<string> userAnswers = new List<string>();
 
-            userAnswers.Add(textBox1.Text.ToLower());
-            userAnswers.Add(textBox2.Text.ToLower());
-            userAnswers.Add(textBox3.Text.ToLower());
-            userAnswers.Add(textBox4.Text.ToLower());
-            userAnswers.Add(textBox5.Text.ToLower());
-            userAnswers.Add(textBox6.Text.ToLower());
-            userAnswers.Add(textBox7.Text.ToLower());
-            userAnswers.Add(textBox8.Text.ToLower());
-            userAnswers.Add(textBox9.Text.ToLower());
-            userAnswers.Add(textBox10.Text.ToLower());
+            userAnswers.Add(textBox1.Text);
+            userAnswers.Add(textBox2.Text);
+            userAnswers.Add(textBox3.Text);
+            userAnswers.Add(textBox4.Text);
+            userAnswers.Add(textBox5.Text);
+            userAnswers.Add(textBox6.Text);
+            userAnswers.Add(textBox7.Text);
+            userAnswers.Add(textBox8.Text);
+            userAnswers.Add(textBox9.Text);
+            userAnswers.Add(textBox10.Text);
 
             int score = 0;
             for(int a = 0; a < userAnswers.Count; a++)
@@ -121,7 +121,6 @@ namespace LanguageApp
             attempts[n]++;
 
             avgScores[n] = totalScores[n] / attempts[n];
-            avgScores[n] = (float)Math.Round(avgScores[n], 1);
 
             MessageBox.Show($"Score: {score} \nAverage Score: {avgScores[n]}");
 
