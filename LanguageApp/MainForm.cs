@@ -55,5 +55,22 @@ namespace LanguageApp
         {
 
         }
+
+        private void grammarTerms_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Noun: " +
+                "\nVerb: " +
+                "");
+        }
+
+        private void completeList_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
+        }
+
+        private void motivation_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
+        }
     }
 }

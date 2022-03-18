@@ -102,7 +102,7 @@ namespace LanguageApp
 
         private void btnCheck1_Click(object sender, EventArgs e)
         {
-            string userAnswer = txtAnswer1.Text;
+            string userAnswer = txtAnswer1.Text.ToLower();
            if (userAnswer == answer1)
             {
                 MessageBox.Show("Correct!");
@@ -152,7 +152,7 @@ namespace LanguageApp
 
         private void btnCheck2_Click(object sender, EventArgs e)
         {
-            string userAnswer = txtAnswer2.Text;
+            string userAnswer = txtAnswer2.Text.ToLower();
             if (userAnswer == answer2)
             {
                 MessageBox.Show("Correct!");
@@ -165,7 +165,7 @@ namespace LanguageApp
 
         private void btnCheck3_Click(object sender, EventArgs e)
         {
-            string userAnswer = txtAnswer3.Text;
+            string userAnswer = txtAnswer3.Text.ToLower();
             if (userAnswer == answer3)
             {
                 MessageBox.Show("Correct!");
@@ -178,7 +178,7 @@ namespace LanguageApp
 
         private void btnCheck4_Click(object sender, EventArgs e)
         {
-            string userAnswer = txtAnswer4.Text;
+            string userAnswer = txtAnswer4.Text.ToLower();
             if (userAnswer == answer4)
             {
                 MessageBox.Show("Correct!");
@@ -191,7 +191,7 @@ namespace LanguageApp
 
         private void btnCheck5_Click(object sender, EventArgs e)
         {
-            string userAnswer = txtAnswer5.Text;
+            string userAnswer = txtAnswer5.Text.ToLower();
             if (userAnswer == answer5)
             {
                 MessageBox.Show("Correct!");

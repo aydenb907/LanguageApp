@@ -69,8 +69,8 @@ namespace LanguageApp
             // menuInfo
             // 
             this.menuInfo.Name = "menuInfo";
-            this.menuInfo.Size = new System.Drawing.Size(148, 20);
-            this.menuInfo.Text = "What is This App About?";
+            this.menuInfo.Size = new System.Drawing.Size(129, 20);
+            this.menuInfo.Text = "How to Use This App";
             this.menuInfo.Click += new System.EventHandler(this.menuInfo_Click);
             // 
             // grammarTermsToolStripMenuItem
@@ -78,18 +78,21 @@ namespace LanguageApp
             this.grammarTermsToolStripMenuItem.Name = "grammarTermsToolStripMenuItem";
             this.grammarTermsToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.grammarTermsToolStripMenuItem.Text = "Grammar Terms";
+            this.grammarTermsToolStripMenuItem.Click += new System.EventHandler(this.grammarTerms_Click);
             // 
             // completeVocabularyListOfThisAppToolStripMenuItem
             // 
             this.completeVocabularyListOfThisAppToolStripMenuItem.Name = "completeVocabularyListOfThisAppToolStripMenuItem";
             this.completeVocabularyListOfThisAppToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
             this.completeVocabularyListOfThisAppToolStripMenuItem.Text = "Complete Vocabulary List";
+            this.completeVocabularyListOfThisAppToolStripMenuItem.Click += new System.EventHandler(this.completeList_Click);
             // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
             this.dToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.dToolStripMenuItem.Text = "Why Learn German";
+            this.dToolStripMenuItem.Click += new System.EventHandler(this.motivation_Click);
             // 
             // btn2
             // 
