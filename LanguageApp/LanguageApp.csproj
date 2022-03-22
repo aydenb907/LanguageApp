@@ -52,6 +52,7 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="Vocab.cs">
       <SubType>Form</SubType>
     </Compile>
