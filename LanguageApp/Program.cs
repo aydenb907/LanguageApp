@@ -12,13 +12,34 @@ namespace LanguageApp
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+       
+      
         static void Main()
         {
+        
 
-           
+            string name = "fjfjr";
+            string password = "34";
+            List<int> scores = new List<int>();
+
+
+            User u = new User(name, password, scores);
+
+            int score = 3;
+            u.UpdateScores(score);
+            int score2 = 8;
+            u.UpdateScores(score2);
+            Console.WriteLine(u.ToString());
+
+
+
             /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());*/
         }
+
+        
+     
+        
     }
 }
