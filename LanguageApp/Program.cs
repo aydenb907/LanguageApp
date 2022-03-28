@@ -31,6 +31,33 @@ namespace LanguageApp
             u.UpdateScores(score2);
             Console.WriteLine(u.ToString());
 
+            int lesson = 1;
+
+            Lesson L = new Lesson();
+
+            Random rand = new Random();
+        
+            List<string> practiceQues = L.GeneratePracticeQuestions(lesson);
+            
+            int questionNumber = rand.Next(0,2);
+            Console.WriteLine(practiceQues[questionNumber]);
+            practiceQues.Remove(practiceQues[questionNumber]);
+            string userAnswer = "answer 2";
+            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+
+            questionNumber = rand.Next(0, 1);
+            Console.WriteLine(practiceQues[questionNumber]);
+            practiceQues.Remove(practiceQues[questionNumber]);
+            userAnswer = "answer 1";
+            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+
+            questionNumber = rand.Next(0);
+            Console.WriteLine(practiceQues[questionNumber]);
+            practiceQues.Remove(practiceQues[questionNumber]);
+            userAnswer = "answer 3";
+            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+
+
 
 
             /*Application.EnableVisualStyles();
