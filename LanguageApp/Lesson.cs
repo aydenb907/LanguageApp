@@ -27,6 +27,10 @@ namespace LanguageApp
             {
                 practiceQues = new List<string>() {"question 1", "question 2", "question 3" };
                 practiceAns = new List<string>() { "answer 1", "answer 2", "answer 3" };
+                germanWords = new List<string>() { "g1", "g2", "g3"};
+                englishWords = new List<string>() { "e1", "e2", "e3" };
+                testQues = new List<string>() {"q1", "q2", "q3" };
+                testAns = new List<string>() {"a1", "a2", "a3" };
             }
             if(l == 2)
             {
@@ -36,8 +40,6 @@ namespace LanguageApp
             {
 
             }
-
-            
 
             return practiceQues;
         }
@@ -61,24 +63,57 @@ namespace LanguageApp
 
             return feedback;
         }
-        public List<string> GenerateGermanWords()
-        {
-            return germanWords;
-        }
-
-        public List<string> GenerateEnglishWords()
+        public List<string> GetEnglishWords()
         {
             return englishWords;
         }
 
-        public List<string> GenerateTestQuestions()
+        public string MarkTranslations(string u, int q)
+        {
+            string feedback = "";
+
+            if (u.Equals(germanWords[q]))
+            {
+                feedback = "Correct!";
+            }
+            else
+            {
+                feedback = $"Incorrect. The correct answer is {germanWords[q]}.";
+            }
+
+            germanWords.Remove(germanWords[q]);
+
+            return feedback;
+        }
+
+        public List<string> GetTestQuestions()
         {
             return testQues;
         }
 
-        public List<string> GenerateTestAnswers()
+        public List<string> GetTestAnswers()
         {
             return testAns;
+        }
+
+        public string MarkTestQuestions(List<string> userAnswers, List<string> correctAnswers)
+        {
+            string feedback = "";
+            
+            for(int n = 0; n < correctAnswers.Count(); n++)
+            {
+                if(userAnswers[n].Equals(correctAnswers[n]))
+                {
+                    feedback += $"{n+1}. Correct\n";
+                }
+                else
+                {
+                    feedback += $"{n+1}. Incorrect. Correct answer is {correctAnswers[n]}.\n";
+                }
+            }
+           
+
+            return feedback;
         }
     }
 }
