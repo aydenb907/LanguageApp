@@ -57,6 +57,8 @@ namespace LanguageApp
                 feedback = $"Incorrect. The correct answer is {practiceAns[q]}.";
             }
 
+            practiceAns.Remove(practiceAns[q]);
+
             return feedback;
         }
         public List<string> GenerateGermanWords()
