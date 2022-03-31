@@ -101,9 +101,17 @@ namespace LanguageApp
 
             //Gets calculated score
             int score = L.CalculateTestScore(uAnswers, newAnswers);
+        
 
             //Adds score to current user's list of scores
             u.UpdateScores(score);
+
+            //Adds more scores
+            int score2 = 6;
+            int score3 = 7;
+            u.UpdateScores(score2);
+            u.UpdateScores(score3);
+
             //Gets calculated average score
             float avgScore = u.CalculateAvgScore();
             //Prints summary
