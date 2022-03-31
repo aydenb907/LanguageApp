@@ -96,24 +96,50 @@ namespace LanguageApp
             return testAns;
         }
 
-        public string MarkTestQuestions(List<string> userAnswers, List<string> correctAnswers)
+        public int CalculateTestScore(List<string> userAnswers, List<string> correctAnswers)
         {
-            string feedback = "";
+            int score = 0;
             
             for(int n = 0; n < correctAnswers.Count(); n++)
             {
                 if(userAnswers[n].Equals(correctAnswers[n]))
                 {
-                    feedback += $"{n+1}. Correct\n";
+                   
+                    score++;
+                }
+ 
+            }
+
+            return score;
+        }
+
+       
+
+        public string TestSummary(float a, List<string> userAnswers, List<string> correctAnswers)
+        {
+            string feedback = "";
+            int score = 0;
+
+            for (int n = 0; n < correctAnswers.Count(); n++)
+            {
+                if (userAnswers[n].Equals(correctAnswers[n]))
+                {
+                    feedback += $"{n + 1}. Correct\n";
+                    score++;
                 }
                 else
                 {
-                    feedback += $"{n+1}. Incorrect. Correct answer is {correctAnswers[n]}.\n";
+                    feedback += $"{n + 1}. Incorrect. Correct answer is {correctAnswers[n]}.\n";
                 }
             }
-           
+            feedback += $"Score: {score}/3 \n" +
+                $"Average Score: {a}";
 
             return feedback;
         }
+
+        
+
+       
     }
 }

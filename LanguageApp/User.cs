@@ -21,11 +21,18 @@ namespace LanguageApp
         // Object methods
 
         // Constructor
-        public User(string n, string p, List<int> s)
+        public User()
+        {
+            
+        }
+
+        //Adds new user to the database
+        public void NewUser(string n, string p, List<int> s)
         {
             userName = n;
             password = p;
             scores = s;
+            
         }
 
         // Checks new user name isn't the same as others

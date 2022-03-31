@@ -17,20 +17,14 @@ namespace LanguageApp
         static void Main()
         {
         
-            //Adds new user: name and password
+            //Adds new user's details: name and password
             string name = "fjfjr";
             string password = "34";
             List<int> scores = new List<int>();
 
-
-            User u = new User(name, password, scores);
-
-            //Adds scores
-            int score = 3;
-            u.UpdateScores(score);
-            int score2 = 8;
-            u.UpdateScores(score2);
-            Console.WriteLine(u.ToString());
+        
+            User u = new User();
+            u.NewUser(name, password, scores);
 
             //Gives what lesson it is
             int lesson = 1;
@@ -105,8 +99,15 @@ namespace LanguageApp
             newAnswers.Add(testAnswers[questionNumber]);
             testAnswers.Remove(testAnswers[questionNumber]);
 
-            Console.WriteLine(L.MarkTestQuestions(uAnswers, newAnswers));
-        
+            //Gets calculated score
+            int score = L.CalculateTestScore(uAnswers, newAnswers);
+
+            //Adds score to current user's list of scores
+            u.UpdateScores(score);
+            //Gets calculated average score
+            float avgScore = u.CalculateAvgScore();
+            //Prints summary
+            Console.WriteLine(L.TestSummary(avgScore, uAnswers, newAnswers));
 
 
             /*Application.EnableVisualStyles();
