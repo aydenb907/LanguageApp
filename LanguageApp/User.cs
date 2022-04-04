@@ -15,6 +15,7 @@ namespace LanguageApp
         private string userName;
         private string password;
         private List<int> scores;
+       
   
        
 
@@ -32,7 +33,7 @@ namespace LanguageApp
             userName = n;
             password = p;
             scores = s;
-            
+
         }
 
         // Checks new user name isn't the same as others
@@ -70,6 +71,7 @@ namespace LanguageApp
                 
             }
             float avgScore = totalScore / attempts;
+            avgScore = (float)Math.Round(avgScore, 1);
             return avgScore;
         }
 

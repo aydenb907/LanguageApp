@@ -8,138 +8,46 @@ namespace LanguageApp
 {
     class Lesson
     {
-        private List<string> practiceQues;
-        private List<string> practiceAns;
+        private static List<string> practiceQues = new List<string>() { "question 1", "question 2", "question 3" };
+        private static List<string> practiceAns = new List<string>() { "answer 1", "answer 2", "answer 3" };
         private List<string> englishWords;
         private List<string> germanWords;
         private List<string> testQues;
         private List<string> testAns;
 
 
-        public Lesson()
+        public static List<string> GenPracQuestions(List<int> randomIndex)
         {
-           
-        }
+            List<string> chosenQuest = new List<string>();
 
-        public List<string> GeneratePracticeQuestions(int l)
-        {
-            if(l == 1)
+            foreach(int index in randomIndex)
             {
-                practiceQues = new List<string>() {"question 1", "question 2", "question 3" };
-                practiceAns = new List<string>() { "answer 1", "answer 2", "answer 3" };
-                germanWords = new List<string>() { "g1", "g2", "g3"};
-                englishWords = new List<string>() { "e1", "e2", "e3" };
-                testQues = new List<string>() {"q1", "q2", "q3" };
-                testAns = new List<string>() {"a1", "a2", "a3" };
-            }
-            if(l == 2)
-            {
-
-            }
-            else
-            {
-
+                chosenQuest.Add(practiceQues[index]);
             }
 
-            return practiceQues;
+            return chosenQuest;
         }
-
-      
-        public string MarkPracticeQuestions(string u, int q)
+        public static List<string> GenPracAnswers(List<int> randomIndex)
         {
+            List<string> chosenAns = new List<string>();
 
-            string feedback = "";
-
-            if(u.Equals(practiceAns[q]))
+            foreach(int index in randomIndex)
             {
-                feedback = "Correct!";
-            }
-            else
-            {
-                feedback = $"Incorrect. The correct answer is {practiceAns[q]}.";
+                chosenAns.Add(practiceAns[index]);
             }
 
-            practiceAns.Remove(practiceAns[q]);
-
-            return feedback;
-        }
-        public List<string> GetEnglishWords()
-        {
-            return englishWords;
+            return chosenAns;
         }
 
-        public string MarkTranslations(string u, int q)
+        public static bool MarkPracQuestions(int index, string userAnswer)
         {
-            string feedback = "";
-
-            if (u.Equals(germanWords[q]))
+            if(userAnswer.Equals(practiceAns[index]))
             {
-                feedback = "Correct!";
-            }
-            else
-            {
-                feedback = $"Incorrect. The correct answer is {germanWords[q]}.";
+                return true;
             }
 
-            germanWords.Remove(germanWords[q]);
-
-            return feedback;
+            return false;
         }
 
-        public List<string> GetTestQuestions()
-        {
-            return testQues;
-        }
-
-        public List<string> GetTestAnswers()
-        {
-            return testAns;
-        }
-
-        public int CalculateTestScore(List<string> userAnswers, List<string> correctAnswers)
-        {
-            int score = 0;
-            
-            for(int n = 0; n < correctAnswers.Count(); n++)
-            {
-                if(userAnswers[n].Equals(correctAnswers[n]))
-                {
-                   
-                    score++;
-                }
- 
-            }
-
-            return score;
-        }
-
-       
-
-        public string TestSummary(float a, List<string> userAnswers, List<string> correctAnswers)
-        {
-            string feedback = "";
-            int score = 0;
-
-            for (int n = 0; n < correctAnswers.Count(); n++)
-            {
-                if (userAnswers[n].Equals(correctAnswers[n]))
-                {
-                    feedback += $"{n + 1}. Correct\n";
-                    score++;
-                }
-                else
-                {
-                    feedback += $"{n + 1}. Incorrect. Correct answer is {correctAnswers[n]}.\n";
-                }
-            }
-            feedback += $"Score: {score}/3 \n" +
-                $"Average Score: {a}";
-
-            return feedback;
-        }
-
-        
-
-       
     }
 }

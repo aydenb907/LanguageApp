@@ -27,95 +27,65 @@ namespace LanguageApp
             u.NewUser(name, password, scores);
 
             //Gives what lesson it is
-            int lesson = 1;
-            Lesson L = new Lesson();
+            //int lesson = 1;
 
+            int score = 0;
             //Generates practice questions in random order based on what lesson it is
             Random rand = new Random();
+            List<int> randomIndexes = new List<int>();
+            for(int i=0; i<5; i++)
+            {
+                randomIndexes.Add(rand.Next(0,3));
+            }
 
-            List<string> practiceQues = L.GeneratePracticeQuestions(lesson);
+            List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes);
+            List<string> practiceAns = Lesson.GenPracQuestions(randomIndexes);
 
-            int questionNumber = rand.Next(0, 2);
-            Console.WriteLine(practiceQues[questionNumber]);
-            practiceQues.Remove(practiceQues[questionNumber]);
-            string userAnswer = "answer 2";
-            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+           for(int j=0; j<5; j++)
+            {
+                Console.WriteLine(practiceQues[j]);
 
-            questionNumber = rand.Next(0, 1);
-            Console.WriteLine(practiceQues[questionNumber]);
-            practiceQues.Remove(practiceQues[questionNumber]);
-            userAnswer = "answer 1";
-            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+                string userAnswer = "answer 2";
 
-            questionNumber = rand.Next(0);
-            Console.WriteLine(practiceQues[questionNumber]);
-            practiceQues.Remove(practiceQues[questionNumber]);
-            userAnswer = "answer 3";
-            Console.WriteLine(L.MarkPracticeQuestions(userAnswer, questionNumber));
+                if (Lesson.MarkPracQuestions(j, userAnswer))
+                {
+                
+                    Console.WriteLine("Correct");
+                }
+                else
+                {
+                    Console.Write("Incorrect");
+                }
+            }
 
-            //Generates English words in random order based on the lesson, answers are the German words
-            List<string> englishWords = L.GetEnglishWords();
+            randomIndexes = new List<int>();
 
-            questionNumber = rand.Next(0, 2);
-            Console.WriteLine(englishWords[questionNumber]);
-            englishWords.Remove(englishWords[questionNumber]);
-            userAnswer = "g2";
-            Console.WriteLine(L.MarkTranslations(userAnswer, questionNumber));
+            for (int i = 0; i < 5; i++)
+            {
+                randomIndexes.Add(rand.Next(0, 3));
+            }
 
-            questionNumber = rand.Next(0, 1);
-            Console.WriteLine(englishWords[questionNumber]);
-            englishWords.Remove(englishWords[questionNumber]);
-            userAnswer = "g2";
-            Console.WriteLine(L.MarkTranslations(userAnswer, questionNumber));
-            
-            questionNumber = 0;
-            Console.WriteLine(englishWords[questionNumber]);
-            englishWords.Remove(englishWords[questionNumber]);
-            userAnswer = "g2";
-            Console.WriteLine(L.MarkTranslations(userAnswer, questionNumber));
+            List<string> germanWords = Lesson.GenPracQuestions(randomIndexes);
 
-            //Generates test questions in random order based on lesson
-            List<string> testQuestions = L.GetTestQuestions();
-            List<string> testAnswers = L.GetTestAnswers();
-            List<string> newAnswers = new List<string>();
-            List<string> uAnswers = new List<string>() {"a1", "a2", "a3" };
+            for (int j = 0; j < 5; j++)
+            {
+                Console.WriteLine(practiceQues[j]);
 
-            questionNumber = rand.Next(0, 2);
-            Console.WriteLine(testQuestions[questionNumber]);
-            testQuestions.Remove(testQuestions[questionNumber]);
-            newAnswers.Add(testAnswers[questionNumber]);
-            testAnswers.Remove(testAnswers[questionNumber]);
+                string userAnswer = "answer 2";
 
-            questionNumber = rand.Next(0, 1);
-            Console.WriteLine(testQuestions[questionNumber]);
-            testQuestions.Remove(testQuestions[questionNumber]);
-            newAnswers.Add(testAnswers[questionNumber]);
-            testAnswers.Remove(testAnswers[questionNumber]);
+                if (Lesson.MarkPracQuestions(j, userAnswer))
+                {
+                    score++;
+                    Console.WriteLine("Correct");
+                }
+                else
+                {
+                    Console.Write("Incorrect");
+                }
+            }
 
 
-            questionNumber = rand.Next(0);
-            Console.WriteLine(testQuestions[questionNumber]);
-            testQuestions.Remove(testQuestions[questionNumber]);
-            newAnswers.Add(testAnswers[questionNumber]);
-            testAnswers.Remove(testAnswers[questionNumber]);
 
-            //Gets calculated score
-            int score = L.CalculateTestScore(uAnswers, newAnswers);
-        
-
-            //Adds score to current user's list of scores
-            u.UpdateScores(score);
-
-            //Adds more scores
-            int score2 = 6;
-            int score3 = 7;
-            u.UpdateScores(score2);
-            u.UpdateScores(score3);
-
-            //Gets calculated average score
-            float avgScore = u.CalculateAvgScore();
-            //Prints summary
-            Console.WriteLine(L.TestSummary(avgScore, uAnswers, newAnswers));
 
 
             /*Application.EnableVisualStyles();
