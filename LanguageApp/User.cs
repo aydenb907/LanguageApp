@@ -60,19 +60,22 @@ namespace LanguageApp
         public float CalculateAvgScore()
         {
             int totalScore = 0;
-            int attempts = 0;
            
             // Adds all scores in list together and divides by number of scores that are in the list
             foreach (int score in scores)
             {
 
                 totalScore += score;
-                attempts++;
-                
+
             }
-            float avgScore = totalScore / attempts;
+            float avgScore = totalScore / scores.Count;
             avgScore = (float)Math.Round(avgScore, 1);
             return avgScore;
+        }
+
+        public int NumberOfAttempts()
+        {
+            return scores.Count();
         }
 
         // Returns message: Score, average score, number of attempts

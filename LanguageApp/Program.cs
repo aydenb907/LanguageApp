@@ -119,6 +119,13 @@ namespace LanguageApp
                 }
             }
 
+            u.UpdateScores(score);
+           
+
+            Console.WriteLine($"Score: {score}/5\n" +
+                $"Average Score: {u.CalculateAvgScore()}\n" +
+                $"Number of attempts: {u.NumberOfAttempts()}");
+
             /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());*/
