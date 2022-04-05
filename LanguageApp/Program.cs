@@ -30,9 +30,13 @@ namespace LanguageApp
             //Generates practice questions in random order based on what lesson it is
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-            for (int i = 0; i < 5; i++)
+            List<int> indexes = new List<int>() {0,1,2,3,4 };
+            
+            for(int i = 0; i < 5; i++)
             {
-                randomIndexes.Add(rand.Next(0, 4));
+                int random = rand.Next(0, indexes.Count - 1);
+                randomIndexes.Add(indexes[random]);
+                indexes.Remove(indexes[random]);
             }
 
             List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes);
@@ -40,7 +44,7 @@ namespace LanguageApp
 
             for (int j = 0; j < 5; j++)
             {
-                Console.WriteLine(practiceQues[j]);
+                Console.WriteLine("\n"+ practiceQues[j]);
 
                 string userAnswer = "answer 2";
 
@@ -52,24 +56,30 @@ namespace LanguageApp
                 }
                 else
                 {
-                    Console.Write("Incorrect\n");
+                    Console.Write($"Incorrect. The correct answer is {practiceAns[j]}.\n");
                 }
             }
 
             //Generates English words to translate into German
             randomIndexes = new List<int>();
 
+            indexes = new List<int>() { 0, 1, 2, 3, 4 };
+
             for (int i = 0; i < 5; i++)
             {
-                randomIndexes.Add(rand.Next(0, 3));
+                int random = rand.Next(0, indexes.Count - 1);
+                randomIndexes.Add(indexes[random]);
+                indexes.Remove(indexes[random]);
             }
 
             List<string> englishWords = Lesson.GenEnglishWords(randomIndexes);
             List<string> germanWords = Lesson.GenGermanWords(randomIndexes);
 
+            Console.WriteLine("\n\n");
+
             for (int j = 0; j < 5; j++)
             {
-                Console.WriteLine(englishWords[j]);
+                Console.WriteLine("\n"+ englishWords[j]);
 
                 string userAnswer = "g2";
 
@@ -80,7 +90,7 @@ namespace LanguageApp
                 }
                 else
                 {
-                    Console.Write("Incorrect\n");
+                    Console.Write($"Incorrect. The correct answer is {germanWords[j]}.\n");
                 }
             }
 
@@ -88,22 +98,29 @@ namespace LanguageApp
             randomIndexes = new List<int>();
             int score = 0;
 
+            indexes = new List<int>() { 0, 1, 2, 3, 4 };
+
             for (int i = 0; i < 5; i++)
             {
-                randomIndexes.Add(rand.Next(0, 3));
-
+                int random = rand.Next(0, indexes.Count - 1);
+                randomIndexes.Add(indexes[random]);
+                indexes.Remove(indexes[random]);
             }
 
             List<string> testQues = Lesson.GenTestQuestions(randomIndexes);
             List<string> testAns = Lesson.GenTestAnswers(randomIndexes);
 
+            Console.WriteLine("\n\n");
+
             for (int j = 0; j < 5; j++)
             {
-                Console.WriteLine(testQues[j]);
+                Console.WriteLine("\n"+ testQues[j]);
 
             }
 
             List<string> userAnswers = new List<string>() { "answer 2", "answer 2", "answer 2", "answer 2", "answer 2" };
+
+            Console.WriteLine("\n\n");
 
             for (int j = 0; j < 5; j++)
             {
@@ -115,7 +132,7 @@ namespace LanguageApp
                 }
                 else
                 {
-                    Console.Write("Incorrect\n");
+                    Console.Write($"Incorrect. The correct answer is {testAns[j]}.\n");
                 }
             }
 
