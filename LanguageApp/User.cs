@@ -14,10 +14,9 @@ namespace LanguageApp
        
         private string userName;
         private string password;
-        private List<int> scores;
-       
-  
-       
+        private List<int> totalScores;
+        private List<int> attempts = new List<int>() {0,0,0 };
+
 
         // Object methods
 
@@ -28,12 +27,14 @@ namespace LanguageApp
         }
 
         //Adds new user to the database
-        public void NewUser(string n, string p, List<int> s)
+        public void NewUser(string n, string p, List<int> s, List<int> a)
         {
             userName = n;
             password = p;
-            scores = s;
-
+            totalScores = s;
+            attempts = a;
+          
+            
         }
 
         // Checks new user name isn't the same as others
@@ -44,50 +45,32 @@ namespace LanguageApp
 
         // finds user in database, by matching username to userID
         // gets userID and then scores
-        public void FindUser(string n)
+        public void FindUser()
         {
-            userName = n;
+            
 
         }
 
         // Adds score to scores list for user that has been found in database
-        public void UpdateScores(int score)
+        public void UpdateScores(int score, int lesson)
         {
-            scores.Add(score);
+           
+            totalScores[lesson] += score;
+            attempts[lesson]++;
+            
         }
 
         //Calculate average score for test in specific lesson
-        public float CalculateAvgScore()
+        public float CalculateAvgScore(int lesson)
         {
-            int totalScore = 0;
-           
-            // Adds all scores in list together and divides by number of scores that are in the list
-            foreach (int score in scores)
-            {
-
-                totalScore += score;
-
-            }
-            float avgScore = totalScore / scores.Count;
-            avgScore = (float)Math.Round(avgScore, 1);
+            float avgScore = totalScores[lesson] / attempts[lesson];
             return avgScore;
+          
         }
 
-        public int NumberOfAttempts()
+        public int NumberOfAttempts(int lesson)
         {
-            return scores.Count();
-        }
-
-        // Returns message: Score, average score, number of attempts
-        public string Result()
-        {
-            return "";
-        }
-
-        public override string ToString()
-        {
-            return userName + " " + password + " " + CalculateAvgScore();
-  
+            return attempts[lesson];
         }
 
 

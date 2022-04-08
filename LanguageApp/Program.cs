@@ -20,27 +20,28 @@ namespace LanguageApp
             //Adds new user's details: name and password
             string name = "fjfjr";
             string password = "34";
-            List<int> scores = new List<int>();
-
+            List<int> scores = new List<int>() {0,0,0 };
+            List<int> attempts = new List<int>() {0,0,0 };
 
             User u = new User();
-            u.NewUser(name, password, scores);
+            u.NewUser(name, password, scores, attempts);
 
-
+            int lesson = 1;
             //Generates practice questions in random order based on what lesson it is
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-            List<int> indexes = new List<int>() {0,1,2,3,4 };
+            List<int> indexes = new List<int>() {0,1,2,3,4,5,6,7,8,9 };
             
-            for(int i = 0; i < 5; i++)
+            for(int i = 0; i < indexes.Count; i++)
             {
-                int random = rand.Next(0, indexes.Count - 1);
+                int random = rand.Next(0, indexes.Count-1);
                 randomIndexes.Add(indexes[random]);
                 indexes.Remove(indexes[random]);
             }
 
-            List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes);
+            List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes, lesson);
             List<string> practiceAns = Lesson.GenPracAns(randomIndexes);
+
 
             for (int j = 0; j < 5; j++)
             {
@@ -58,6 +59,7 @@ namespace LanguageApp
                 {
                     Console.Write($"Incorrect. The correct answer is {practiceAns[j]}.\n");
                 }
+                
             }
 
             //Generates English words to translate into German
@@ -86,7 +88,7 @@ namespace LanguageApp
                 //Marks German translations
                 if (Lesson.MarkTranslations(j, userAnswer, germanWords))
                 {
-                    Console.WriteLine("Correct");
+                    Console.WriteLine("Correct.");
                 }
                 else
                 {
@@ -127,21 +129,21 @@ namespace LanguageApp
                 //Marks test questions and adds score
                 if (Lesson.MarkTestQues(j, userAnswers[j], testAns))
                 {
-                    Console.WriteLine("Correct");
+                    Console.WriteLine($"{j+1}. Correct");
                     score++;
                 }
                 else
                 {
-                    Console.Write($"Incorrect. The correct answer is {testAns[j]}.\n");
+                    Console.Write($"{j+1}. Incorrect. The correct answer is {testAns[j]}.\n");
                 }
             }
 
-            u.UpdateScores(score);
+            u.UpdateScores(score, lesson);
            
 
             Console.WriteLine($"Score: {score}/5\n" +
-                $"Average Score: {u.CalculateAvgScore()}\n" +
-                $"Number of attempts: {u.NumberOfAttempts()}");
+                $"Average Score: {u.CalculateAvgScore(lesson)}\n" +
+                $"Number of attempts: {u.NumberOfAttempts(lesson)}");
 
             /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
