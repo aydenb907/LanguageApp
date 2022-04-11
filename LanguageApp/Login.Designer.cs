@@ -44,6 +44,7 @@ namespace LanguageApp
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(165, 20);
             this.txtUserName.TabIndex = 0;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // txtPassword
             // 

@@ -12,7 +12,8 @@ namespace LanguageApp
 {
     public partial class PractiseForm : Form
     {
-        private string answer1, answer2, answer3, answer4, answer5;
+        private static List<string> practiceAns;
+      
         
         public PractiseForm()
         {
@@ -35,85 +36,116 @@ namespace LanguageApp
             i.Show();
         }
 
-        private void btnGrammarTest_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            PractiseForm p = new PractiseForm();
-            p.FormClosed += (s, args) => this.Close();
-            p.Show();
-        }
-
-        private void btnVocabTest_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PractiseForm_Load(object sender, EventArgs e)
         {
-            lblEnglisch.Text = "";
-            lblDeutsch.Text = "";
-            foreach(string word in Info.englishWords)
-            {
-               
-                lblEnglisch.Text += $"\n{word}";
-            }
-            foreach (string word in Info.germanWords)
-            {
-                lblDeutsch.Text += $"\n{word}";
-            }
+            
 
-            List<string> sentences = Info.sentences;
-            List<string> answers = Info.answers;
+            lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
+            lblDeutsch.Text = Lesson.GetGermanWords(MainForm.lesson);
 
             Random rand = new Random();
-            int random = rand.Next(0, sentences.Count-1);
-            label1.Text = sentences[random];
-            sentences.Remove(sentences[random]);
-            answer1 = answers[random];
-            answers.Remove(answers[random]);
+            List<int> randomIndexes = new List<int>();
+            List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-          
-            random = rand.Next(0, sentences.Count-1);
-            label2.Text = sentences[random];
-            sentences.Remove(sentences[random]);
-            answer2 = answers[random];
-            answers.Remove(answers[random]);
+            for (int i = 0; i < indexes.Count; i++)
+            {
+                int random = rand.Next(0, indexes.Count - 1);
+                randomIndexes.Add(indexes[random]);
+                indexes.Remove(indexes[random]);
+            }
 
-            random = rand.Next(0, sentences.Count-1);
-            label3.Text = sentences[random];
-            sentences.Remove(sentences[random]);
-            answer3 = answers[random];
-            answers.Remove(answers[random]);
+            List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson);
+            practiceAns = Lesson.GenPracAns(randomIndexes);
 
-         
-            random = rand.Next(0, sentences.Count-1);
-            label4.Text = sentences[random];
-            sentences.Remove(sentences[random]);
-            answer4 = answers[random];
-            answers.Remove(answers[random]);
+            label1.Text = practiceQues[0];
+            label2.Text = practiceQues[1];
+            label3.Text = practiceQues[2];
+            label4.Text = practiceQues[3];
+            label5.Text = practiceQues[4];
 
-            random = rand.Next(0, sentences.Count-1);
-            label5.Text = sentences[random];
-            sentences.Remove(sentences[random]);
-            answer5 = answers[random];
-            answers.Remove(answers[random]);
 
         }
 
         private void btnCheck1_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer1.Text;
-           if (userAnswer == answer1)
+            if (Lesson.MarkPracQuestions(0, userAnswer, practiceAns))
             {
-                MessageBox.Show("Correct!");
+
+                MessageBox.Show("Correct");
             }
-           else
+            else
             {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer1}");
+                MessageBox.Show($"Incorrect. The correct answer is {practiceAns[0]}.\n");
+            }
+
+        }
+        private void btnCheck2_Click(object sender, EventArgs e)
+        {
+            string userAnswer = txtAnswer2.Text;
+            if (Lesson.MarkPracQuestions(1, userAnswer, practiceAns))
+            {
+
+                MessageBox.Show("Correct");
+            }
+            else
+            {
+                MessageBox.Show($"Incorrect. The correct answer is {practiceAns[1]}.\n");
             }
 
         }
 
+        private void btnCheck3_Click(object sender, EventArgs e)
+        {
+            string userAnswer = txtAnswer3.Text;
+            if (Lesson.MarkPracQuestions(2, userAnswer, practiceAns))
+            {
+
+                MessageBox.Show("Correct");
+            }
+            else
+            {
+                MessageBox.Show($"Incorrect. The correct answer is {practiceAns[2]}.\n");
+            }
+
+        }
+
+        private void btnCheck4_Click(object sender, EventArgs e)
+        {
+            string userAnswer = txtAnswer4.Text;
+            if (Lesson.MarkPracQuestions(3, userAnswer, practiceAns))
+            {
+
+                MessageBox.Show("Correct");
+            }
+            else
+            {
+                MessageBox.Show($"Incorrect. The correct answer is {practiceAns[3]}.\n");
+            }
+
+        }
+
+        private void btnCheck5_Click(object sender, EventArgs e)
+        {
+            string userAnswer = txtAnswer5.Text;
+            if (Lesson.MarkPracQuestions(4, userAnswer, practiceAns))
+            {
+
+                MessageBox.Show("Correct");
+            }
+            else
+            {
+                MessageBox.Show($"Incorrect. The correct answer is {practiceAns[4]}.\n");
+            }
+        }
+        private void btnMoreQuestions_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PractiseForm p = new PractiseForm();
+            p.FormClosed += (s, args) => this.Close();
+            p.Show();
+
+        }
         private void txtAnswer1_TextChanged(object sender, EventArgs e)
         {
 
@@ -121,7 +153,7 @@ namespace LanguageApp
 
         private void lblEnglisch_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void lblDeutsch_Click(object sender, EventArgs e)
@@ -129,77 +161,6 @@ namespace LanguageApp
 
         }
 
-        private void btnMoreQuestions_Click(object sender, EventArgs e)
-        {
-            if (Info.sentences.Count == 0)
-            {
-                MessageBox.Show("No more new example questions.");
-                this.Hide();
-                Info i = new Info();
-                i.FormClosed += (s, args) => this.Close();
-                i.Show();
-            }
-            else
-            {
-                this.Hide();
-                PractiseForm p = new PractiseForm();
-                p.FormClosed += (s, args) => this.Close();
-                p.Show();
-            }
-  
-
-        }
-
-        private void btnCheck2_Click(object sender, EventArgs e)
-        {
-            string userAnswer = txtAnswer2.Text;
-            if (userAnswer == answer2)
-            {
-                MessageBox.Show("Correct!");
-            }
-            else
-            {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer2}");
-            }
-        }
-
-        private void btnCheck3_Click(object sender, EventArgs e)
-        {
-            string userAnswer = txtAnswer3.Text;
-            if (userAnswer == answer3)
-            {
-                MessageBox.Show("Correct!");
-            }
-            else
-            {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer3}");
-            }
-        }
-
-        private void btnCheck4_Click(object sender, EventArgs e)
-        {
-            string userAnswer = txtAnswer4.Text;
-            if (userAnswer == answer4)
-            {
-                MessageBox.Show("Correct!");
-            }
-            else
-            {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer4}");
-            }
-        }
-
-        private void btnCheck5_Click(object sender, EventArgs e)
-        {
-            string userAnswer = txtAnswer5.Text;
-            if (userAnswer == answer5)
-            {
-                MessageBox.Show("Correct!");
-            }
-            else
-            {
-                MessageBox.Show($"Incorrect\n\nCorrect Answer:\n{answer5}");
-            }
-        }
+        
     }
 }

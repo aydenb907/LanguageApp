@@ -38,22 +38,24 @@ namespace LanguageApp
             // 
             // btn1
             // 
+            this.btn1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btn1.Location = new System.Drawing.Point(30, 48);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(161, 64);
             this.btn1.TabIndex = 0;
             this.btn1.Text = "German Word";
-            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.UseVisualStyleBackColor = false;
             this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
+            this.btn2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btn2.Location = new System.Drawing.Point(225, 48);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(158, 64);
             this.btn2.TabIndex = 1;
             this.btn2.Text = "German Word";
-            this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.UseVisualStyleBackColor = false;
             this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btnHome

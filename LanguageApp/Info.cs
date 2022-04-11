@@ -12,12 +12,6 @@ namespace LanguageApp
 {
     public partial class Info : Form
     {
-        public static List<string> sentences;
-        public static List<string> answers;
-        public static List<string> englishWords;
-        public static List<string> germanWords;
-        public static List<string> testQuestions;
-        public static List<string> testAnswers;
 
         public Info()
         {
@@ -51,46 +45,9 @@ namespace LanguageApp
 
         private void Info_Load(object sender, EventArgs e)
         {
-            lblAvgScore.Text = $"Average Score: {Test.avgScores[MainForm.lesson]} \nNumber of Attempts: {Test.attempts[MainForm.lesson]}";
-
-
-            if (MainForm.lesson == 1)
-            {
-                lblLesson.Text = "1";
-                englishWords = new List<string>() {"word 1", "word 2", "word 3", "word 4", "word5", "word 6", "word 7", "word 8", "word 9", "word 10" };
-                germanWords = new List<string>() { "german 1", "german 2", "german 3", "german 4", "german 5", "german 6", "german 7", "german 8", "german 9", "german 10" };
-                sentences = new List<string>() { "sentence 1", "sentence 2", "sentence 3", "sentence 4", "sentence 5", "sentence 6", "sentence 7", "sentence 8", "sentence 9", "sentence 10"};
-                answers = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "answer 6", "answer 7", "answer 8", "answer 9", "answer 10" };
-                testQuestions = new List<string>() {"q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10" };
-                testAnswers = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "answer 6", "answer 7", "answer 8", "answer 9", "answer 10" };
-
-            }  
-            else if (MainForm.lesson == 2)
-            {
-                lblLesson.Text = "2";
-                englishWords = new List<string>() { "w1", "w2", "w3" };
-                germanWords = new List<string>() { "g1", "g2", "g3" };
-                sentences = new List<string>() { "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8" };
-                answers = new List<string>() { "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8" };
-                testQuestions = new List<string>() { "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10" };
-                testAnswers = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "answer 6", "answer 7", "answer 8", "answer 9", "answer 10" };
-
-            }
-            else
-            {
-                lblLesson.Text = "Beginner";
-              
-            }
-
-            foreach (string word in englishWords)
-            {
-
-                lblEnglisch.Text += $"\n{word}";
-            }
-            foreach (string word in germanWords)
-            {
-                lblDeutsch.Text += $"\n{word}";
-            }
+            lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
+            lblDeutsch.Text = Lesson.GetGermanWords(MainForm.lesson);
+            lblLesson.Text = Lesson.GetLessonText();
 
         }
 
@@ -102,11 +59,7 @@ namespace LanguageApp
             v.Show();
         }
 
-        private void lblList_Click(object sender, EventArgs e)
-        {
-
-        }
-
+  
         private void btnGrammarTest_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -114,5 +67,6 @@ namespace LanguageApp
             t.FormClosed += (s, args) => this.Close();
             t.Show();
         }
+ 
     }
 }

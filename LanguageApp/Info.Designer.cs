@@ -36,7 +36,6 @@ namespace LanguageApp
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
             this.btnGrammarTest = new System.Windows.Forms.Button();
-            this.lblAvgScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnHome
@@ -107,21 +106,11 @@ namespace LanguageApp
             this.btnGrammarTest.UseVisualStyleBackColor = true;
             this.btnGrammarTest.Click += new System.EventHandler(this.btnGrammarTest_Click);
             // 
-            // lblAvgScore
-            // 
-            this.lblAvgScore.AutoSize = true;
-            this.lblAvgScore.Location = new System.Drawing.Point(469, 275);
-            this.lblAvgScore.Name = "lblAvgScore";
-            this.lblAvgScore.Size = new System.Drawing.Size(57, 13);
-            this.lblAvgScore.TabIndex = 23;
-            this.lblAvgScore.Text = "Avg Score";
-            // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 345);
-            this.Controls.Add(this.lblAvgScore);
             this.Controls.Add(this.btnGrammarTest);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
@@ -146,6 +135,5 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
         private System.Windows.Forms.Button btnGrammarTest;
-        private System.Windows.Forms.Label lblAvgScore;
     }
 }

@@ -8,14 +8,15 @@ namespace LanguageApp
 {
     class Lesson
     {
-        private static List<string> practiceQues = new List<string>();
-        private static List<string> practiceAns = new List<string>();
-        private static List<string> englishWords = new List<string>() { "e1", "e2", "e3", "e4", "e5" };
-        private static List<string> germanWords = new List<string>() { "g1", "g2", "g3", "g4", "g5" };
-        private static List<string> testQues = new List<string>() { "question 1", "question 2", "question 3", "question 4", "question 5" };
-        private static List<string> testAns = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5" };
+        private static List<string> practiceQues;
+        private static List<string> practiceAns;
+        private static List<string> englishWords;
+        private static List<string> germanWords;
+        private static List<string> testQues;
+        private static List<string> testAns;
+        private static string lessonText;
        
-  
+        
         public static void SetPracticeQuestions(int lesson)
         {
             if(lesson == 1)
@@ -69,8 +70,64 @@ namespace LanguageApp
 
             return false;
         }
-        public static List<string> GenEnglishWords(List<int> randomIndex)
+
+        public static void SetWords(int lesson)
         {
+            if (lesson == 1)
+            {
+                englishWords = new List<string>() { "e1", "e2", "e3", "e4", "e5" };
+                germanWords = new List<string>() { "g1", "g2", "g3", "g4", "g5" };
+                lessonText = "lesson 1";
+            }
+            if (lesson == 2)
+            {
+                
+            }
+
+        }
+
+        public static string GetEnglishWords(int lesson)
+        {
+            SetWords(lesson);
+            string list = "";
+
+            foreach(string word in englishWords)
+            {
+                list += word + "\n";
+            }
+
+            return list;
+        }
+
+        public static string GetGermanWords(int lesson)
+        {
+            string list = "";
+
+            foreach (string word in germanWords)
+            {
+                list += word + "\n";
+            }
+
+            return list;
+
+        }
+        public static string GetLessonText()
+        {
+            return lessonText;
+        }
+        public static string GetGermanWord(int i)
+        {
+            return germanWords[i];
+        }
+
+        public static string GetEnglishWord(int i)
+        {
+            return englishWords[i];
+        }
+
+        public static List<string> GenEnglishWords(List<int> randomIndex, int lesson)
+        {
+            SetWords(lesson); 
             List<string> chosenWords = new List<string>();
 
             foreach (int index in randomIndex)
@@ -101,9 +158,23 @@ namespace LanguageApp
 
             return false;
         }
-
-        public static List<string> GenTestQuestions(List<int> randomIndex)
+        public static void SetTestQuestions(int lesson)
         {
+            if (lesson == 1)
+            {
+                testQues = new List<string>() { "question 1", "question 2", "question 3", "question 4", "question 5" };
+                testAns = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5" };
+            }
+            if (lesson == 2)
+            {
+
+            }
+
+        }
+        public static List<string> GenTestQuestions(List<int> randomIndex, int lesson)
+        {
+
+            SetTestQuestions(lesson);
             List<string> chosenQuest = new List<string>();
 
             foreach (int index in randomIndex)
