@@ -32,30 +32,55 @@ namespace LanguageApp
             
         }
 
-        public static List<string> GenPracQuestions(List<int> randomIndex, int lesson)
+        public static List<string> GenPracQuestions(List<int> randomIndex, int lesson, int lessonType)
         {
 
             SetPracticeQuestions(lesson);
             List<string> chosenQuest = new List<string>();
 
-            foreach(int index in randomIndex)
+            if(lessonType == 1)
             {
-                chosenQuest.Add(practiceQues[index]);
-              
+                foreach (int index in randomIndex)
+                {
+                    chosenQuest.Add(practiceQues[index]);
+
+                }
             }
+            else
+            {
+                foreach (int index in randomIndex)
+                {
+                    chosenQuest.Add(englishWords[index]);
+
+                }
+            }
+           
 
             return chosenQuest;
         }
 
-        public static List<string> GenPracAns(List<int> randomIndex)
+        public static List<string> GenPracAns(List<int> randomIndex, int lessonType)
         {
             List<string> chosenAns = new List<string>();
 
-            foreach (int index in randomIndex)
+            if(lessonType == 1)
             {
-                chosenAns.Add(practiceAns[index]);
+                foreach (int index in randomIndex)
+                {
+                    chosenAns.Add(practiceAns[index]);
 
+                }
             }
+
+            else
+            {
+                foreach (int index in randomIndex)
+                {
+                    chosenAns.Add(germanWords[index]);
+
+                }
+            }
+            
 
             return chosenAns;
         }
@@ -99,7 +124,7 @@ namespace LanguageApp
             return list;
         }
 
-        public static string GetGermanWords(int lesson)
+        public static string GetGermanWords()
         {
             string list = "";
 
@@ -125,39 +150,7 @@ namespace LanguageApp
             return englishWords[i];
         }
 
-        public static List<string> GenEnglishWords(List<int> randomIndex, int lesson)
-        {
-            SetWords(lesson); 
-            List<string> chosenWords = new List<string>();
-
-            foreach (int index in randomIndex)
-            {
-                chosenWords.Add(englishWords[index]);
-            }
-
-            return chosenWords;
-        }
-        public static List<string> GenGermanWords(List<int> randomIndex)
-        {
-            List<string> chosenWords = new List<string>();
-
-            foreach (int index in randomIndex)
-            {
-                chosenWords.Add(germanWords[index]);
-            }
-
-            return chosenWords;
-        }
-
-        public static bool MarkTranslations(int index, string userAnswer, List<string> chosenGermanWords)
-        {
-            if (userAnswer.Equals(chosenGermanWords[index]))
-            {
-                return true;
-            }
-
-            return false;
-        }
+    
         public static void SetTestQuestions(int lesson)
         {
             if (lesson == 1)

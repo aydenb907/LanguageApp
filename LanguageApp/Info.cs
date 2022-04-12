@@ -12,7 +12,7 @@ namespace LanguageApp
 {
     public partial class Info : Form
     {
-
+        public static int lessonType;
         public Info()
         {
           
@@ -28,16 +28,6 @@ namespace LanguageApp
             m.Show();
         }
 
-        private void btnPractise_Click(object sender, EventArgs e)
-        {
-           
-            this.Hide();
-            PractiseForm p = new PractiseForm();
-            p.FormClosed += (s, args) => this.Close();
-            p.Show();
-            
-        }
-
         private void lblLesson_Click(object sender, EventArgs e)
         {
            
@@ -46,20 +36,29 @@ namespace LanguageApp
         private void Info_Load(object sender, EventArgs e)
         {
             lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
-            lblDeutsch.Text = Lesson.GetGermanWords(MainForm.lesson);
+            lblDeutsch.Text = Lesson.GetGermanWords();
             lblLesson.Text = Lesson.GetLessonText();
 
         }
 
         private void btnVocab_Click(object sender, EventArgs e)
         {
+            lessonType = 0;
             this.Hide();
             Vocab v = new Vocab();
             v.FormClosed += (s, args) => this.Close();
             v.Show();
         }
 
-  
+        private void btnPractise_Click(object sender, EventArgs e)
+        {
+            lessonType = 1;
+            this.Hide();
+            PractiseForm p = new PractiseForm();
+            p.FormClosed += (s, args) => this.Close();
+            p.Show();
+
+        }
         private void btnGrammarTest_Click(object sender, EventArgs e)
         {
             this.Hide();

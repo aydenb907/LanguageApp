@@ -36,17 +36,15 @@ namespace LanguageApp
             i.Show();
         }
 
+       
+
         private void PractiseForm_Load(object sender, EventArgs e)
         {
-            
-
-            lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
-            lblDeutsch.Text = Lesson.GetGermanWords(MainForm.lesson);
-
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
             List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
+            List<string> practiceQues = new List<string>();
             for (int i = 0; i < indexes.Count; i++)
             {
                 int random = rand.Next(0, indexes.Count - 1);
@@ -54,8 +52,8 @@ namespace LanguageApp
                 indexes.Remove(indexes[random]);
             }
 
-            List<string> practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson);
-            practiceAns = Lesson.GenPracAns(randomIndexes);
+            practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson, Info.lessonType);
+            practiceAns = Lesson.GenPracAns(randomIndexes, Info.lessonType);
 
             label1.Text = practiceQues[0];
             label2.Text = practiceQues[1];
@@ -63,12 +61,24 @@ namespace LanguageApp
             label4.Text = practiceQues[3];
             label5.Text = practiceQues[4];
 
+            if (Info.lessonType == 1)
+            {
+                lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
+                lblDeutsch.Text = Lesson.GetGermanWords();
+            }
+            else
+            {
+                lblEnglisch.Text = "";
+                lblDeutsch.Text = "";
 
+            }
         }
 
         private void btnCheck1_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer1.Text;
+
+         
             if (Lesson.MarkPracQuestions(0, userAnswer, practiceAns))
             {
 
@@ -78,6 +88,9 @@ namespace LanguageApp
             {
                 MessageBox.Show($"Incorrect. The correct answer is {practiceAns[0]}.\n");
             }
+           
+
+          
 
         }
         private void btnCheck2_Click(object sender, EventArgs e)
