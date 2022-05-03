@@ -22,13 +22,16 @@ namespace LanguageApp
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            string username = txtUserName.Text;
+            string password = txtPassword.Text;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUserName.Text;
             string password = txtPassword.Text;
+
+            
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)

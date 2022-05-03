@@ -31,7 +31,7 @@ namespace LanguageApp
             if (btn1.Text.Equals(Lesson.GetGermanWord(0)))
             {
                 btn1.BackColor = Color.LightCoral;
-                btn1.Text = Lesson.GetEnglishWords(0);
+                btn1.Text = Lesson.GetEnglishWord(0);
             }
             else
             {
@@ -45,7 +45,7 @@ namespace LanguageApp
             if (btn2.Text.Equals(Lesson.GetGermanWord(1)))
             {
                 btn2.BackColor = Color.LightCoral;
-                btn2.Text = Lesson.GetEnglishWords(1);
+                btn2.Text = Lesson.GetEnglishWord(1);
             }
             else
             {

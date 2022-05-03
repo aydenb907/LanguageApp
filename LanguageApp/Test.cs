@@ -22,6 +22,7 @@ namespace LanguageApp
 
         private void Test_Load(object sender, EventArgs e)
         {
+            
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
             List<int> indexes = new List<int>() { 0, 1, 2, 3, 4 };

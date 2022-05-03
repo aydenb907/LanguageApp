@@ -59,6 +59,7 @@ namespace LanguageApp
             return chosenQuest;
         }
 
+
         public static List<string> GenPracAns(List<int> randomIndex, int lessonType)
         {
             List<string> chosenAns = new List<string>();
@@ -100,8 +101,8 @@ namespace LanguageApp
         {
             if (lesson == 1)
             {
-                englishWords = new List<string>() { "e1", "e2", "e3", "e4", "e5" };
-                germanWords = new List<string>() { "g1", "g2", "g3", "g4", "g5" };
+                englishWords = new List<string>() { "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e10" };
+                germanWords = new List<string>() { "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10" };
                 lessonText = "lesson 1";
             }
             if (lesson == 2)
