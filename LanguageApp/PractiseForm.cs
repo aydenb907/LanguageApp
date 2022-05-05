@@ -12,12 +12,14 @@ namespace LanguageApp
 {
     public partial class PractiseForm : Form
     {
+        UserManager u = new UserManager();
         private static List<string> practiceAns;
         private static List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 
-        public PractiseForm()
+        public PractiseForm(UserManager u)
         {
+            this.u = u;
             InitializeComponent();
         }
 
@@ -25,7 +27,7 @@ namespace LanguageApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm m = new MainForm();
+            MainForm m = new MainForm(u);
             m.FormClosed += (s, args) => this.Close();
             m.Show();
         }
@@ -34,7 +36,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -185,7 +187,7 @@ namespace LanguageApp
         private void btnMoreQuestions_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PractiseForm p = new PractiseForm();
+            PractiseForm p = new PractiseForm(u);
             p.FormClosed += (s, args) => this.Close();
             p.Show();
 

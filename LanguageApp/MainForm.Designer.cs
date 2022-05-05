@@ -40,6 +40,7 @@ namespace LanguageApp
             this.btnBeginner = new System.Windows.Forms.Button();
             this.btn5 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,8 @@ namespace LanguageApp
             this.menuInfo,
             this.grammarTermsToolStripMenuItem,
             this.completeVocabularyListOfThisAppToolStripMenuItem,
-            this.dToolStripMenuItem});
+            this.dToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(902, 24);
@@ -138,6 +140,13 @@ namespace LanguageApp
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +183,7 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnBeginner;
         private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.Button btn4;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

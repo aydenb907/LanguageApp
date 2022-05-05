@@ -16,10 +16,10 @@ namespace LanguageApp
 
         static void Main()
         {
-
+            UserManager u = new UserManager();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new Login(u));
         }
 
 

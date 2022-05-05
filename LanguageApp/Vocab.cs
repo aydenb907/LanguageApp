@@ -12,9 +12,10 @@ namespace LanguageApp
 {
     public partial class Vocab : Form
     {
-       
-        public Vocab()
+        UserManager u = new UserManager();
+        public Vocab(UserManager u )
         {
+            this.u = u;
             InitializeComponent();
         }
 
@@ -57,7 +58,7 @@ namespace LanguageApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm m = new MainForm();
+            MainForm m = new MainForm(u);
             m.FormClosed += (s, args) => this.Close();
             m.Show();
         }
@@ -65,7 +66,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -74,7 +75,7 @@ namespace LanguageApp
         {
            
             this.Hide();
-            PractiseForm p = new PractiseForm();
+            PractiseForm p = new PractiseForm(u);
             p.FormClosed += (s, args) => this.Close();
             p.Show();
         }

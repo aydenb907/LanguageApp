@@ -12,10 +12,11 @@ namespace LanguageApp
 {
     public partial class Info : Form
     {
+        UserManager u = new UserManager();
         public static int lessonType;
-        public Info()
+        public Info(UserManager u)
         {
-          
+            this.u = u;
             InitializeComponent();
             
         }
@@ -23,7 +24,7 @@ namespace LanguageApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm m = new MainForm();
+            MainForm m = new MainForm(u);
             m.FormClosed += (s, args) => this.Close();
             m.Show();
         }
@@ -45,7 +46,7 @@ namespace LanguageApp
         {
             lessonType = 0;
             this.Hide();
-            Vocab v = new Vocab();
+            Vocab v = new Vocab(u);
             v.FormClosed += (s, args) => this.Close();
             v.Show();
         }
@@ -54,7 +55,7 @@ namespace LanguageApp
         {
             lessonType = 1;
             this.Hide();
-            PractiseForm p = new PractiseForm();
+            PractiseForm p = new PractiseForm(u);
             p.FormClosed += (s, args) => this.Close();
             p.Show();
 
@@ -62,7 +63,7 @@ namespace LanguageApp
         private void btnGrammarTest_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Test t = new Test();
+            Test t = new Test(u);
             t.FormClosed += (s, args) => this.Close();
             t.Show();
         }

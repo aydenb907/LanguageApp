@@ -13,10 +13,11 @@ namespace LanguageApp
     public partial class Test : Form
     {
         private List<string> testAns;
-        User u = new User();
 
-        public Test()
+        UserManager u = new UserManager();
+        public Test(UserManager u)
         {
+            this.u = u;
             InitializeComponent();
         }
 
@@ -80,18 +81,18 @@ namespace LanguageApp
                 }
             }
 
-            
+          /*  
             u.UpdateScores(score, MainForm.lesson);
 
             summary += $"Score: {score}/5\n" +
                 $"Average Score: {u.CalculateAvgScore(MainForm.lesson)}\n" +
-                $"Number of attempts: {u.NumberOfAttempts(MainForm.lesson)}";
+                $"Number of attempts: {u.NumberOfAttempts(MainForm.lesson)}";*/
 
 
             MessageBox.Show(summary);
 
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -99,7 +100,7 @@ namespace LanguageApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm m = new MainForm();
+            MainForm m = new MainForm(u);
             m.FormClosed += (s, args) => this.Close();
             m.Show();
         }
@@ -107,7 +108,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }

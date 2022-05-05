@@ -73,7 +73,7 @@ namespace LanguageApp
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(129, 188);
+            this.btnLogin.Location = new System.Drawing.Point(129, 245);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(192, 39);
             this.btnLogin.TabIndex = 4;
@@ -83,7 +83,7 @@ namespace LanguageApp
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(129, 256);
+            this.btnSignUp.Location = new System.Drawing.Point(129, 186);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(192, 39);
             this.btnSignUp.TabIndex = 5;

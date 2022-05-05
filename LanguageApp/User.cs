@@ -11,31 +11,34 @@ namespace LanguageApp
     class User
     {
         // Object properties
-       
-        private string userName;
+
+        private string username;
         private string password;
         private List<int> totalScores;
-        private List<int> attempts = new List<int>() {0,0,0 };
+        private List<int> attempts = new List<int>();
 
 
         // Object methods
 
         // Constructor
-        public User()
+        public User(string n, string p, List<int> s, List<int> a)
         {
-            
-        }
-
-        //Adds new user to the database
-        public void NewUser(string n, string p, List<int> s, List<int> a)
-        {
-            userName = n;
+            username = n;
             password = p;
             totalScores = s;
             attempts = a;
-          
-            
         }
+
+        public string GetName()
+        {
+            return username;
+        }
+
+        public string GetPassword()
+        {
+            return password;
+        }
+        
 
         // Checks new user name isn't the same as others
         public void CheckUserName()

@@ -12,11 +12,12 @@ namespace LanguageApp
 {
     public partial class MainForm : Form
     {
-        
+        UserManager u = new UserManager();
         public static int lesson;
         
-        public MainForm()
+        public MainForm(UserManager u)
         {
+            this.u = u;
             InitializeComponent();
         }
         
@@ -24,7 +25,7 @@ namespace LanguageApp
         {
             lesson = 0;
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -32,7 +33,7 @@ namespace LanguageApp
         {
             lesson = 1;
             this.Hide();
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -41,7 +42,7 @@ namespace LanguageApp
             lesson = 2;
             this.Hide();
            
-            Info i = new Info();
+            Info i = new Info(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -54,6 +55,14 @@ namespace LanguageApp
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l = new Login(u);
+            l.FormClosed += (s, args) => this.Close();
+            l.Show();
         }
     }
 }
