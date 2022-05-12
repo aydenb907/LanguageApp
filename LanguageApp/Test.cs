@@ -26,9 +26,9 @@ namespace LanguageApp
             
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-            List<int> indexes = new List<int>() { 0, 1, 2, 3, 4 };
+            List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 10; j++)
             {
                 int random = rand.Next(0, indexes.Count - 1);
                 randomIndexes.Add(indexes[random]);
@@ -67,12 +67,12 @@ namespace LanguageApp
             int score = 0;
             string summary = "";
 
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 10; j++)
             {
                 //Marks test questions and adds score
                 if (Lesson.MarkTestQues(j, userAnswers[j], testAns))
                 {
-                    summary += $"{j + 1}. Correct";
+                    summary += $"{j + 1}. Correct. \n";
                     score++;
                 }
                 else
@@ -80,13 +80,13 @@ namespace LanguageApp
                     summary += $"{j + 1}. Incorrect. The correct answer is {testAns[j]}.\n";
                 }
             }
+            u.AddScoreToUser(score, MainForm.lesson);
 
-          /*  
-            u.UpdateScores(score, MainForm.lesson);
+            summary += $"\n\nScore: {score}/10\n" +
+                $"Average Score: {u.GetAvgScore(MainForm.lesson)}\n" +
+                $"Number of attempts: {u.GetAttemptsNumber(MainForm.lesson)}";
 
-            summary += $"Score: {score}/5\n" +
-                $"Average Score: {u.CalculateAvgScore(MainForm.lesson)}\n" +
-                $"Number of attempts: {u.NumberOfAttempts(MainForm.lesson)}";*/
+
 
 
             MessageBox.Show(summary);

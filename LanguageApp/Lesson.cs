@@ -156,8 +156,8 @@ namespace LanguageApp
         {
             if (lesson == 1)
             {
-                testQues = new List<string>() { "question 1", "question 2", "question 3", "question 4", "question 5" };
-                testAns = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5" };
+                testQues = new List<string>() { "question 1", "question 2", "question 3", "question 4", "question 5", "q6", "q7", "q8", "q9", "q10" };
+                testAns = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "a6", "a7", "a8", "a9", "a10" };
             }
             if (lesson == 2)
             {

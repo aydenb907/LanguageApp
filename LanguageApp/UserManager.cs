@@ -50,6 +50,21 @@ namespace LanguageApp
             return "User has been added.";
         }
 
+        public void AddScoreToUser(int score, int lesson)
+        {
+            users[users.Count - 1].UpdateScores(score, lesson);
+
+        }
+
+        public float GetAvgScore(int lesson)
+        {
+            return users[users.Count - 1].CalculateAvgScore(lesson);
+        }
+
+        public int GetAttemptsNumber(int lesson)
+        {
+            return users[users.Count - 1].NumberOfAttempts(lesson);
+        }
 
     }
 }

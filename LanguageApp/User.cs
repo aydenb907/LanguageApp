@@ -38,26 +38,10 @@ namespace LanguageApp
         {
             return password;
         }
-        
-
-        // Checks new user name isn't the same as others
-        public void CheckUserName()
-        {
-            
-        }
-
-        // finds user in database, by matching username to userID
-        // gets userID and then scores
-        public void FindUser()
-        {
-            
-
-        }
 
         // Adds score to scores list for user that has been found in database
         public void UpdateScores(int score, int lesson)
         {
-           
             totalScores[lesson] += score;
             attempts[lesson]++;
             
@@ -67,6 +51,7 @@ namespace LanguageApp
         public float CalculateAvgScore(int lesson)
         {
             float avgScore = totalScores[lesson] / attempts[lesson];
+            avgScore = (float)Math.Round(avgScore, 2);
             return avgScore;
           
         }

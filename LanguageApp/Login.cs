@@ -45,7 +45,7 @@ namespace LanguageApp
                     return;
                 }
             }
-            List<int> totalScores = new List<int>();
+            List<int> totalScores = new List<int>() {0,0,0 };
             List<int> attempts = new List<int>() {0,0,0 };
 
             MessageBox.Show(u.AddUser(username, password, totalScores, attempts));
