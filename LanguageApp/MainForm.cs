@@ -54,7 +54,8 @@ namespace LanguageApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalScore();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)

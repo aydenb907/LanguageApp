@@ -29,6 +29,20 @@ namespace LanguageApp
             return names;
 
         }
+        public string GetUsername()
+        {
+            return users[users.Count - 1].GetName();
+        }
+
+        public string CalcTotalScore()
+        {
+            float totalScore = 0;
+            foreach(int lessonTotalScore in users[users.Count-1].GetTotalScores())
+            {
+                totalScore += lessonTotalScore;
+            }
+            return $"{totalScore} points";
+        }
 
         public List<string> GetPasswords()
         {

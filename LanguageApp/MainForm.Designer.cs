@@ -35,13 +35,17 @@ namespace LanguageApp
             this.grammarTermsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.completeVocabularyListOfThisAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
             this.btnBeginner = new System.Windows.Forms.Button();
             this.btn5 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblTotalScore = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnArticles
@@ -93,6 +97,13 @@ namespace LanguageApp
             this.dToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.dToolStripMenuItem.Text = "Why Learn German";
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // btn2
             // 
             this.btn2.Location = new System.Drawing.Point(418, 127);
@@ -140,18 +151,42 @@ namespace LanguageApp
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
             // 
-            // logoutToolStripMenuItem
+            // groupBox1
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            this.groupBox1.Controls.Add(this.lblTotalScore);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Location = new System.Drawing.Point(690, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(134, 31);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(140, 31);
+            this.lblTotalScore.TabIndex = 9;
+            this.lblTotalScore.Text = "total score";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 378);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.btn5);
             this.Controls.Add(this.btnBeginner);
@@ -165,6 +200,8 @@ namespace LanguageApp
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,6 +221,9 @@ namespace LanguageApp
         private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTotalScore;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
 

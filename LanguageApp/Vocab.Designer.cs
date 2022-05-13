@@ -34,6 +34,10 @@ namespace LanguageApp
             this.btnHome = new System.Windows.Forms.Button();
             this.btnLesson = new System.Windows.Forms.Button();
             this.btnMemorise = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotalScore = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn1
@@ -88,11 +92,42 @@ namespace LanguageApp
             this.btnMemorise.UseVisualStyleBackColor = true;
             this.btnMemorise.Click += new System.EventHandler(this.btnMemorise_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblTotalScore);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Location = new System.Drawing.Point(688, -2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(125, 80);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(78, 18);
+            this.lblTotalScore.TabIndex = 9;
+            this.lblTotalScore.Text = "total score";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(74, 18);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
+            // 
             // Vocab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMemorise);
             this.Controls.Add(this.btnLesson);
             this.Controls.Add(this.btnHome);
@@ -101,6 +136,8 @@ namespace LanguageApp
             this.Name = "Vocab";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -112,5 +149,8 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnLesson;
         private System.Windows.Forms.Button btnMemorise;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTotalScore;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

@@ -23,7 +23,9 @@ namespace LanguageApp
 
         private void Test_Load(object sender, EventArgs e)
         {
-            
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalScore();
+
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
             List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };

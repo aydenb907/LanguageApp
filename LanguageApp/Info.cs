@@ -36,6 +36,9 @@ namespace LanguageApp
 
         private void Info_Load(object sender, EventArgs e)
         {
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalScore();
+
             lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
             lblDeutsch.Text = Lesson.GetGermanWords();
             lblLesson.Text = Lesson.GetLessonText();
@@ -67,6 +70,7 @@ namespace LanguageApp
             t.FormClosed += (s, args) => this.Close();
             t.Show();
         }
- 
+
+       
     }
 }

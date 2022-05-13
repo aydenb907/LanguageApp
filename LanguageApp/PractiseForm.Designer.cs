@@ -49,6 +49,10 @@ namespace LanguageApp
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
             this.btnMoreQuestions = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotalScore = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
@@ -205,7 +209,7 @@ namespace LanguageApp
             // lblEnglisch
             // 
             this.lblEnglisch.AutoSize = true;
-            this.lblEnglisch.Location = new System.Drawing.Point(611, 10);
+            this.lblEnglisch.Location = new System.Drawing.Point(579, 10);
             this.lblEnglisch.Name = "lblEnglisch";
             this.lblEnglisch.Size = new System.Drawing.Size(75, 13);
             this.lblEnglisch.TabIndex = 19;
@@ -215,7 +219,7 @@ namespace LanguageApp
             // lblDeutsch
             // 
             this.lblDeutsch.AutoSize = true;
-            this.lblDeutsch.Location = new System.Drawing.Point(810, 10);
+            this.lblDeutsch.Location = new System.Drawing.Point(712, 10);
             this.lblDeutsch.Name = "lblDeutsch";
             this.lblDeutsch.Size = new System.Drawing.Size(78, 13);
             this.lblDeutsch.TabIndex = 20;
@@ -232,11 +236,42 @@ namespace LanguageApp
             this.btnMoreQuestions.UseVisualStyleBackColor = true;
             this.btnMoreQuestions.Click += new System.EventHandler(this.btnMoreQuestions_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblTotalScore);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Location = new System.Drawing.Point(856, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(125, 80);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(78, 18);
+            this.lblTotalScore.TabIndex = 9;
+            this.lblTotalScore.Text = "total score";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(74, 18);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
+            // 
             // PractiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 367);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMoreQuestions);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
@@ -260,6 +295,8 @@ namespace LanguageApp
             this.Name = "PractiseForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.PractiseForm_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +324,8 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
         private System.Windows.Forms.Button btnMoreQuestions;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTotalScore;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

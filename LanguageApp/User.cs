@@ -16,6 +16,7 @@ namespace LanguageApp
         private string password;
         private List<int> totalScores;
         private List<int> attempts = new List<int>();
+        private List<string> completedLessons = new List<string>();
 
 
         // Object methods

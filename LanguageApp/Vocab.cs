@@ -21,7 +21,9 @@ namespace LanguageApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-  
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalScore();
+
             btn1.Text = Lesson.GetGermanWord(0);
             btn2.Text = Lesson.GetGermanWord(1);
         }

@@ -36,6 +36,11 @@ namespace LanguageApp
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
             this.btnGrammarTest = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotalScore = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
@@ -51,7 +56,7 @@ namespace LanguageApp
             // lblLesson
             // 
             this.lblLesson.AutoSize = true;
-            this.lblLesson.Location = new System.Drawing.Point(94, 56);
+            this.lblLesson.Location = new System.Drawing.Point(26, 59);
             this.lblLesson.Name = "lblLesson";
             this.lblLesson.Size = new System.Drawing.Size(41, 13);
             this.lblLesson.TabIndex = 1;
@@ -60,9 +65,9 @@ namespace LanguageApp
             // 
             // btnPractise
             // 
-            this.btnPractise.Location = new System.Drawing.Point(221, 219);
+            this.btnPractise.Location = new System.Drawing.Point(277, 296);
             this.btnPractise.Name = "btnPractise";
-            this.btnPractise.Size = new System.Drawing.Size(242, 37);
+            this.btnPractise.Size = new System.Drawing.Size(242, 39);
             this.btnPractise.TabIndex = 2;
             this.btnPractise.Text = "Practise Completing Sentences";
             this.btnPractise.UseVisualStyleBackColor = true;
@@ -70,7 +75,7 @@ namespace LanguageApp
             // 
             // btnVocab
             // 
-            this.btnVocab.Location = new System.Drawing.Point(221, 160);
+            this.btnVocab.Location = new System.Drawing.Point(12, 296);
             this.btnVocab.Name = "btnVocab";
             this.btnVocab.Size = new System.Drawing.Size(242, 39);
             this.btnVocab.TabIndex = 4;
@@ -81,7 +86,7 @@ namespace LanguageApp
             // lblEnglisch
             // 
             this.lblEnglisch.AutoSize = true;
-            this.lblEnglisch.Location = new System.Drawing.Point(514, 14);
+            this.lblEnglisch.Location = new System.Drawing.Point(566, 104);
             this.lblEnglisch.Name = "lblEnglisch";
             this.lblEnglisch.Size = new System.Drawing.Size(75, 13);
             this.lblEnglisch.TabIndex = 20;
@@ -90,7 +95,7 @@ namespace LanguageApp
             // lblDeutsch
             // 
             this.lblDeutsch.AutoSize = true;
-            this.lblDeutsch.Location = new System.Drawing.Point(677, 14);
+            this.lblDeutsch.Location = new System.Drawing.Point(718, 104);
             this.lblDeutsch.Name = "lblDeutsch";
             this.lblDeutsch.Size = new System.Drawing.Size(78, 13);
             this.lblDeutsch.TabIndex = 21;
@@ -98,19 +103,50 @@ namespace LanguageApp
             // 
             // btnGrammarTest
             // 
-            this.btnGrammarTest.Location = new System.Drawing.Point(221, 275);
+            this.btnGrammarTest.Location = new System.Drawing.Point(543, 296);
             this.btnGrammarTest.Name = "btnGrammarTest";
-            this.btnGrammarTest.Size = new System.Drawing.Size(242, 37);
+            this.btnGrammarTest.Size = new System.Drawing.Size(242, 39);
             this.btnGrammarTest.TabIndex = 22;
             this.btnGrammarTest.Text = "Test For This Lesson";
             this.btnGrammarTest.UseVisualStyleBackColor = true;
             this.btnGrammarTest.Click += new System.EventHandler(this.btnGrammarTest_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblTotalScore);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Location = new System.Drawing.Point(689, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(125, 80);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblTotalScore
+            // 
+            this.lblTotalScore.AutoSize = true;
+            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalScore.Name = "lblTotalScore";
+            this.lblTotalScore.Size = new System.Drawing.Size(78, 18);
+            this.lblTotalScore.TabIndex = 9;
+            this.lblTotalScore.Text = "total score";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(74, 18);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
             // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 345);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGrammarTest);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
@@ -121,6 +157,8 @@ namespace LanguageApp
             this.Name = "Info";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Info_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +173,9 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
         private System.Windows.Forms.Button btnGrammarTest;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTotalScore;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
