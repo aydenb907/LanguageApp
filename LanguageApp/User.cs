@@ -39,6 +39,16 @@ namespace LanguageApp
             return password;
         }
 
+        public List<int> GetTotalScores()
+        {
+            return totalScores;
+        }
+        public List<int> GetAttempts()
+        {
+            return attempts;
+        }
+
+
         // Adds score to scores list for user that has been found in database
         public void UpdateScores(int score, int lesson)
         {

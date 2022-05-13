@@ -61,7 +61,20 @@ namespace LanguageApp
             string username = txtUserName.Text;
             string password = txtPassword.Text;
 
-            
+            string message = u.FindUser(username, password);
+
+            if(message.Equals("Invalid username/password."))
+            {
+                MessageBox.Show(message);
+                return;
+            }
+
+
+            this.Hide();
+            MainForm m = new MainForm(u);
+            m.FormClosed += (s, args) => this.Close();
+            m.Show();
+
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
