@@ -40,6 +40,7 @@ namespace LanguageApp
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@ namespace LanguageApp
             // 
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(159, 27);
+            this.btnHome.Size = new System.Drawing.Size(122, 27);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home ";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -86,7 +87,7 @@ namespace LanguageApp
             // lblEnglisch
             // 
             this.lblEnglisch.AutoSize = true;
-            this.lblEnglisch.Location = new System.Drawing.Point(566, 104);
+            this.lblEnglisch.Location = new System.Drawing.Point(425, 9);
             this.lblEnglisch.Name = "lblEnglisch";
             this.lblEnglisch.Size = new System.Drawing.Size(75, 13);
             this.lblEnglisch.TabIndex = 20;
@@ -95,7 +96,7 @@ namespace LanguageApp
             // lblDeutsch
             // 
             this.lblDeutsch.AutoSize = true;
-            this.lblDeutsch.Location = new System.Drawing.Point(718, 104);
+            this.lblDeutsch.Location = new System.Drawing.Point(540, 7);
             this.lblDeutsch.Name = "lblDeutsch";
             this.lblDeutsch.Size = new System.Drawing.Size(78, 13);
             this.lblDeutsch.TabIndex = 21;
@@ -115,7 +116,7 @@ namespace LanguageApp
             // 
             this.groupBox1.Controls.Add(this.lblTotalScore);
             this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.Location = new System.Drawing.Point(689, 12);
+            this.groupBox1.Location = new System.Drawing.Point(698, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 80);
             this.groupBox1.TabIndex = 23;
@@ -141,11 +142,22 @@ namespace LanguageApp
             this.lblUsername.TabIndex = 8;
             this.lblUsername.Text = "username";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(698, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(125, 27);
+            this.btnLogOut.TabIndex = 24;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 345);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGrammarTest);
             this.Controls.Add(this.lblDeutsch);
@@ -177,5 +189,6 @@ namespace LanguageApp
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

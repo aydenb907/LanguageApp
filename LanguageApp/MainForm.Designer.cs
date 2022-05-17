@@ -29,7 +29,7 @@ namespace LanguageApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnArticles = new System.Windows.Forms.Button();
+            this.btn1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.grammarTermsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,21 +42,22 @@ namespace LanguageApp
             this.btn5 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPlace = new System.Windows.Forms.Label();
             this.lblTotalScore = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnArticles
+            // btn1
             // 
-            this.btnArticles.Location = new System.Drawing.Point(267, 127);
-            this.btnArticles.Name = "btnArticles";
-            this.btnArticles.Size = new System.Drawing.Size(122, 36);
-            this.btnArticles.TabIndex = 0;
-            this.btnArticles.Text = "Lesson 1: Articles";
-            this.btnArticles.UseVisualStyleBackColor = true;
-            this.btnArticles.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.Location = new System.Drawing.Point(267, 127);
+            this.btn1.Name = "btn1";
+            this.btn1.Size = new System.Drawing.Size(122, 36);
+            this.btn1.TabIndex = 0;
+            this.btn1.Text = "Lesson 1: Articles";
+            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // menuStrip1
             // 
@@ -153,23 +154,24 @@ namespace LanguageApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblPlace);
             this.groupBox1.Controls.Add(this.lblTotalScore);
             this.groupBox1.Controls.Add(this.lblUsername);
             this.groupBox1.Location = new System.Drawing.Point(690, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.Size = new System.Drawing.Size(200, 121);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
-            // lblUsername
+            // lblPlace
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblUsername.Location = new System.Drawing.Point(18, 16);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(134, 31);
-            this.lblUsername.TabIndex = 8;
-            this.lblUsername.Text = "username";
+            this.lblPlace.AutoSize = true;
+            this.lblPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblPlace.Location = new System.Drawing.Point(18, 78);
+            this.lblPlace.Name = "lblPlace";
+            this.lblPlace.Size = new System.Drawing.Size(79, 31);
+            this.lblPlace.TabIndex = 10;
+            this.lblPlace.Text = "place";
             // 
             // lblTotalScore
             // 
@@ -180,6 +182,16 @@ namespace LanguageApp
             this.lblTotalScore.Size = new System.Drawing.Size(140, 31);
             this.lblTotalScore.TabIndex = 9;
             this.lblTotalScore.Text = "total score";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(134, 31);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
             // 
             // MainForm
             // 
@@ -192,7 +204,7 @@ namespace LanguageApp
             this.Controls.Add(this.btnBeginner);
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
-            this.Controls.Add(this.btnArticles);
+            this.Controls.Add(this.btn1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -209,7 +221,7 @@ namespace LanguageApp
 
         #endregion
 
-        private System.Windows.Forms.Button btnArticles;
+        private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuInfo;
         private System.Windows.Forms.ToolStripMenuItem grammarTermsToolStripMenuItem;
@@ -224,6 +236,7 @@ namespace LanguageApp
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPlace;
     }
 }
 

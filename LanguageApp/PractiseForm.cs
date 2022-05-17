@@ -55,14 +55,6 @@ namespace LanguageApp
 
             if(indexes.Count == 0)
             {
-                if(Info.lessonType == 1)
-                {
-                    MessageBox.Show("No more new practice questions.");
-                }
-                else
-                {
-                    MessageBox.Show("No more new vocabulary words.");
-                }
 
                 indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
@@ -210,6 +202,12 @@ namespace LanguageApp
 
         }
 
-        
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l = new Login(u);
+            l.FormClosed += (s, args) => this.Close();
+            l.Show();
+        }
     }
 }

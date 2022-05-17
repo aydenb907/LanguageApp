@@ -26,8 +26,8 @@ namespace LanguageApp
             }
             if(lesson == 2)
             {
-                practiceQues = new List<string>() {"q1", "q2", "q3", "q4", "q5" };
-                practiceAns = new List<string>() {"a1", "a2", "a3", "a4", "a5" };
+                practiceQues = new List<string>() {"q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10" };
+                practiceAns = new List<string>() {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10" };
             }
             
         }
@@ -107,7 +107,9 @@ namespace LanguageApp
             }
             if (lesson == 2)
             {
-                
+                englishWords = new List<string>() { "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e10" };
+                germanWords = new List<string>() { "g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10" };
+                lessonText = "lesson 2";
             }
 
         }
@@ -161,7 +163,8 @@ namespace LanguageApp
             }
             if (lesson == 2)
             {
-
+                testQues = new List<string>() { "2question 1", "2question 2", "2question 3", "2question 4", "2question 5", "q6", "q7", "q8", "q9", "q10" };
+                testAns = new List<string>() { "answer 1", "answer 2", "answer 3", "answer 4", "answer 5", "a6", "a7", "a8", "a9", "a10" };
             }
 
         }

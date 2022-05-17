@@ -47,8 +47,9 @@ namespace LanguageApp
             }
             List<int> totalScores = new List<int>() {0,0,0 };
             List<int> attempts = new List<int>() {0,0,0 };
+            List<int> completedLessons = new List<int>();
 
-            MessageBox.Show(u.AddUser(username, password, totalScores, attempts));
+            MessageBox.Show(u.AddUser(username, password, totalScores, attempts, completedLessons));
 
             this.Hide();
             MainForm m = new MainForm(u);

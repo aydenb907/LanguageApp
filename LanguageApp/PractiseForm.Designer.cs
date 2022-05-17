@@ -52,7 +52,12 @@ namespace LanguageApp
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
@@ -238,9 +243,10 @@ namespace LanguageApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.lblTotalScore);
             this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.Location = new System.Drawing.Point(856, 9);
+            this.groupBox1.Location = new System.Drawing.Point(859, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 80);
             this.groupBox1.TabIndex = 24;
@@ -266,11 +272,52 @@ namespace LanguageApp
             this.lblUsername.TabIndex = 8;
             this.lblUsername.Text = "username";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(125, 80);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(18, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 18);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "total score";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Location = new System.Drawing.Point(18, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 18);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "username";
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(859, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(125, 27);
+            this.btnLogOut.TabIndex = 25;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // PractiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 367);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMoreQuestions);
             this.Controls.Add(this.lblDeutsch);
@@ -297,6 +344,8 @@ namespace LanguageApp
             this.Load += new System.EventHandler(this.PractiseForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,5 +376,9 @@ namespace LanguageApp
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

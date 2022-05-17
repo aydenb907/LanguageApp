@@ -71,6 +71,12 @@ namespace LanguageApp
             t.Show();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l = new Login(u);
+            l.FormClosed += (s, args) => this.Close();
+            l.Show();
+        }
     }
 }

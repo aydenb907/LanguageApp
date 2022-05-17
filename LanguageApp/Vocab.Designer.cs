@@ -37,6 +37,7 @@ namespace LanguageApp
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@ namespace LanguageApp
             // 
             this.groupBox1.Controls.Add(this.lblTotalScore);
             this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.Location = new System.Drawing.Point(688, -2);
+            this.groupBox1.Location = new System.Drawing.Point(692, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(125, 80);
             this.groupBox1.TabIndex = 24;
@@ -122,11 +123,22 @@ namespace LanguageApp
             this.lblUsername.TabIndex = 8;
             this.lblUsername.Text = "username";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(692, -1);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(125, 27);
+            this.btnLogOut.TabIndex = 25;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // Vocab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 450);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMemorise);
             this.Controls.Add(this.btnLesson);
@@ -152,5 +164,6 @@ namespace LanguageApp
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

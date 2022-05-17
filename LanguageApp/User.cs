@@ -16,18 +16,19 @@ namespace LanguageApp
         private string password;
         private List<int> totalScores;
         private List<int> attempts = new List<int>();
-        private List<string> completedLessons = new List<string>();
+        private List<int> completedLessons = new List<int>();
 
 
         // Object methods
 
         // Constructor
-        public User(string n, string p, List<int> s, List<int> a)
+        public User(string n, string p, List<int> s, List<int> a, List<int> c)
         {
             username = n;
             password = p;
             totalScores = s;
             attempts = a;
+            completedLessons = c;
         }
 
         public string GetName()
@@ -49,6 +50,10 @@ namespace LanguageApp
             return attempts;
         }
 
+        public List<int> GetCompletedLessons()
+        {
+            return completedLessons;
+        }
 
         // Adds score to scores list for user that has been found in database
         public void UpdateScores(int score, int lesson)
@@ -56,6 +61,11 @@ namespace LanguageApp
             totalScores[lesson] += score;
             attempts[lesson]++;
             
+        }
+
+        public void UpdateCompletedLessons(int lesson)
+        {
+            completedLessons.Add(lesson);
         }
 
         //Calculate average score for test in specific lesson
