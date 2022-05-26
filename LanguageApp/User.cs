@@ -31,6 +31,7 @@ namespace LanguageApp
             completedLessons = c;
         }
 
+        // Get Methods
         public string GetName()
         {
             return username;
@@ -55,19 +56,27 @@ namespace LanguageApp
             return completedLessons;
         }
 
-        // Adds score to scores list for user that has been found in database
+        // returns number of attempts for a specific lesson
+        public int NumberOfAttempts(int lesson)
+        {
+            return attempts[lesson];
+        }
+
+        // Adds score to the total scores list where the lesson the user has just completed the test in is
         public void UpdateScores(int score, int lesson)
         {
             totalScores[lesson] += score;
-            attempts[lesson]++;
+            attempts[lesson]++; //Number of attempts increases by 1 for that lesson because they have just taken the test
             
         }
 
+        // If the user has clicked on a lesson they haven't viewed before, the number the lesson is will be added to the completed lessons list
         public void UpdateCompletedLessons(int lesson)
         {
             completedLessons.Add(lesson);
         }
 
+        
         //Calculate average score for test in specific lesson
         public float CalculateAvgScore(int lesson)
         {
@@ -76,12 +85,6 @@ namespace LanguageApp
             return avgScore;
           
         }
-
-        public int NumberOfAttempts(int lesson)
-        {
-            return attempts[lesson];
-        }
-
 
     }
 }

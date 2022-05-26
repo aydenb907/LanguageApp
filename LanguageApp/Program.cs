@@ -16,7 +16,10 @@ namespace LanguageApp
 
         static void Main()
         {
-            UserManager u = new UserManager();
+            //Starts on Login form
+
+            UserManager u = new UserManager(); //New UserManager here so that the list of users will be saved 
+            //when opening and closing each form
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login(u));

@@ -22,7 +22,7 @@ namespace LanguageApp
         private void Form1_Load(object sender, EventArgs e)
         {
             lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalScore();
+            lblTotalScore.Text = u.CalcTotalPoints();
 
             btn1.Text = Lesson.GetGermanWord(0);
             btn2.Text = Lesson.GetGermanWord(1);
@@ -33,12 +33,12 @@ namespace LanguageApp
 
             if (btn1.Text.Equals(Lesson.GetGermanWord(0)))
             {
-                btn1.BackColor = Color.LightCoral;
+                btn1.BackColor = Color.MediumSeaGreen;
                 btn1.Text = Lesson.GetEnglishWord(0);
             }
             else
             {
-                btn1.BackColor = Color.DarkTurquoise;
+                btn1.BackColor = Color.DarkCyan;
                 btn1.Text = Lesson.GetGermanWord(0);
             }
         }
@@ -47,12 +47,12 @@ namespace LanguageApp
         {
             if (btn2.Text.Equals(Lesson.GetGermanWord(1)))
             {
-                btn2.BackColor = Color.LightCoral;
+                btn2.BackColor = Color.MediumSeaGreen;
                 btn2.Text = Lesson.GetEnglishWord(1);
             }
             else
             {
-                btn2.BackColor = Color.DarkTurquoise;
+                btn2.BackColor = Color.DarkCyan;
                 btn2.Text = Lesson.GetGermanWord(1);
             }
         }
@@ -68,7 +68,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info(u);
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }

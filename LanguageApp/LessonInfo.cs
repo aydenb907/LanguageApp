@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace LanguageApp
 {
-    public partial class Info : Form
+    public partial class LessonInfo : Form
     {
         UserManager u = new UserManager();
         public static int lessonType;
-        public Info(UserManager u)
+        public LessonInfo(UserManager u)
         {
             this.u = u;
             InitializeComponent();
             
         }
 
+        //return to mainform
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -34,10 +35,12 @@ namespace LanguageApp
            
         }
 
+
         private void Info_Load(object sender, EventArgs e)
         {
+            //Displays username, total points, vocabulary lists and lesson text when form loads
             lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalScore();
+            lblTotalPoints.Text = u.CalcTotalPoints();
 
             lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
             lblDeutsch.Text = Lesson.GetGermanWords();

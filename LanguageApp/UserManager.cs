@@ -34,22 +34,22 @@ namespace LanguageApp
             return users[users.Count - 1].GetName();
         }
 
-        public string CalcTotalScore()
+        public string CalcTotalPoints()
         {
-            int totalScore = 0;
+            int totalPoints = 0;
             foreach(int lessonTotalScore in users[users.Count-1].GetTotalScores())
             {
-                totalScore += lessonTotalScore;
+                totalPoints += lessonTotalScore;
             }
 
-            if(totalScore == 1)
+            if(totalPoints == 1)
             {
-                return $"{totalScore} point";
+                return $"{totalPoints} point";
                 
             }
             else
             {
-                return $"{totalScore} points";
+                return $"{totalPoints} points";
             }
             
         }
@@ -119,14 +119,21 @@ namespace LanguageApp
             return "User has been added.";
         }
 
+        //when they click the login button, checks if their username and password match any of the users' stored
         public string FindUser(string name, string password)
         {
-            string message = "Invalid username/password.";
+
+            string message = "Invalid username/password."; //default message, will change if the user's account is found
+
             List<int> totalScores = new List<int>();
             List<int> attempts = new List<int>();
             List<int> completedLessons = new List<int>();
-            int number = 0;
             
+            int number = 0;
+
+            //goes through all the usernames and passwords stored for each user and compares them to the name and password the user have typed in. 
+            //if one of the user's stored has their name and password match exactly to what the user has typed in, the message will change to logged in
+            //their total score and number of test attempts stored for each lesson will also be received
             foreach (User user in users)
             {
                 if(name.Equals(user.GetName()) & password.Equals(user.GetPassword())) 
@@ -135,10 +142,14 @@ namespace LanguageApp
                     totalScores = user.GetTotalScores();
                     attempts = user.GetAttempts();
                 }
-                number++;
+                number++; //index increases by 1 for the next user in the list that needs to be compared
 
             }
 
+            //if the message has changed, then the user that has the name and password matching will be removed from the list based on
+            //what number index they had, and they will be added to the list again with all their data. This is because in the other methods
+            //the last user in the list is used, and so when they log in they must be the last user on the list, otherwise they will see the wrong average score that's calculated, the wrong 
+            //username and total points will be displayed, etc
             if(message.Equals("logged in"))
             {
                 
@@ -147,7 +158,7 @@ namespace LanguageApp
 
             }
            
-
+            //message will be checked when they login to see if the username and password they have typed in are valid or not
             return message;
         }
 

@@ -36,7 +36,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info(u);
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -45,7 +45,7 @@ namespace LanguageApp
         private void PractiseForm_Load(object sender, EventArgs e)
         {
             lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalScore();
+            lblTotalScore.Text = u.CalcTotalPoints();
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
@@ -68,9 +68,9 @@ namespace LanguageApp
             }
         
             //random indexes used to put questions in random order, based on what kind of lesson it is (what number, whether it's completing sentences or a vocab lesson)
-            practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson, Info.lessonType);
+            practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
             //random indexes used to put correct answers in the same random order
-            practiceAns = Lesson.GenPracAns(randomIndexes, Info.lessonType);
+            practiceAns = Lesson.GenPracAns(randomIndexes, LessonInfo.lessonType);
 
             //displays the first 5 of the random questions
             label1.Text = practiceQues[0];
@@ -81,10 +81,12 @@ namespace LanguageApp
 
 
             //vocabulary lists are displayed if the lesson is practising questions, if it's a vocabulary lesson then the labels will be blank
-            if (Info.lessonType == 1)
+            if (LessonInfo.lessonType == 1)
             {
                 lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
                 lblDeutsch.Text = Lesson.GetGermanWords();
+                lblEnglisch.ForeColor = Color.MediumSeaGreen;
+                lblDeutsch.ForeColor = Color.Crimson;
             }
             else
             {
@@ -187,10 +189,7 @@ namespace LanguageApp
             p.Show();
 
         }
-        private void txtAnswer1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void lblEnglisch_Click(object sender, EventArgs e)
         {
@@ -208,6 +207,11 @@ namespace LanguageApp
             Login l = new Login(u);
             l.FormClosed += (s, args) => this.Close();
             l.Show();
+        }
+
+        private void txtAnswer1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

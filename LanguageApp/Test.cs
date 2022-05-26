@@ -24,7 +24,7 @@ namespace LanguageApp
         private void Test_Load(object sender, EventArgs e)
         {
             lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalScore();
+            lblTotalScore.Text = u.CalcTotalPoints();
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
@@ -94,7 +94,7 @@ namespace LanguageApp
             MessageBox.Show(summary);
 
             this.Hide();
-            Info i = new Info(u);
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -110,7 +110,7 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info(u);
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -121,6 +121,16 @@ namespace LanguageApp
             Login l = new Login(u);
             l.FormClosed += (s, args) => this.Close();
             l.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
