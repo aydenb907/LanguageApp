@@ -12,120 +12,89 @@ namespace LanguageApp
 {
     public partial class Test : Form
     {
-        private List<string> correctAnswers = new List<string>();
-        private static List<int> totalScores = new List<int>() {0, 0, 0, 0, 0, 0 };
-        public static List<int> attempts = new List<int>() { 0, 0, 0, 0, 0, 0 };
-        public static List<float> avgScores = new List<float>() { 0, 0, 0, 0, 0, 0 };
+        private List<string> testAns;
 
-        public Test()
+        UserManager u = new UserManager();
+        public Test(UserManager u)
         {
+            this.u = u;
             InitializeComponent();
         }
 
         private void Test_Load(object sender, EventArgs e)
         {
-            List<string> testQuestions = Info.testQuestions;
-            List<string> testAnswers = Info.testAnswers;
-        
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalPoints();
 
             Random rand = new Random();
-            int random = rand.Next(0, testQuestions.Count - 1);
-            label1.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
+            List<int> randomIndexes = new List<int>();
+            List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            random = rand.Next(0, testQuestions.Count - 1);
-            label2.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
+            for (int j = 0; j < 10; j++)
+            {
+                int random = rand.Next(0, indexes.Count - 1);
+                randomIndexes.Add(indexes[random]);
+                indexes.Remove(indexes[random]);
+            }
 
-            random = rand.Next(0, testQuestions.Count - 1);
-            label3.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
+            List<string> testQues = Lesson.GenTestQuestions(randomIndexes, MainForm.lesson);
+            testAns = Lesson.GenTestAnswers(randomIndexes);
 
-            random = rand.Next(0, testQuestions.Count - 1);
-            label4.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label5.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label6.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label7.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label8.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label9.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
-            random = rand.Next(0, testQuestions.Count - 1);
-            label10.Text = testQuestions[random];
-            testQuestions.Remove(testQuestions[random]);
-            correctAnswers.Add(testAnswers[random]);
-            testAnswers.Remove(testAnswers[random]);
-
+            label1.Text = testQues[0];
+            label2.Text = testQues[1];
+            label3.Text = testQues[2];
+            label4.Text = testQues[3];
+            label5.Text = testQues[4];
+            label6.Text = testQues[5];
+            label7.Text = testQues[6];
+            label8.Text = testQues[7];
+            label9.Text = testQues[8];
+            label10.Text = testQues[9];
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
             List<string> userAnswers = new List<string>();
-
-            userAnswers.Add(textBox1.Text.ToLower());
-            userAnswers.Add(textBox2.Text.ToLower());
-            userAnswers.Add(textBox3.Text.ToLower());
-            userAnswers.Add(textBox4.Text.ToLower());
-            userAnswers.Add(textBox5.Text.ToLower());
-            userAnswers.Add(textBox6.Text.ToLower());
-            userAnswers.Add(textBox7.Text.ToLower());
-            userAnswers.Add(textBox8.Text.ToLower());
-            userAnswers.Add(textBox9.Text.ToLower());
-            userAnswers.Add(textBox10.Text.ToLower());
-
+            userAnswers.Add(textBox1.Text);
+            userAnswers.Add(textBox2.Text);
+            userAnswers.Add(textBox3.Text);
+            userAnswers.Add(textBox4.Text);
+            userAnswers.Add(textBox5.Text);
+            userAnswers.Add(textBox6.Text);
+            userAnswers.Add(textBox7.Text);
+            userAnswers.Add(textBox8.Text);
+            userAnswers.Add(textBox9.Text);
+            userAnswers.Add(textBox10.Text);
+            
             int score = 0;
-            for(int a = 0; a < userAnswers.Count; a++)
+            string summary = "";
+
+            for (int j = 0; j < 10; j++)
             {
-                if(userAnswers[a].Equals(correctAnswers[a]))
+                //Marks test questions and adds score
+                if (Lesson.MarkTestQues(j, userAnswers[j], testAns))
                 {
-                    score += 1;
+                    summary += $"{j + 1}. Correct. \n";
+                    score++;
+                }
+                else
+                {
+                    summary += $"{j + 1}. Incorrect. The correct answer is {testAns[j]}.\n";
                 }
             }
+            u.AddScoreToUser(score, MainForm.lesson);
 
-            int n = MainForm.lesson;
-            totalScores[n] += score;
-            attempts[n]++;
+            summary += $"\n\nScore: {score}/10\n" +
+                $"Average Score: {u.GetAvgScore(MainForm.lesson)}\n" +
+                $"Number of attempts: {u.GetAttemptsNumber(MainForm.lesson)}";
 
-            avgScores[n] = totalScores[n] / attempts[n];
 
-            MessageBox.Show($"Score: {score} \nAverage Score: {avgScores[n]}");
+
+
+            MessageBox.Show(summary);
 
             this.Hide();
-            Info i = new Info();
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
@@ -133,7 +102,7 @@ namespace LanguageApp
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MainForm m = new MainForm();
+            MainForm m = new MainForm(u);
             m.FormClosed += (s, args) => this.Close();
             m.Show();
         }
@@ -141,9 +110,27 @@ namespace LanguageApp
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Info i = new Info();
+            LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
             i.Show();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l = new Login(u);
+            l.FormClosed += (s, args) => this.Close();
+            l.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

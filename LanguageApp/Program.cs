@@ -12,34 +12,20 @@ namespace LanguageApp
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-       
-      
+
+
         static void Main()
         {
-        
+            //Starts on Login form
 
-            string name = "fjfjr";
-            string password = "34";
-            List<int> scores = new List<int>();
-
-
-            User u = new User(name, password, scores);
-
-            int score = 3;
-            u.UpdateScores(score);
-            int score2 = 8;
-            u.UpdateScores(score2);
-            Console.WriteLine(u.ToString());
-
-
-
-            /*Application.EnableVisualStyles();
+            UserManager u = new UserManager(); //New UserManager here so that the list of users will be saved 
+            //when opening and closing each form
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());*/
+            Application.Run(new Login(u));
         }
 
-        
-     
-        
+
+
     }
 }

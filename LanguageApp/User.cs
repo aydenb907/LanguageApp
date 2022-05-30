@@ -11,73 +11,80 @@ namespace LanguageApp
     class User
     {
         // Object properties
-       
-        private string userName;
+
+        private string username;
         private string password;
-        private List<int> scores;
-  
-       
+        private List<int> totalScores;
+        private List<int> attempts = new List<int>();
+        private List<int> completedLessons = new List<int>();
+
 
         // Object methods
 
         // Constructor
-        public User(string n, string p, List<int> s)
+        public User(string n, string p, List<int> s, List<int> a, List<int> c)
         {
-            userName = n;
+            username = n;
             password = p;
-            scores = s;
+            totalScores = s;
+            attempts = a;
+            completedLessons = c;
         }
 
-        // Checks new user name isn't the same as others
-        public void CheckUserName()
+        // Get Methods
+        public string GetName()
         {
+            return username;
+        }
+
+        public string GetPassword()
+        {
+            return password;
+        }
+
+        public List<int> GetTotalScores()
+        {
+            return totalScores;
+        }
+        public List<int> GetAttempts()
+        {
+            return attempts;
+        }
+
+        public List<int> GetCompletedLessons()
+        {
+            return completedLessons;
+        }
+
+        // returns number of attempts for a specific lesson
+        public int NumberOfAttempts(int lesson)
+        {
+            return attempts[lesson];
+        }
+
+        // Adds score to the total scores list where the lesson the user has just completed the test in is
+        public void UpdateScores(int score, int lesson)
+        {
+            totalScores[lesson] += score;
+            attempts[lesson]++; //Number of attempts increases by 1 for that lesson because they have just taken the test
             
         }
 
-        // finds user in database, by matching username to userID
-        // gets userID and then scores
-        public void FindUser(string n)
+        // If the user has clicked on a lesson they haven't viewed before, the number the lesson is will be added to the completed lessons list
+        public void UpdateCompletedLessons(int lesson)
         {
-            userName = n;
-
+            completedLessons.Add(lesson);
         }
 
-        // Adds score to scores list for user that has been found in database
-        public void UpdateScores(int score)
-        {
-            scores.Add(score);
-        }
-
+        
         //Calculate average score for test in specific lesson
-        public float CalculateAvgScore()
+        public float CalculateAvgScore(int lesson)
         {
-            int totalScore = 0;
-            int attempts = 0;
-           
-            // Adds all scores in list together and divides by number of scores that are in the list
-            foreach (int score in scores)
-            {
-
-                totalScore += score;
-                attempts++;
-                
-            }
-            float avgScore = totalScore / attempts;
+            float avgScore = totalScores[lesson] / attempts[lesson];
+            avgScore = (float)Math.Round(avgScore, 2);
             return avgScore;
+          
         }
-
-        // Returns message: Score, average score, number of attempts
-        public string Result()
-        {
-            return "";
-        }
-
-        public override string ToString()
-        {
-            return userName + " " + password + " " + CalculateAvgScore();
-  
-        }
-
 
     }
 }
