@@ -39,8 +39,8 @@ namespace LanguageApp
         private void Info_Load(object sender, EventArgs e)
         {
             //Displays username, total points, vocabulary lists and lesson text when form loads
-            lblUsername.Text = u.GetUsername();
-            lblTotalPoints.Text = u.CalcTotalPoints();
+           /* lblUsername.Text = u.GetUsername();
+            lblTotalPoints.Text = u.CalcTotalPoints();*/
 
             lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
             lblDeutsch.Text = Lesson.GetGermanWords();

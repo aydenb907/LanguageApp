@@ -36,6 +36,7 @@ namespace LanguageApp
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -112,12 +113,23 @@ namespace LanguageApp
             this.label3.TabIndex = 6;
             this.label3.Text = "German App";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(330, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "See password";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(432, 330);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.btnLogin);
@@ -142,5 +154,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSignUp;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -44,8 +44,8 @@ namespace LanguageApp
         
         private void PractiseForm_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalPoints();
+          /*  lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalPoints();*/
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();

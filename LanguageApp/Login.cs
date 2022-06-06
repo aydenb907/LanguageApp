@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Drawing;
 
 namespace LanguageApp
 {
     public partial class Login : Form
     {
         UserManager u = new UserManager();
+        SqlConnection connection;
+        string connectionString;
+
         public Login(UserManager u)
         {
             //when the Login form opens, the UserManager from program.cs or the previous form 
@@ -17,7 +23,9 @@ namespace LanguageApp
             //this is the same for each form, in order for all the users to be stored
             this.u = u;
             InitializeComponent();
-           
+
+            connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
+
         }
 
         //Adds new person's username and password
@@ -47,32 +55,52 @@ namespace LanguageApp
                 return;
             }
 
-            //if the username the new person typed in matches a username that is already taken, a message box will show and say so
-            // preventing the user from moving onto the next form until they sign up properly first
-            foreach (string name in u.GetUsernames())
+
+            string query = "SELECT COUNT(*) FROM UsersTable " +
+                  "WHERE username = @username";
+            int count;
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                if (username == name)
+                connection.Open();
+
+                command.Parameters.AddWithValue("@username", username);
+                count = (int)command.ExecuteScalar();
+
+                if (count == 1)
                 {
-                    MessageBox.Show("This username is already taken.");
-                    return;
+                    MessageBox.Show("Sorry but this username is already taken. Please choose another username.");
                 }
+
+                else
+                {
+
+                    string queryTwo = "INSERT INTO UsersTable VALUES (@username, @password)";
+
+                    using (SqlCommand commandTwo = new SqlCommand(queryTwo, connection))
+                    {
+
+
+                        commandTwo.Parameters.AddWithValue("@username", username);
+                        commandTwo.Parameters.AddWithValue("@password", password);
+
+                        commandTwo.ExecuteScalar();
+
+                        u.NewUser(username, password);
+
+                        //This form closes and Mainform appears
+                        this.Hide();
+                        MainForm m = new MainForm(u);
+                        m.FormClosed += (s, args) => this.Close();
+                        m.Show();
+                    }
+
+                }
+
+
             }
 
-            //these two lists have an index for each lesson, 0 for now because no tests have been done
-            List<int> totalScores = new List<int>() {0,0,0 };
-            List<int> attempts = new List<int>() {0,0,0 };
-            
-            //this list is empty because no lessons have been done as they have only just signed up
-            List<int> completedLessons = new List<int>();
-
-            //Adds user to users list in UserManager
-            MessageBox.Show(u.AddUser(username, password, totalScores, attempts, completedLessons));
-
-            //This form closes and Mainform appears
-            this.Hide();
-            MainForm m = new MainForm(u);
-            m.FormClosed += (s, args) => this.Close();
-            m.Show();
         }
 
         //Finds user's account so they can log in and add to their progress
@@ -81,22 +109,39 @@ namespace LanguageApp
             string username = txtUserName.Text;
             string password = txtPassword.Text;
 
-            //Finds user based on what username and password they've typed in, and makes sure they match to any of the profiles
-            string message = u.FindUser(username, password);
-            
-            //If the username or password is incorrect, or the user has not signed up yet, a message box will show and say that it is invalid
-            //the program won't move on until they have either created a new account or they have corrected their mistake
-            if(message.Equals("Invalid username/password."))
-            {
-                MessageBox.Show(message);
-                return;
-            }
 
-            //This form closes and Mainform appears
-            this.Hide();
-            MainForm m = new MainForm(u);
-            m.FormClosed += (s, args) => this.Close();
-            m.Show();
+            string query = "SELECT COUNT(*) FROM UsersTable " +
+                           "WHERE password = @password AND username = @username";
+            int count;
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@username", username);
+                count = (int)command.ExecuteScalar();
+
+                if (count == 1)
+                {
+                    u.NewUser(username);
+
+                    //This form closes and Mainform appears
+                    this.Hide();
+                    MainForm m = new MainForm(u);
+                    m.FormClosed += (s, args) => this.Close();
+                    m.Show();
+
+                }
+                else
+                {
+
+                    MessageBox.Show("The username or password that you have entered is incorrect.");
+                }
+                connection.Close();
+
+            }
 
         }
 
@@ -107,12 +152,26 @@ namespace LanguageApp
 
         private void Login_Load(object sender, EventArgs e)
         {
+            
 
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
            
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(txtPassword.ForeColor == Color.Transparent)
+            {
+                txtPassword.ForeColor = Color.Black;
+            }
+            else
+            {
+                txtPassword.ForeColor = Color.Transparent;
+            }
             
         }
     }

@@ -23,8 +23,8 @@ namespace LanguageApp
 
         private void Test_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalPoints();
+           /* lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.CalcTotalPoints();*/
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
@@ -82,11 +82,11 @@ namespace LanguageApp
                     summary += $"{j + 1}. Incorrect. The correct answer is {testAns[j]}.\n";
                 }
             }
-            u.AddScoreToUser(score, MainForm.lesson);
+        /*    u.AddScoreToUser(score, MainForm.lesson);
 
             summary += $"\n\nScore: {score}/10\n" +
                 $"Average Score: {u.GetAvgScore(MainForm.lesson)}\n" +
-                $"Number of attempts: {u.GetAttemptsNumber(MainForm.lesson)}";
+                $"Number of attempts: {u.GetAttemptsNumber(MainForm.lesson)}";*/
 
 
 
