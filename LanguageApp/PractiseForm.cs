@@ -46,19 +46,7 @@ namespace LanguageApp
         {
             lblEnglisch.Text = "";
             lblDeutsch.Text = "";
-            foreach(string word in Info.englishWords)
-            {
-               
-                lblEnglisch.Text += $"\n{word}";
-            }
-            foreach (string word in Info.germanWords)
-            {
-                lblDeutsch.Text += $"\n{word}";
-            }
-
-            List<string> sentences = Info.sentences;
-            List<string> answers = Info.answers;
-
+          
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
             

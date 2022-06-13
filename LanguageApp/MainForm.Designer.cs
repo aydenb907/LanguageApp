@@ -85,7 +85,7 @@ namespace LanguageApp
             this.menuInfo.Name = "menuInfo";
             this.menuInfo.Size = new System.Drawing.Size(226, 40);
             this.menuInfo.Text = "What is This App About?";
-            this.menuInfo.Click += new System.EventHandler(this.menuInfo_Click);
+            
             // 
             // grammarTermsToolStripMenuItem
             // 
@@ -121,7 +121,7 @@ namespace LanguageApp
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(90, 40);
             this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+           
             // 
             // btn2
             // 

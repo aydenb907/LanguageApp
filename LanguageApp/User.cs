@@ -31,10 +31,7 @@ namespace LanguageApp
         {
             return username;
         }
-        public List<int> GetAttempts()
-        {
-            return attempts;
-        }
+       
 
         public void CompletedLessons()
         {
@@ -47,11 +44,7 @@ namespace LanguageApp
             return "";
         }
 
-        public override string ToString()
-        {
-            return userName + " " + password + " " + CalculateAvgScore();
-  
-        }
+   
 
 
     }
