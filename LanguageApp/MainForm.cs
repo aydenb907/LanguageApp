@@ -65,35 +65,28 @@ namespace LanguageApp
         
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //Checks which lessons have been done to change the colour of their buttons
+            List<int> lessons = u.GetLessons();
 
-
-            //Displays username and user's information
-            lblUsername.Text = u.GetUsername();
-           /* lblTotalScore.Text = u.CalcTotalPoints();
-            //Gets total points for user
-            int place = u.CompareTotalScores(lblUsername.Text);
-
-            //If their placing is 1, will display 'st' on the end, if it's 2, it will end in 'nd', etc
-            if (place == 1)
+            foreach (int l in lessons)
             {
-                lblPlace.Text = $"1st place";
+                if (l==1)
+                {
+                    btn1.BackColor = Color.LightGreen;
+                }
+                else if (l==2)
+                {
+                    btn2.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    btnBeginner.BackColor = Color.LightGreen;
+                }
             }
-            else if (place == 2)
-            {
-                lblPlace.Text = $"2nd place";
-            }
-            else if (place == 3)
-            {
-                lblPlace.Text = $"3rd place";
-            }
-            else
-            {
-                lblPlace.Text = $"{place}th place";
-            }*/
 
-
-
-
+        private void menuInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
         }
 
         //menu strip

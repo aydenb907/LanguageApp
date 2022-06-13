@@ -21,11 +21,10 @@ namespace LanguageApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = u.GetUsername();
-        /*    lblTotalScore.Text = u.CalcTotalPoints();*/
-
-            btn1.Text = Lesson.GetGermanWord(0);
-            btn2.Text = Lesson.GetGermanWord(1);
+            btn1.Text = germanWords[0];
+            btn2.Text = germanWords[1];
+            btn1.BackColor = Color.DarkTurquoise;
+            btn2.BackColor = Color.DarkTurquoise;
         }
 
         private void btn1_Click(object sender, EventArgs e)

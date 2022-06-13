@@ -106,73 +106,7 @@ namespace LanguageApp
         //Finds user's account so they can log in and add to their progress
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUserName.Text;
-            string password = txtPassword.Text;
-
-
-            string query = "SELECT COUNT(*) FROM UsersTable " +
-                           "WHERE password = @password AND username = @username";
-            int count;
-
-            using (connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-
-                command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@username", username);
-                count = (int)command.ExecuteScalar();
-
-                if (count == 1)
-                {
-                    u.NewUser(username);
-
-                    //This form closes and Mainform appears
-                    this.Hide();
-                    MainForm m = new MainForm(u);
-                    m.FormClosed += (s, args) => this.Close();
-                    m.Show();
-
-                }
-                else
-                {
-
-                    MessageBox.Show("The username or password that you have entered is incorrect.");
-                }
-                connection.Close();
-
-            }
-
-        }
-
-        private void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if(txtPassword.ForeColor == Color.Transparent)
-            {
-                txtPassword.ForeColor = Color.Black;
-            }
-            else
-            {
-                txtPassword.ForeColor = Color.Transparent;
-            }
-            
+  
         }
     }
 }

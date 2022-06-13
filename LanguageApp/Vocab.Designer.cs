@@ -97,7 +97,7 @@ namespace LanguageApp
             this.btnMemorise.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.btnMemorise.Location = new System.Drawing.Point(278, 395);
             this.btnMemorise.Name = "btnMemorise";
-            this.btnMemorise.Size = new System.Drawing.Size(257, 43);
+            this.btnMemorise.Size = new System.Drawing.Size(284, 58);
             this.btnMemorise.TabIndex = 4;
             this.btnMemorise.Text = "Memorise These";
             this.btnMemorise.UseVisualStyleBackColor = false;

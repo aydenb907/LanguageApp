@@ -31,13 +31,28 @@ namespace LanguageApp
         {
             return username;
         }
+        public List<int> GetAttempts()
+        {
+            return attempts;
+        }
 
         public void CompletedLessons()
         {
 
         }
 
-       
-        
+        // Returns message: Score, average score, number of attempts
+        public string Result()
+        {
+            return "";
+        }
+
+        public override string ToString()
+        {
+            return userName + " " + password + " " + CalculateAvgScore();
+  
+        }
+
+
     }
 }
