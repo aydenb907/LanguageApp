@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,18 +15,21 @@ namespace LanguageApp
     public partial class Test : Form
     {
         private List<string> testAns;
+        SqlConnection connection;
+        string connectionString;
 
         UserManager u = new UserManager();
         public Test(UserManager u)
         {
             this.u = u;
             InitializeComponent();
+            connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
         }
 
         private void Test_Load(object sender, EventArgs e)
         {
-           /* lblUsername.Text = u.GetUsername();
-            lblTotalScore.Text = u.CalcTotalPoints();*/
+            lblUsername.Text = u.GetUsername();
+       
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
@@ -37,8 +42,8 @@ namespace LanguageApp
                 indexes.Remove(indexes[random]);
             }
 
-            List<string> testQues = Lesson.GenTestQuestions(randomIndexes, MainForm.lesson);
-            testAns = Lesson.GenTestAnswers(randomIndexes);
+            List<string> testQues = Lesson.GenQuestions(randomIndexes, MainForm.lesson, "test");
+            testAns = Lesson.GenAnswers(randomIndexes, MainForm.lesson, "test");
 
             label1.Text = testQues[0];
             label2.Text = testQues[1];
@@ -72,7 +77,7 @@ namespace LanguageApp
             for (int j = 0; j < 10; j++)
             {
                 //Marks test questions and adds score
-                if (Lesson.MarkTestQues(j, userAnswers[j], testAns))
+                if (Lesson.MarkQuestions(j, userAnswers[j], testAns))
                 {
                     summary += $"{j + 1}. Correct. \n";
                     score++;
@@ -83,7 +88,23 @@ namespace LanguageApp
                 }
             }
 
+            
 
+            string query = "INSERT INTO TestTable VALUES (@LessonID, @UserID, @score)";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
+                command.Parameters.AddWithValue("@UserID", u.GetId());
+                command.Parameters.AddWithValue("@score", score);
+
+                command.ExecuteScalar();
+
+            }
+
+            summary += $"\nScore: {score} \nAverage Score: {u.GetAvgScore(MainForm.lesson)}";
 
             MessageBox.Show(summary);
 

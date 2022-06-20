@@ -42,6 +42,7 @@ namespace LanguageApp
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblPlace = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,13 +128,14 @@ namespace LanguageApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblPlace);
             this.groupBox1.Controls.Add(this.lblTotalPoints);
             this.groupBox1.Controls.Add(this.lblUsername);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(715, 33);
+            this.groupBox1.Location = new System.Drawing.Point(703, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(138, 93);
+            this.groupBox1.Size = new System.Drawing.Size(150, 106);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             // 
@@ -180,6 +182,15 @@ namespace LanguageApp
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
+            // lblPlace
+            // 
+            this.lblPlace.AutoSize = true;
+            this.lblPlace.Location = new System.Drawing.Point(20, 78);
+            this.lblPlace.Name = "lblPlace";
+            this.lblPlace.Size = new System.Drawing.Size(60, 24);
+            this.lblPlace.TabIndex = 10;
+            this.lblPlace.Text = "label1";
+            // 
             // LessonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,5 +232,6 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblPlace;
     }
 }

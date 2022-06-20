@@ -24,6 +24,15 @@ namespace LanguageApp
             InitializeComponent();
 
         }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            lblUsername.Text = u.GetUsername();
+            lblTotalScore.Text = u.DisplayTotalPoints();
+            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+
+        }
+
+
 
         //Lesson buttons
         //Same process for each lesson button
@@ -63,11 +72,13 @@ namespace LanguageApp
         }
 
 
-        private void MainForm_Load(object sender, EventArgs e)
+    
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Checks which lessons have been done to change the colour of their buttons
-
-
+            this.Hide();
+            Login i = new Login(u);
+            i.FormClosed += (s, args) => this.Close();
+            i.Show();
         }
     }
 }

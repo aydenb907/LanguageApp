@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,14 +12,17 @@ namespace LanguageApp
     public partial class PractiseForm : Form
     {
         UserManager u = new UserManager();
-        private static List<string> practiceAns;
+        private List<string> practiceAns;
         private static List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+ 
 
 
         public PractiseForm(UserManager u)
         {
             this.u = u;
+          
             InitializeComponent();
+
         }
 
         //Go to main form
@@ -44,16 +46,32 @@ namespace LanguageApp
         
         private void PractiseForm_Load(object sender, EventArgs e)
         {
-            lblEnglisch.Text = "";
-            lblDeutsch.Text = "";
-          
+            string list = "";
+
+            foreach (string englishWord in Lesson.GetEnglishWords(MainForm.lesson))
+            {
+                list += englishWord + "\n";
+            }
+
+            lblEnglisch.Text = list;
+            list = "";
+
+            foreach (string germanWord in Lesson.GetGermanWords(MainForm.lesson))
+            {
+                list += germanWord + "\n";
+            }
+
+            lblDeutsch.Text = list;
+
+
+            lblUsername.Text = u.GetUsername();
+            lblTotalPoints.Text = u.DisplayTotalPoints();
+            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-            
 
-            List<string> practiceQues = new List<string>();
-
-            if(indexes.Count == 0)
+            if (indexes.Count == 0)
             {
 
                 indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -66,11 +84,10 @@ namespace LanguageApp
                 randomIndexes.Add(indexes[random]);
                 indexes.Remove(indexes[random]);
             }
-        
+
             //random indexes used to put questions in random order, based on what kind of lesson it is (what number, whether it's completing sentences or a vocab lesson)
-            practiceQues = Lesson.GenPracQuestions(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
-            //random indexes used to put correct answers in the same random order
-            practiceAns = Lesson.GenPracAns(randomIndexes, LessonInfo.lessonType);
+            List<string> practiceQues = Lesson.GenQuestions(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
+            practiceAns = Lesson.GenAnswers(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
 
             //displays the first 5 of the random questions
             label1.Text = practiceQues[0];
@@ -79,21 +96,6 @@ namespace LanguageApp
             label4.Text = practiceQues[3];
             label5.Text = practiceQues[4];
 
-
-            //vocabulary lists are displayed if the lesson is practising questions, if it's a vocabulary lesson then the labels will be blank
-            if (LessonInfo.lessonType == 1)
-            {
-                lblEnglisch.Text = Lesson.GetEnglishWords(MainForm.lesson);
-                lblDeutsch.Text = Lesson.GetGermanWords();
-                lblEnglisch.ForeColor = Color.MediumSeaGreen;
-                lblDeutsch.ForeColor = Color.Crimson;
-            }
-            else
-            {
-                lblEnglisch.Text = "";
-                lblDeutsch.Text = "";
-
-            }
         }
 
         //Checks user's answer for first random question. Answers are checked individually. If the user is wrong then they can always correct what they typed in the textbox and click the check answer buttons again.
@@ -102,7 +104,7 @@ namespace LanguageApp
             string userAnswer = txtAnswer1.Text;
 
          //if the user's answer is the same as the correct answer, then a message box will show saying correct. If the user is wrong, the message box will say incorrect and will display what the correct answer instead.
-            if (Lesson.MarkPracQuestions(0, userAnswer, practiceAns))
+            if (Lesson.MarkQuestions(0, userAnswer, practiceAns))
             {
 
                 MessageBox.Show("Correct");
@@ -121,7 +123,7 @@ namespace LanguageApp
         private void btnCheck2_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer2.Text;
-            if (Lesson.MarkPracQuestions(1, userAnswer, practiceAns))
+            if (Lesson.MarkQuestions(1, userAnswer, practiceAns))
             {
 
                 MessageBox.Show("Correct");
@@ -137,7 +139,7 @@ namespace LanguageApp
         private void btnCheck3_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer3.Text;
-            if (Lesson.MarkPracQuestions(2, userAnswer, practiceAns))
+            if (Lesson.MarkQuestions(2, userAnswer, practiceAns))
             {
 
                 MessageBox.Show("Correct");
@@ -153,7 +155,7 @@ namespace LanguageApp
         private void btnCheck4_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer4.Text;
-            if (Lesson.MarkPracQuestions(3, userAnswer, practiceAns))
+            if (Lesson.MarkQuestions(3, userAnswer, practiceAns))
             {
 
                 MessageBox.Show("Correct");
@@ -169,7 +171,7 @@ namespace LanguageApp
         private void btnCheck5_Click(object sender, EventArgs e)
         {
             string userAnswer = txtAnswer5.Text;
-            if (Lesson.MarkPracQuestions(4, userAnswer, practiceAns))
+            if (Lesson.MarkQuestions(4, userAnswer, practiceAns))
             {
 
                 MessageBox.Show("Correct");

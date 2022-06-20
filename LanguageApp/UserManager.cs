@@ -21,9 +21,31 @@ namespace LanguageApp
 
     
 
-        public void NewUser(string n)
+        public void NewUser(int i, string n)
         {
-            users.Add(new User(n));
+            string message = "";
+            int index = 0;
+            int removeIndex = 0;
+            foreach(User user in users)
+            {
+                
+
+                if (n.Equals(user.GetName()))
+                {
+                    message = "Already added";
+                    removeIndex = index;
+                }
+
+                index++;
+
+            }
+
+            if(message.Equals("Already added"))
+            {
+                users.Remove(users[removeIndex]);
+            }
+            
+            users.Add(new User(i, n));
         }
 
         public string GetUsername()
@@ -31,72 +53,84 @@ namespace LanguageApp
             return users[users.Count - 1].GetName();
         }
 
+        public int GetId()
+        {
+            return users[users.Count - 1].GetId();
+        }
+
+        public float GetAvgScore(int lesson)
+        {
+            return users[users.Count - 1].AvgScore(lesson);
+        }
 
 
-       /* public string CalcTotalPoints()
-        {*/
-            /*int totalPoints = 0;
-            foreach (int lessonTotalScore in users[users.Count - 1].GetTotalScores())
+
+        public string DisplayTotalPoints()
+        {
+            return $"{users[users.Count - 1].TotalPoints()} points";
+
+        }
+
+        public string CompareTotalScores(string name)
+        {
+            string text = "";
+            if (users.Count == 0)
             {
-                totalPoints += lessonTotalScore;
-            }*/
-
-            /*            if (totalPoints == 1)
-                        {
-                            return $"{totalPoints} point";
-
-                        }
-                        else
-                        {
-                            return $"{totalPoints} points";
-                        }
-
-                    }*/
-
-            /*public int CompareTotalScores(string name)
-            {*/
-            /* for (int i = 0; i < users.Count - 1; i++)
-             {
-                 int a = i;
-
-                 int totalScore1 = 0;
-                 foreach (int lessonTotalScore in users[a].GetTotalScores())
-                 {
-                     totalScore1 += lessonTotalScore;
-                 }*/
-
-            /*                int b = i + 1;
-                            int totalScore2 = 0;
-                            foreach (int lessonTotalScore in users[b].GetTotalScores())
-                            {
-                                totalScore2 += lessonTotalScore;
-                            }
+                return text;
+            }
+            else
+            {
+                for (int i = 0; i < users.Count - 1; i++)
+                {
 
 
-                            if (totalScore2 > totalScore1)
-                            {
-                                User temp = users[a];
-                                users[a] = users[b];
-                                users[b] = temp;
-
-                            }
-                        }
-
-                        int placing = 0;
-                        int displayPlacing = 0;
-
-                        foreach (User user in users)
-                        {
-                            placing++;
-                            if (name.Equals(user.GetName()))
-                            {
-                                displayPlacing = placing;
-                            }
-                        }*/
+                    if (users[i + 1].TotalPoints() > users[i].TotalPoints())
+                    {
+                        User tempUser = users[i];
+                        users[i] = users[i + 1];
+                        users[i + 1] = tempUser;
+                    }
+                }
 
 
-            /* }*/
 
-        
+                int placing = 0;
+                int displayPlacing = 0;
+
+                foreach (User user in users)
+                {
+                    placing++;
+                    if (name.Equals(user.GetName()))
+                    {
+                        displayPlacing = placing;
+                    }
+                }
+
+
+                if (displayPlacing == 1)
+                {
+                    text = $"1st place";
+                }
+                else if (displayPlacing == 2)
+                {
+                    text = $"2nd place";
+                }
+                else if (displayPlacing == 3)
+                {
+                    text = $"3rd place";
+                }
+                else
+                {
+                    text = $"{displayPlacing}th place";
+                }
+
+                return text;
+            }
+
+
+
+        }
+
+
     }
 }

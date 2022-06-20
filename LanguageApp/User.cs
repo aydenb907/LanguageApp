@@ -14,15 +14,22 @@ namespace LanguageApp
 
        
         private string username;
-      
+        private int id;
+
+        SqlConnection connection;
+        string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
+
+
+
 
         // Object methods
 
         // Constructor
-        public User(string n)
+        public User(int i, string n)
         {
            
             username = n;
+            id = i;
            
         }
 
@@ -31,21 +38,89 @@ namespace LanguageApp
         {
             return username;
         }
-       
 
-        public void CompletedLessons()
+        public int GetId()
         {
-
+            return id;
         }
 
-        // Returns message: Score, average score, number of attempts
-        public string Result()
+        public float AvgScore(int lesson)
         {
-            return "";
+            float avgScore = 0;
+            int totalScore = 0;
+            int attempts = 0;
+
+            string query = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@UserID", id);
+                command.Parameters.AddWithValue("@LessonID", lesson);
+                totalScore = (int)command.ExecuteScalar();
+
+                string queryTwo = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+
+                using (SqlCommand commandTwo = new SqlCommand(queryTwo, connection))
+                {
+                    commandTwo.Parameters.AddWithValue("@UserID", id);
+                    commandTwo.Parameters.AddWithValue("@LessonID", lesson);
+
+                    attempts = (int)commandTwo.ExecuteScalar();
+                    return avgScore = totalScore / attempts;
+                }
+            }
+
+                
         }
 
-   
 
+        public int TotalPoints()
+        {
+
+
+            string queryy = "SELECT Count (*) FROM TestTable WHERE UserID = @UserID";
+            int count = 0;
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand commandd = new SqlCommand(queryy, connection))
+            {
+                connection.Open();
+
+                commandd.Parameters.AddWithValue("@UserID", id);
+                count = (int)commandd.ExecuteScalar();
+
+
+            }
+            connection.Close();
+
+            int totalPoints = 0;
+
+            if (count == 0)
+            {
+                return totalPoints;
+            }
+            else
+            {
+                string query = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+
+                    command.Parameters.AddWithValue("@UserID", id);
+
+                    totalPoints = (int)command.ExecuteScalar();
+                }
+
+
+                return totalPoints;
+            }
+          
+        }
 
     }
 }

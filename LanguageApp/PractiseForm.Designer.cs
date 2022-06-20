@@ -50,12 +50,13 @@ namespace LanguageApp
             this.btnMoreQuestions = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotalPoints = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.txtAnswer1 = new System.Windows.Forms.TextBox();
+            this.lblPlace = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -267,24 +268,24 @@ namespace LanguageApp
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.lblTotalPoints);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(125, 80);
+            this.groupBox2.Size = new System.Drawing.Size(125, 107);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
-            // label6
+            // lblTotalPoints
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label6.Location = new System.Drawing.Point(18, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 18);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "total score";
+            this.lblTotalPoints.AutoSize = true;
+            this.lblTotalPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotalPoints.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalPoints.Name = "lblTotalPoints";
+            this.lblTotalPoints.Size = new System.Drawing.Size(78, 18);
+            this.lblTotalPoints.TabIndex = 9;
+            this.lblTotalPoints.Text = "total score";
             // 
             // label7
             // 
@@ -336,12 +337,24 @@ namespace LanguageApp
             this.txtAnswer1.TabIndex = 26;
             this.txtAnswer1.TextChanged += new System.EventHandler(this.txtAnswer1_TextChanged_1);
             // 
+            // lblPlace
+            // 
+            this.lblPlace.AutoSize = true;
+            this.lblPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPlace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPlace.Location = new System.Drawing.Point(877, 105);
+            this.lblPlace.Name = "lblPlace";
+            this.lblPlace.Size = new System.Drawing.Size(54, 18);
+            this.lblPlace.TabIndex = 10;
+            this.lblPlace.Text = "placing";
+            // 
             // PractiseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(984, 367);
+            this.Controls.Add(this.lblPlace);
             this.Controls.Add(this.txtAnswer1);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
@@ -401,9 +414,10 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotalPoints;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.TextBox txtAnswer1;
+        private System.Windows.Forms.Label lblPlace;
     }
 }
