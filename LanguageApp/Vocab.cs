@@ -13,9 +13,8 @@ namespace LanguageApp
     public partial class Vocab : Form
     {
         UserManager u = new UserManager();
-        private List<string> germanWords;
-        private List<string> englishWords;
-        public Vocab(UserManager u )
+
+        public Vocab(UserManager u)
         {
             this.u = u;
             InitializeComponent();
@@ -23,39 +22,38 @@ namespace LanguageApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            germanWords = Lesson.GetGermanWords(MainForm.lesson);
-            englishWords = Lesson.GetEnglishWords(MainForm.lesson);
-            btn1.Text = germanWords[0];
-            btn2.Text = germanWords[1];
+         
+            btn1.Text = Lesson.GermanWord(0);
+            btn2.Text = Lesson.GermanWord(1);
             
         }
 
         private void btn1_Click(object sender, EventArgs e)
         {
 
-            if (btn1.Text.Equals(germanWords[0]))
+            if (btn1.Text.Equals(Lesson.GermanWord(0)))
             {
                 btn1.BackColor = Color.MediumSeaGreen;
-                btn1.Text = englishWords[0];
+                btn1.Text = Lesson.EnglishWord(0);
             }
             else
             {
                 btn1.BackColor = Color.DarkCyan;
-                btn1.Text = germanWords[0];
+                btn1.Text = Lesson.GermanWord(0);
             }
         }
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            if (btn2.Text.Equals(germanWords[1]))
+            if (btn2.Text.Equals(Lesson.GermanWord(1)))
             {
                 btn2.BackColor = Color.MediumSeaGreen;
-                btn2.Text = englishWords[1];
+                btn2.Text = Lesson.EnglishWord(1);
             }
             else
             {
                 btn2.BackColor = Color.DarkCyan;
-                btn2.Text = germanWords[1];
+                btn2.Text = Lesson.GermanWord(1);
             }
         }
 
@@ -79,7 +77,7 @@ namespace LanguageApp
         {
            
             this.Hide();
-            PractiseForm p = new PractiseForm(u);
+            PractiseForm p = new PractiseForm(u, "words");
             p.FormClosed += (s, args) => this.Close();
             p.Show();
         }

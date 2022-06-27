@@ -13,7 +13,7 @@ namespace LanguageApp
     public partial class LessonInfo : Form
     {
         UserManager u = new UserManager();
-        public static string lessonType;
+      
        
         public LessonInfo(UserManager u)
         {
@@ -44,22 +44,9 @@ namespace LanguageApp
             lblTotalPoints.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
 
-            string list = "";
-
-            foreach(string englishWord in Lesson.GetEnglishWords(MainForm.lesson))
-            {
-                list += englishWord + "\n";
-            }
-
-            lblEnglisch.Text = list;
-            list = "";
-
-            foreach (string germanWord in Lesson.GetGermanWords(MainForm.lesson))
-            {
-                list += germanWord + "\n";
-            }
-
-            lblDeutsch.Text = list;
+            lblEnglisch.Text = Lesson.EnglishWordsList();
+          
+            lblDeutsch.Text = Lesson.GermanWordsList();
 
             lblLesson.Text = Lesson.GetLessonText(MainForm.lesson);
 
@@ -67,7 +54,7 @@ namespace LanguageApp
 
         private void btnVocab_Click(object sender, EventArgs e)
         {
-            lessonType = "words";
+     
             this.Hide();
             Vocab v = new Vocab(u);
             v.FormClosed += (s, args) => this.Close();
@@ -76,9 +63,9 @@ namespace LanguageApp
 
         private void btnPractise_Click(object sender, EventArgs e)
         {
-            lessonType = "practice";
+           
             this.Hide();
-            PractiseForm p = new PractiseForm(u);
+            PractiseForm p = new PractiseForm(u, "practice");
             p.FormClosed += (s, args) => this.Close();
             p.Show();
 

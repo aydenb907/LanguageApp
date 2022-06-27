@@ -14,7 +14,7 @@ namespace LanguageApp
         private static SqlConnection connection;
         private static string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
 
-        public static List<string> GenQuestions(List<int> randomIndex, int lesson, string lessonType)
+        public static List<string> GenQuestions(List<int> randomIndexes, string lessonType)
         {
             List<string> questions = new List<string>();
 
@@ -26,7 +26,7 @@ namespace LanguageApp
             {
 
                 connection.Open();
-                command.Parameters.AddWithValue("@LessonID", lesson);
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", lessonType);
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -43,17 +43,38 @@ namespace LanguageApp
 
             List<string> selectedQues = new List<string>();
 
-            foreach (int index in randomIndex)
+
+            foreach (int index in randomIndexes)
             {
                 selectedQues.Add(questions[index]);
-
             }
-
 
             return selectedQues;
         }
 
-        public static List<string> GetGermanWords(int lesson)
+
+        public static int QuestionsNumber(string lessonType)
+        {
+            int count = 0;
+            string query = $"SELECT Count(*) FROM QuestionsTable WHERE LessonID = @LessonID AND type = @type";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+
+            {
+
+                connection.Open();
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
+                command.Parameters.AddWithValue("@type", lessonType);
+
+                 count = (int)command.ExecuteScalar();
+
+            }
+            connection.Close();
+            return count;
+        }
+
+        public static List<string> GetGermanWords()
         {
             List<string> germanWords = new List<string>();
 
@@ -65,7 +86,7 @@ namespace LanguageApp
             {
 
                 connection.Open();
-                command.Parameters.AddWithValue("@LessonID", lesson);
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", "words");
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -84,7 +105,23 @@ namespace LanguageApp
             return germanWords;
         }
 
-        public static List<string> GetEnglishWords(int lesson)
+        public static string GermanWordsList()
+        {
+            string list = "";
+            foreach (string germanWord in GetGermanWords())
+            {
+                list += germanWord + "\n";
+            }
+
+            return list;
+        }
+
+        public static string GermanWord(int index)
+        {
+            return GetGermanWords()[index];
+        }
+
+        public static List<string> GetEnglishWords()
         {
             List<string> englishWords = new List<string>();
 
@@ -96,7 +133,7 @@ namespace LanguageApp
             {
 
                 connection.Open();
-                command.Parameters.AddWithValue("@LessonID", lesson);
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", "words");
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -114,8 +151,23 @@ namespace LanguageApp
 
             return englishWords;
         }
+        public static string EnglishWordsList()
+        {
+            string list = "";
+            foreach (string englishWord in GetEnglishWords())
+            {
+                list += englishWord + "\n";
+            }
 
-        public static List<string> GenAnswers(List<int> randomIndex, int lesson, string type)
+            return list;
+        }
+
+        public static string EnglishWord(int index)
+        {
+            return GetEnglishWords()[index];
+        }
+
+        public static List<string> GenAnswers(List<int> randomIndex, string type)
         {
             List<string> answers = new List<string>();
 
@@ -127,7 +179,7 @@ namespace LanguageApp
             {
 
                 connection.Open();
-                command.Parameters.AddWithValue("@LessonID", lesson);
+                command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", type);
 
                 SqlDataReader reader = command.ExecuteReader();

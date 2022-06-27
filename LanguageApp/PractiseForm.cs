@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,17 +15,16 @@ namespace LanguageApp
     {
         UserManager u = new UserManager();
         private List<string> practiceAns;
-        private static List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
- 
+        private static List<int> indexes = new List<int>();
+        private string type;
 
-
-        public PractiseForm(UserManager u)
+        public PractiseForm(UserManager u, string lessonType)
         {
             this.u = u;
-          
+            type = lessonType;
             InitializeComponent();
-
-        }
+           
+    }
 
         //Go to main form
         private void btnHome_Click(object sender, EventArgs e)
@@ -46,35 +47,37 @@ namespace LanguageApp
         
         private void PractiseForm_Load(object sender, EventArgs e)
         {
-            string list = "";
-
-            foreach (string englishWord in Lesson.GetEnglishWords(MainForm.lesson))
+           
+            if (type.Equals("practice"))
             {
-                list += englishWord + "\n";
+                lblEnglisch.Text = Lesson.EnglishWordsList();
+
+                lblDeutsch.Text = Lesson.GermanWordsList();
             }
-
-            lblEnglisch.Text = list;
-            list = "";
-
-            foreach (string germanWord in Lesson.GetGermanWords(MainForm.lesson))
+            else
             {
-                list += germanWord + "\n";
+                lblEnglisch.Text = "";
+                lblDeutsch.Text = "";
             }
-
-            lblDeutsch.Text = list;
-
-
+       
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-
-            if (indexes.Count == 0)
+         
+            if (indexes.Count <5)
             {
 
-                indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+                for (int n = 0; n < Lesson.QuestionsNumber(type); n++)
+                {
+                   
+                   indexes.Add(n);
+                      
+                }
+                    
 
             }
             //Randomly assorts indexes in list 
@@ -86,8 +89,8 @@ namespace LanguageApp
             }
 
             //random indexes used to put questions in random order, based on what kind of lesson it is (what number, whether it's completing sentences or a vocab lesson)
-            List<string> practiceQues = Lesson.GenQuestions(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
-            practiceAns = Lesson.GenAnswers(randomIndexes, MainForm.lesson, LessonInfo.lessonType);
+            List<string> practiceQues = Lesson.GenQuestions(randomIndexes, type);
+            practiceAns = Lesson.GenAnswers(randomIndexes, type);
 
             //displays the first 5 of the random questions
             label1.Text = practiceQues[0];
@@ -186,7 +189,7 @@ namespace LanguageApp
         private void btnMoreQuestions_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PractiseForm p = new PractiseForm(u);
+            PractiseForm p = new PractiseForm(u, type);
             p.FormClosed += (s, args) => this.Close();
             p.Show();
 

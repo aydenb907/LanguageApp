@@ -50,7 +50,8 @@ namespace LanguageApp
             int totalScore = 0;
             int attempts = 0;
 
-            string query = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+            string query = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+            
 
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -59,18 +60,27 @@ namespace LanguageApp
 
                 command.Parameters.AddWithValue("@UserID", id);
                 command.Parameters.AddWithValue("@LessonID", lesson);
-                totalScore = (int)command.ExecuteScalar();
+                attempts = (int)command.ExecuteScalar();
 
-                string queryTwo = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
-
-                using (SqlCommand commandTwo = new SqlCommand(queryTwo, connection))
+                if(attempts == 0)
                 {
-                    commandTwo.Parameters.AddWithValue("@UserID", id);
-                    commandTwo.Parameters.AddWithValue("@LessonID", lesson);
-
-                    attempts = (int)commandTwo.ExecuteScalar();
-                    return avgScore = totalScore / attempts;
+                    return avgScore;
                 }
+                else
+                {
+                    string queryTwo = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+
+                    using (SqlCommand commandTwo = new SqlCommand(queryTwo, connection))
+                    {
+                        commandTwo.Parameters.AddWithValue("@UserID", id);
+                        commandTwo.Parameters.AddWithValue("@LessonID", lesson);
+
+                        totalScore = (int)commandTwo.ExecuteScalar();
+                        return avgScore = totalScore / attempts;
+                    }
+                }
+
+               
             }
 
                 

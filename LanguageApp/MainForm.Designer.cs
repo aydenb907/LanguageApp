@@ -38,23 +38,27 @@ namespace LanguageApp
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
-            this.btnBeginner = new System.Windows.Forms.Button();
-            this.btn5 = new System.Windows.Forms.Button();
-            this.btn4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPlace = new System.Windows.Forms.Label();
             this.lblTotalScore = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btn4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn1
             // 
-            this.btn1.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn1.BackColor = System.Drawing.Color.MintCream;
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn1.Location = new System.Drawing.Point(210, 127);
+            this.btn1.Location = new System.Drawing.Point(45, 127);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(122, 53);
             this.btn1.TabIndex = 0;
@@ -124,9 +128,9 @@ namespace LanguageApp
             // 
             // btn2
             // 
-            this.btn2.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn2.BackColor = System.Drawing.Color.MintCream;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2.Location = new System.Drawing.Point(391, 127);
+            this.btn2.Location = new System.Drawing.Point(197, 127);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(122, 53);
             this.btn2.TabIndex = 2;
@@ -136,47 +140,15 @@ namespace LanguageApp
             // 
             // btn3
             // 
-            this.btn3.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn3.BackColor = System.Drawing.Color.MintCream;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn3.Location = new System.Drawing.Point(569, 127);
+            this.btn3.Location = new System.Drawing.Point(357, 127);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(134, 53);
             this.btn3.TabIndex = 3;
-            this.btn3.Text = "3";
+            this.btn3.Text = "Lesson 3:";
             this.btn3.UseVisualStyleBackColor = false;
-            // 
-            // btnBeginner
-            // 
-            this.btnBeginner.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnBeginner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeginner.ForeColor = System.Drawing.Color.Black;
-            this.btnBeginner.Location = new System.Drawing.Point(40, 127);
-            this.btnBeginner.Name = "btnBeginner";
-            this.btnBeginner.Size = new System.Drawing.Size(122, 53);
-            this.btnBeginner.TabIndex = 4;
-            this.btnBeginner.Text = "Absolute Beginner";
-            this.btnBeginner.UseVisualStyleBackColor = false;
-            this.btnBeginner.Click += new System.EventHandler(this.btnBeginner_Click);
-            // 
-            // btn5
-            // 
-            this.btn5.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn5.Location = new System.Drawing.Point(210, 211);
-            this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(122, 36);
-            this.btn5.TabIndex = 5;
-            this.btn5.Text = "5";
-            this.btn5.UseVisualStyleBackColor = false;
-            // 
-            // btn4
-            // 
-            this.btn4.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn4.Location = new System.Drawing.Point(40, 211);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(122, 36);
-            this.btn4.TabIndex = 6;
-            this.btn4.Text = "4";
-            this.btn4.UseVisualStyleBackColor = false;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // groupBox1
             // 
@@ -235,17 +207,94 @@ namespace LanguageApp
             this.label3.TabIndex = 10;
             this.label3.Text = "German App";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.Location = new System.Drawing.Point(12, 367);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 32);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Delete Account";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkCyan;
+            this.button2.Location = new System.Drawing.Point(745, 236);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(188, 36);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.button3.Location = new System.Drawing.Point(745, 300);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(188, 36);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Brown;
+            this.button4.Location = new System.Drawing.Point(745, 330);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(188, 36);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.SeaGreen;
+            this.button5.Location = new System.Drawing.Point(745, 268);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(188, 36);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.MintCream;
+            this.button6.Location = new System.Drawing.Point(745, 363);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(188, 36);
+            this.button6.TabIndex = 16;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // btn4
+            // 
+            this.btn4.BackColor = System.Drawing.Color.MintCream;
+            this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4.Location = new System.Drawing.Point(512, 127);
+            this.btn4.Name = "btn4";
+            this.btn4.Size = new System.Drawing.Size(134, 53);
+            this.btn4.TabIndex = 17;
+            this.btn4.Text = "Lesson 4:";
+            this.btn4.UseVisualStyleBackColor = false;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(945, 378);
+            this.ClientSize = new System.Drawing.Size(945, 411);
+            this.Controls.Add(this.btn4);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn4);
-            this.Controls.Add(this.btn5);
-            this.Controls.Add(this.btnBeginner);
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
@@ -273,15 +322,19 @@ namespace LanguageApp
         private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn3;
-        private System.Windows.Forms.Button btnBeginner;
-        private System.Windows.Forms.Button btn5;
-        private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalScore;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPlace;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btn4;
     }
 }
 

@@ -18,6 +18,8 @@ namespace LanguageApp
         SqlConnection connection;
         string connectionString;
 
+        private static List<int> indexes = new List<int>();
+
         UserManager u = new UserManager();
         public Test(UserManager u)
         {
@@ -33,7 +35,17 @@ namespace LanguageApp
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-            List<int> indexes = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            if (indexes.Count < 10)
+            {
+
+                indexes = new List<int>();
+                for (int n = 0; n < Lesson.QuestionsNumber("test"); n++)
+                {
+                    indexes.Add(n);
+                }
+
+            }
 
             for (int j = 0; j < 10; j++)
             {
@@ -42,8 +54,8 @@ namespace LanguageApp
                 indexes.Remove(indexes[random]);
             }
 
-            List<string> testQues = Lesson.GenQuestions(randomIndexes, MainForm.lesson, "test");
-            testAns = Lesson.GenAnswers(randomIndexes, MainForm.lesson, "test");
+            List<string> testQues = Lesson.GenQuestions(randomIndexes, "test");
+            testAns = Lesson.GenAnswers(randomIndexes, "test");
 
             label1.Text = testQues[0];
             label2.Text = testQues[1];

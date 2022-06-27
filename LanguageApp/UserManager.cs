@@ -63,6 +63,10 @@ namespace LanguageApp
             return users[users.Count - 1].AvgScore(lesson);
         }
 
+        public void DeleteUser()
+        {
+            users.Remove(users[users.Count-1]);
+        }
 
 
         public string DisplayTotalPoints()
