@@ -49,6 +49,7 @@ namespace LanguageApp
             // btn1
             // 
             this.btn1.BackColor = System.Drawing.Color.DarkCyan;
+            this.btn1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn1.Location = new System.Drawing.Point(30, 48);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(161, 64);
@@ -60,6 +61,7 @@ namespace LanguageApp
             // btn2
             // 
             this.btn2.BackColor = System.Drawing.Color.DarkCyan;
+            this.btn2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2.Location = new System.Drawing.Point(225, 48);
             this.btn2.Name = "btn2";
@@ -72,6 +74,7 @@ namespace LanguageApp
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Location = new System.Drawing.Point(0, -2);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(92, 28);
@@ -83,6 +86,7 @@ namespace LanguageApp
             // btnLesson
             // 
             this.btnLesson.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLesson.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLesson.Location = new System.Drawing.Point(107, -2);
             this.btnLesson.Name = "btnLesson";
             this.btnLesson.Size = new System.Drawing.Size(145, 28);
@@ -94,6 +98,7 @@ namespace LanguageApp
             // btnMemorise
             // 
             this.btnMemorise.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMemorise.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMemorise.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.btnMemorise.Location = new System.Drawing.Point(278, 395);
             this.btnMemorise.Name = "btnMemorise";
@@ -138,6 +143,7 @@ namespace LanguageApp
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.DarkRed;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.Location = new System.Drawing.Point(692, -1);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(125, 27);

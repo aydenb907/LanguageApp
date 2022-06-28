@@ -50,6 +50,7 @@ namespace LanguageApp
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@ namespace LanguageApp
             // btn1
             // 
             this.btn1.BackColor = System.Drawing.Color.MintCream;
+            this.btn1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1.Location = new System.Drawing.Point(45, 127);
             this.btn1.Name = "btn1";
@@ -129,6 +131,7 @@ namespace LanguageApp
             // btn2
             // 
             this.btn2.BackColor = System.Drawing.Color.MintCream;
+            this.btn2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2.Location = new System.Drawing.Point(197, 127);
             this.btn2.Name = "btn2";
@@ -141,6 +144,7 @@ namespace LanguageApp
             // btn3
             // 
             this.btn3.BackColor = System.Drawing.Color.MintCream;
+            this.btn3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn3.Location = new System.Drawing.Point(357, 127);
             this.btn3.Name = "btn3";
@@ -210,6 +214,7 @@ namespace LanguageApp
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(12, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 32);
@@ -225,7 +230,7 @@ namespace LanguageApp
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 36);
             this.button2.TabIndex = 12;
-            this.button2.Text = "button2";
+            this.button2.Text = "Outstanding";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
@@ -235,7 +240,7 @@ namespace LanguageApp
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(188, 36);
             this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
+            this.button3.Text = "Needs more practice";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
@@ -245,7 +250,7 @@ namespace LanguageApp
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 36);
             this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
+            this.button4.Text = "Read through the lesson again";
             this.button4.UseVisualStyleBackColor = false;
             // 
             // button5
@@ -255,22 +260,23 @@ namespace LanguageApp
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(188, 36);
             this.button5.TabIndex = 15;
-            this.button5.Text = "button5";
+            this.button5.Text = "Good enough";
             this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.MintCream;
-            this.button6.Location = new System.Drawing.Point(745, 363);
+            this.button6.Location = new System.Drawing.Point(745, 365);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(188, 36);
             this.button6.TabIndex = 16;
-            this.button6.Text = "button6";
+            this.button6.Text = "Test not attempted/ Not  completed";
             this.button6.UseVisualStyleBackColor = false;
             // 
             // btn4
             // 
             this.btn4.BackColor = System.Drawing.Color.MintCream;
+            this.btn4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn4.Location = new System.Drawing.Point(512, 127);
             this.btn4.Name = "btn4";
@@ -280,12 +286,24 @@ namespace LanguageApp
             this.btn4.UseVisualStyleBackColor = false;
             this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(765, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 24);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Lesson Progress";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(945, 411);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -299,6 +317,7 @@ namespace LanguageApp
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.menuStrip1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Home";
@@ -335,6 +354,7 @@ namespace LanguageApp
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn4;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -38,11 +38,12 @@ namespace LanguageApp
             this.btnGrammarTest = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPlace = new System.Windows.Forms.Label();
             this.lblTotalPoints = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblPlace = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +51,7 @@ namespace LanguageApp
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.Location = new System.Drawing.Point(-1, -2);
             this.btnHome.Name = "btnHome";
@@ -74,6 +76,7 @@ namespace LanguageApp
             // btnPractise
             // 
             this.btnPractise.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnPractise.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPractise.Location = new System.Drawing.Point(305, 465);
             this.btnPractise.Name = "btnPractise";
             this.btnPractise.Size = new System.Drawing.Size(242, 39);
@@ -85,6 +88,7 @@ namespace LanguageApp
             // btnVocab
             // 
             this.btnVocab.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnVocab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVocab.Location = new System.Drawing.Point(12, 465);
             this.btnVocab.Name = "btnVocab";
             this.btnVocab.Size = new System.Drawing.Size(242, 39);
@@ -118,6 +122,7 @@ namespace LanguageApp
             // btnGrammarTest
             // 
             this.btnGrammarTest.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnGrammarTest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGrammarTest.Location = new System.Drawing.Point(602, 465);
             this.btnGrammarTest.Name = "btnGrammarTest";
             this.btnGrammarTest.Size = new System.Drawing.Size(242, 39);
@@ -138,6 +143,15 @@ namespace LanguageApp
             this.groupBox1.Size = new System.Drawing.Size(150, 106);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
+            // 
+            // lblPlace
+            // 
+            this.lblPlace.AutoSize = true;
+            this.lblPlace.Location = new System.Drawing.Point(20, 78);
+            this.lblPlace.Name = "lblPlace";
+            this.lblPlace.Size = new System.Drawing.Size(60, 24);
+            this.lblPlace.TabIndex = 10;
+            this.lblPlace.Text = "label1";
             // 
             // lblTotalPoints
             // 
@@ -162,6 +176,7 @@ namespace LanguageApp
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.DarkRed;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(715, 0);
             this.btnLogOut.Name = "btnLogOut";
@@ -182,14 +197,16 @@ namespace LanguageApp
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // lblPlace
+            // lblScore
             // 
-            this.lblPlace.AutoSize = true;
-            this.lblPlace.Location = new System.Drawing.Point(20, 78);
-            this.lblPlace.Name = "lblPlace";
-            this.lblPlace.Size = new System.Drawing.Size(60, 24);
-            this.lblPlace.TabIndex = 10;
-            this.lblPlace.Text = "label1";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(156, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(262, 24);
+            this.lblScore.TabIndex = 26;
+            this.lblScore.Text = "Average score for this lesson: ";
             // 
             // LessonInfo
             // 
@@ -197,6 +214,7 @@ namespace LanguageApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(852, 516);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
@@ -233,5 +251,6 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblPlace;
+        private System.Windows.Forms.Label lblScore;
     }
 }

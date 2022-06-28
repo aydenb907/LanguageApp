@@ -50,6 +50,8 @@ namespace LanguageApp
 
             lblLesson.Text = Lesson.GetLessonText(MainForm.lesson);
 
+            lblScore.Text += $"{u.GetAvgScore(MainForm.lesson)}%";
+
         }
 
         private void btnVocab_Click(object sender, EventArgs e)

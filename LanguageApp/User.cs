@@ -76,7 +76,7 @@ namespace LanguageApp
                         commandTwo.Parameters.AddWithValue("@LessonID", lesson);
 
                         totalScore = (int)commandTwo.ExecuteScalar();
-                        return avgScore = totalScore / attempts;
+                        return avgScore = (totalScore / attempts)*10;
                     }
                 }
 

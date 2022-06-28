@@ -41,15 +41,15 @@ namespace LanguageApp
         private Color ButtonColour(float a)
         {
            
-            if (a>9)
+            if (a>90)
             {
                 return Color.DarkCyan;
             }
-            else if (a>7)
+            else if (a>70)
             {
                 return Color.SeaGreen;
             }
-            else if(a>5)
+            else if(a>50)
             {
                 return Color.DarkGoldenrod;
             }
@@ -66,9 +66,7 @@ namespace LanguageApp
 
 
 
-        //Lesson buttons
-        //Same process for each lesson button
-        
+        //Lesson buttons 
         //Same for every lesson button
         private void btn1_Click(object sender, EventArgs e)
         {

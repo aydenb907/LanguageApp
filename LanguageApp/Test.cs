@@ -116,7 +116,7 @@ namespace LanguageApp
 
             }
 
-            summary += $"\nScore: {score} \nAverage Score: {u.GetAvgScore(MainForm.lesson)}";
+            summary += $"\nScore: {score} \nAverage Score: {u.GetAvgScore(MainForm.lesson)}%";
 
             MessageBox.Show(summary);
 

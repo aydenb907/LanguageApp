@@ -239,6 +239,7 @@ namespace LanguageApp
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSubmit.Location = new System.Drawing.Point(184, 637);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(291, 44);
@@ -250,6 +251,7 @@ namespace LanguageApp
             // btnLesson
             // 
             this.btnLesson.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLesson.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLesson.Location = new System.Drawing.Point(107, -4);
             this.btnLesson.Name = "btnLesson";
             this.btnLesson.Size = new System.Drawing.Size(145, 23);
@@ -261,6 +263,7 @@ namespace LanguageApp
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Location = new System.Drawing.Point(-3, -4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(92, 23);
@@ -306,6 +309,7 @@ namespace LanguageApp
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.DarkRed;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.Location = new System.Drawing.Point(480, -2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(125, 27);

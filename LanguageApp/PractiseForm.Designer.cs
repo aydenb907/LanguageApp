@@ -64,6 +64,7 @@ namespace LanguageApp
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(92, 23);
@@ -75,6 +76,7 @@ namespace LanguageApp
             // btnLesson
             // 
             this.btnLesson.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnLesson.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLesson.Location = new System.Drawing.Point(113, 0);
             this.btnLesson.Name = "btnLesson";
             this.btnLesson.Size = new System.Drawing.Size(145, 23);
@@ -138,6 +140,7 @@ namespace LanguageApp
             // btnCheck1
             // 
             this.btnCheck1.BackColor = System.Drawing.Color.Teal;
+            this.btnCheck1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheck1.Location = new System.Drawing.Point(414, 60);
             this.btnCheck1.Name = "btnCheck1";
             this.btnCheck1.Size = new System.Drawing.Size(132, 29);
@@ -181,6 +184,7 @@ namespace LanguageApp
             // btnCheck4
             // 
             this.btnCheck4.BackColor = System.Drawing.Color.Teal;
+            this.btnCheck4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheck4.Location = new System.Drawing.Point(414, 184);
             this.btnCheck4.Name = "btnCheck4";
             this.btnCheck4.Size = new System.Drawing.Size(132, 29);
@@ -192,6 +196,7 @@ namespace LanguageApp
             // btnCheck5
             // 
             this.btnCheck5.BackColor = System.Drawing.Color.Teal;
+            this.btnCheck5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheck5.Location = new System.Drawing.Point(414, 230);
             this.btnCheck5.Name = "btnCheck5";
             this.btnCheck5.Size = new System.Drawing.Size(132, 29);
@@ -203,6 +208,7 @@ namespace LanguageApp
             // btnCheck3
             // 
             this.btnCheck3.BackColor = System.Drawing.Color.Teal;
+            this.btnCheck3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheck3.Location = new System.Drawing.Point(414, 141);
             this.btnCheck3.Name = "btnCheck3";
             this.btnCheck3.Size = new System.Drawing.Size(132, 29);
@@ -214,6 +220,7 @@ namespace LanguageApp
             // btnCheck2
             // 
             this.btnCheck2.BackColor = System.Drawing.Color.Teal;
+            this.btnCheck2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheck2.Location = new System.Drawing.Point(414, 102);
             this.btnCheck2.Name = "btnCheck2";
             this.btnCheck2.Size = new System.Drawing.Size(132, 29);
@@ -247,6 +254,7 @@ namespace LanguageApp
             // btnMoreQuestions
             // 
             this.btnMoreQuestions.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnMoreQuestions.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMoreQuestions.Location = new System.Drawing.Point(274, 316);
             this.btnMoreQuestions.Name = "btnMoreQuestions";
             this.btnMoreQuestions.Size = new System.Drawing.Size(224, 39);
@@ -320,6 +328,7 @@ namespace LanguageApp
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Maroon;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.Location = new System.Drawing.Point(859, 0);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(125, 27);
