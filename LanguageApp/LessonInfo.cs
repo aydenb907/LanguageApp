@@ -42,7 +42,6 @@ namespace LanguageApp
             //Displays username, total points, vocabulary lists and lesson text when form loads
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
-            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
 
             lblEnglisch.Text = Lesson.EnglishWordsList();
           
@@ -51,6 +50,8 @@ namespace LanguageApp
             lblLesson.Text = Lesson.GetLessonText(MainForm.lesson);
 
             lblScore.Text += $"{u.GetAvgScore(MainForm.lesson)}%";
+
+            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
 
         }
 
@@ -82,6 +83,7 @@ namespace LanguageApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+      
             this.Hide();
             Login l = new Login(u);
             l.FormClosed += (s, args) => this.Close();

@@ -114,6 +114,7 @@ namespace LanguageApp
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+         
             this.Hide();
             Login i = new Login(u);
             i.FormClosed += (s, args) => this.Close();

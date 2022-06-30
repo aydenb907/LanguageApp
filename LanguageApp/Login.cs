@@ -175,5 +175,10 @@ namespace LanguageApp
                 button1.Text = "Show password";
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

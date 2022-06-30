@@ -60,7 +60,7 @@ namespace LanguageApp
 
         public float GetAvgScore(int lesson)
         {
-            return users[users.Count - 1].AvgScore(lesson);
+            return users[users.Count-1].AvgScore(lesson);
         }
 
         public void DeleteUser()
@@ -71,70 +71,71 @@ namespace LanguageApp
 
         public string DisplayTotalPoints()
         {
-            return $"{users[users.Count - 1].TotalPoints()} points";
+            if(users[users.Count - 1].TotalPoints() == 1)
+            {
+                return $"{users[users.Count - 1].TotalPoints()} point";
+            }
+            else
+            {
+                return $"{users[users.Count - 1].TotalPoints()} points";
+            }
+            
 
         }
 
         public string CompareTotalScores(string name)
         {
-            string text = "";
-            if (users.Count == 0)
+
+            List<int> totalPoints = new List<int>();
+
+            foreach(User user in users)
             {
-                return text;
+                totalPoints.Add(user.TotalPoints());
+            }
+
+            totalPoints.Sort();
+            totalPoints.Reverse();
+
+            int placing = 0;
+
+            foreach(User user in users)
+            {
+                if(user.GetName() == name)
+                {
+                    for (int n = 0; n < totalPoints.Count; n++)
+                    {
+                        if(totalPoints[n] == user.TotalPoints())
+                        {
+                            placing = n + 1;
+                        }
+                    }
+                }
+            }
+
+            string text = "";
+            if (placing == 1)
+            {
+                text = $"1st place";
+            }
+            else if (placing == 2)
+            {
+                text = $"2nd place";
+            }
+            else if (placing == 3)
+            {
+                text = $"3rd place";
             }
             else
             {
-                for (int i = 0; i < users.Count - 1; i++)
-                {
-
-
-                    if (users[i + 1].TotalPoints() > users[i].TotalPoints())
-                    {
-                        User tempUser = users[i];
-                        users[i] = users[i + 1];
-                        users[i + 1] = tempUser;
-                    }
-                }
-
-
-
-                int placing = 0;
-                int displayPlacing = 0;
-
-                foreach (User user in users)
-                {
-                    placing++;
-                    if (name.Equals(user.GetName()))
-                    {
-                        displayPlacing = placing;
-                    }
-                }
-
-
-                if (displayPlacing == 1)
-                {
-                    text = $"1st place";
-                }
-                else if (displayPlacing == 2)
-                {
-                    text = $"2nd place";
-                }
-                else if (displayPlacing == 3)
-                {
-                    text = $"3rd place";
-                }
-                else
-                {
-                    text = $"{displayPlacing}th place";
-                }
-
-                return text;
+                text = $"{placing}th place";
             }
 
 
+            return text;
+
 
         }
-
+       
 
     }
 }

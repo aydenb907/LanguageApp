@@ -144,6 +144,7 @@ namespace LanguageApp
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+     
             this.Hide();
             Login l = new Login(u);
             l.FormClosed += (s, args) => this.Close();
