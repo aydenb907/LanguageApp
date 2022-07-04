@@ -51,7 +51,7 @@ namespace LanguageApp
 
             lblScore.Text += $"{u.GetAvgScore(MainForm.lesson)}%";
 
-            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
 
         }
 

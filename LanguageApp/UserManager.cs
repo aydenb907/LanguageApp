@@ -84,17 +84,8 @@ namespace LanguageApp
 
         public string SortUsers()
         {
-            List<int> totalPoints = new List<int>();
-
-            foreach (User user in users)
-            {
-                totalPoints.Add(user.TotalPoints());
-            }
-
+            List<int> totalPoints = TotalPointsEachUser();
             List<string> names = new List<string>();
-
-            totalPoints.Sort();
-            totalPoints.Reverse();
 
             for (int n = 0; n < totalPoints.Count; n++)
             {
@@ -116,26 +107,40 @@ namespace LanguageApp
             foreach (string name in names)
             {
                 placing++;
+                if(totalPoints[placing - 1] == 1)
+                {
+                    list += $"{placing}. {name} | {totalPoints[placing - 1]} point\n";
+                }
+                else
+                {
+                    list += $"{placing}. {name} | {totalPoints[placing - 1]} points\n";
+                }
 
-                list += $"{placing}. {name}\n";
+               
             }
 
             return list;
 
         }
 
-        public string CompareTotalScores(string name)
+        public List<int> TotalPointsEachUser()
         {
-
             List<int> totalPoints = new List<int>();
 
-            foreach(User user in users)
+            foreach (User user in users)
             {
                 totalPoints.Add(user.TotalPoints());
             }
 
             totalPoints.Sort();
             totalPoints.Reverse();
+            return totalPoints;
+        }
+
+        public string CalculatePlacingForUser(string name)
+        {
+
+            List<int> totalPoints = TotalPointsEachUser();
 
             int placing = 0;
 

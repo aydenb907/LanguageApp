@@ -63,7 +63,7 @@ namespace LanguageApp
        
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
-            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();

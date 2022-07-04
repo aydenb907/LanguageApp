@@ -28,7 +28,7 @@ namespace LanguageApp
         {
             lblUsername.Text = u.GetUsername();
             lblTotalScore.Text = u.DisplayTotalPoints();
-            lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
             lblUsers.Text = u.SortUsers();
 
 
