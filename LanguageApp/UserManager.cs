@@ -19,8 +19,7 @@ namespace LanguageApp
 
         }
 
-    
-
+        //Adds users to users list when they successfully sign up. If the user has already signed up and is logging in, user is removed from users list and added again, to make sure they're in the last index for the other methods.
         public void NewUser(int i, string n)
         {
             string message = "";
@@ -83,6 +82,48 @@ namespace LanguageApp
 
         }
 
+        public string SortUsers()
+        {
+            List<int> totalPoints = new List<int>();
+
+            foreach (User user in users)
+            {
+                totalPoints.Add(user.TotalPoints());
+            }
+
+            List<string> names = new List<string>();
+
+            totalPoints.Sort();
+            totalPoints.Reverse();
+
+            for (int n = 0; n < totalPoints.Count; n++)
+            {
+                foreach(User user in users)
+                {
+                    if (totalPoints[n] == user.TotalPoints())
+                    {
+                        names.Add(user.GetName());
+                    }
+                   
+                }
+              
+            }
+            
+
+            string list = "";
+            int placing = 0;
+
+            foreach (string name in names)
+            {
+                placing++;
+
+                list += $"{placing}. {name}\n";
+            }
+
+            return list;
+
+        }
+
         public string CompareTotalScores(string name)
         {
 
@@ -113,6 +154,7 @@ namespace LanguageApp
             }
 
             string text = "";
+           
             if (placing == 1)
             {
                 text = $"1st place";
@@ -132,10 +174,8 @@ namespace LanguageApp
 
 
             return text;
-
-
         }
-       
+
 
     }
 }

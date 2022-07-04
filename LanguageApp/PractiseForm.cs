@@ -47,6 +47,7 @@ namespace LanguageApp
         
         private void PractiseForm_Load(object sender, EventArgs e)
         {
+       
            
             if (type.Equals("practice"))
             {

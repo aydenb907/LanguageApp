@@ -29,6 +29,9 @@ namespace LanguageApp
             lblUsername.Text = u.GetUsername();
             lblTotalScore.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CompareTotalScores(lblUsername.Text);
+            lblUsers.Text = u.SortUsers();
+
+
 
             btn1.BackColor = ButtonColour(u.GetAvgScore(1));
             btn2.BackColor = ButtonColour(u.GetAvgScore(2));

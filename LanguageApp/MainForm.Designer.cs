@@ -51,6 +51,8 @@ namespace LanguageApp
             this.button6 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsers = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +72,7 @@ namespace LanguageApp
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.DarkGreen;
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuInfo,
             this.grammarTermsToolStripMenuItem,
@@ -79,7 +81,7 @@ namespace LanguageApp
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(945, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1177, 44);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -215,9 +217,9 @@ namespace LanguageApp
             // 
             this.button1.BackColor = System.Drawing.Color.Maroon;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(12, 367);
+            this.button1.Location = new System.Drawing.Point(12, 357);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 32);
+            this.button1.Size = new System.Drawing.Size(202, 44);
             this.button1.TabIndex = 11;
             this.button1.Text = "Delete Account";
             this.button1.UseVisualStyleBackColor = false;
@@ -297,12 +299,33 @@ namespace LanguageApp
             this.label1.TabIndex = 18;
             this.label1.Text = "Lesson Progress";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "label2";
+            // 
+            // lblUsers
+            // 
+            this.lblUsers.AutoSize = true;
+            this.lblUsers.ForeColor = System.Drawing.Color.White;
+            this.lblUsers.Location = new System.Drawing.Point(998, 90);
+            this.lblUsers.Name = "lblUsers";
+            this.lblUsers.Size = new System.Drawing.Size(35, 13);
+            this.lblUsers.TabIndex = 20;
+            this.lblUsers.Text = "label4";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(945, 411);
+            this.ClientSize = new System.Drawing.Size(1177, 411);
+            this.Controls.Add(this.lblUsers);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.button6);
@@ -355,6 +378,8 @@ namespace LanguageApp
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsers;
     }
 }
 
