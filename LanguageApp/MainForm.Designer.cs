@@ -53,6 +53,7 @@ namespace LanguageApp
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsers = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -311,12 +312,25 @@ namespace LanguageApp
             // lblUsers
             // 
             this.lblUsers.AutoSize = true;
+            this.lblUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.lblUsers.ForeColor = System.Drawing.Color.White;
-            this.lblUsers.Location = new System.Drawing.Point(998, 90);
+            this.lblUsers.Location = new System.Drawing.Point(978, 91);
             this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(35, 13);
+            this.lblUsers.Size = new System.Drawing.Size(60, 24);
             this.lblUsers.TabIndex = 20;
             this.lblUsers.Text = "label4";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(977, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(152, 29);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Leaderboard";
             // 
             // MainForm
             // 
@@ -324,6 +338,7 @@ namespace LanguageApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1177, 411);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUsers);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -341,6 +356,7 @@ namespace LanguageApp
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ForeColor = System.Drawing.Color.Black;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Home";
@@ -380,6 +396,7 @@ namespace LanguageApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsers;
+        private System.Windows.Forms.Label label4;
     }
 }
 

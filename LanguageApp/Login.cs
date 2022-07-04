@@ -194,7 +194,7 @@ namespace LanguageApp
 
         private void Login_Load(object sender, EventArgs e)
         {
-           
+          
         }
     }
 }

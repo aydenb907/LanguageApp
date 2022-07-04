@@ -94,12 +94,16 @@ namespace LanguageApp
                     if (totalPoints[n] == user.TotalPoints())
                     {
                         names.Add(user.GetName());
+
+                        if(names.Count>users.Count)
+                        {
+                            names.Remove(user.GetName());
+                        }
                     }
                    
                 }
               
             }
-            
 
             string list = "";
             int placing = 0;
@@ -107,7 +111,8 @@ namespace LanguageApp
             foreach (string name in names)
             {
                 placing++;
-                if(totalPoints[placing - 1] == 1)
+
+                if (totalPoints[placing - 1] == 1)
                 {
                     list += $"{placing}. {name} | {totalPoints[placing - 1]} point\n";
                 }
@@ -116,7 +121,6 @@ namespace LanguageApp
                     list += $"{placing}. {name} | {totalPoints[placing - 1]} points\n";
                 }
 
-               
             }
 
             return list;
