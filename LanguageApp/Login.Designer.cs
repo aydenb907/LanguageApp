@@ -41,36 +41,40 @@ namespace LanguageApp
             // 
             // txtUserName
             // 
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtUserName.Location = new System.Drawing.Point(141, 76);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(165, 20);
+            this.txtUserName.Size = new System.Drawing.Size(165, 29);
             this.txtUserName.TabIndex = 0;
             // 
             // txtPassword
             // 
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.txtPassword.ForeColor = System.Drawing.Color.Transparent;
             this.txtPassword.Location = new System.Drawing.Point(141, 122);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(165, 20);
+            this.txtPassword.Size = new System.Drawing.Size(165, 29);
             this.txtPassword.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(42, 80);
+            this.label1.Location = new System.Drawing.Point(33, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(102, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(44, 131);
+            this.label2.Location = new System.Drawing.Point(33, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(102, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password: ";
             // 
@@ -92,7 +96,7 @@ namespace LanguageApp
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.SeaGreen;
             this.btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.btnSignUp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSignUp.Location = new System.Drawing.Point(129, 186);
             this.btnSignUp.Name = "btnSignUp";
@@ -116,9 +120,10 @@ namespace LanguageApp
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(330, 119);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(320, 122);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 23);
+            this.button1.Size = new System.Drawing.Size(135, 29);
             this.button1.TabIndex = 7;
             this.button1.Text = "Show password";
             this.button1.UseVisualStyleBackColor = true;
@@ -129,7 +134,7 @@ namespace LanguageApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(432, 330);
+            this.ClientSize = new System.Drawing.Size(467, 330);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSignUp);

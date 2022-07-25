@@ -26,13 +26,16 @@ namespace LanguageApp
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = u.GetUsername();
+            //Displays user's details: names, total points, placing out of all the users based on total points
+            lblUsername.Text = u.GetUsername(); 
             lblTotalScore.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
+
+            //Shows the users in order of their placings, with their total points next to their name
             lblUsers.Text = u.SortUsers();
 
-
-
+           
+            //Sets colour for each button based on the average score 
             btn1.BackColor = ButtonColour(u.GetAvgScore(1));
             btn2.BackColor = ButtonColour(u.GetAvgScore(2));
             btn3.BackColor = ButtonColour(u.GetAvgScore(3));
@@ -153,6 +156,6 @@ namespace LanguageApp
             
         }
 
-        
+     
     }
 }

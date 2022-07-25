@@ -100,9 +100,9 @@ namespace LanguageApp
             this.btnMemorise.BackColor = System.Drawing.Color.SeaGreen;
             this.btnMemorise.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMemorise.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.btnMemorise.Location = new System.Drawing.Point(278, 395);
+            this.btnMemorise.Location = new System.Drawing.Point(273, 395);
             this.btnMemorise.Name = "btnMemorise";
-            this.btnMemorise.Size = new System.Drawing.Size(284, 58);
+            this.btnMemorise.Size = new System.Drawing.Size(246, 43);
             this.btnMemorise.TabIndex = 4;
             this.btnMemorise.Text = "Memorise These";
             this.btnMemorise.UseVisualStyleBackColor = false;

@@ -12,25 +12,24 @@ namespace LanguageApp
     {
         // Object properties
 
-       
+
         private string username;
         private int id;
+      
 
         SqlConnection connection;
         string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
-
-
-
 
         // Object methods
 
         // Constructor
         public User(int i, string n)
         {
-           
+
             username = n;
             id = i;
-           
+        
+
         }
 
         // Get Methods
@@ -43,7 +42,7 @@ namespace LanguageApp
         {
             return id;
         }
-
+      
         public float AvgScore(int lesson)
         {
             float avgScore = 0;
@@ -51,7 +50,7 @@ namespace LanguageApp
             int attempts = 0;
 
             string query = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
-            
+
 
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -62,7 +61,7 @@ namespace LanguageApp
                 command.Parameters.AddWithValue("@LessonID", lesson);
                 attempts = (int)command.ExecuteScalar();
 
-                if(attempts == 0)
+                if (attempts == 0)
                 {
                     return avgScore;
                 }
@@ -76,14 +75,14 @@ namespace LanguageApp
                         commandTwo.Parameters.AddWithValue("@LessonID", lesson);
 
                         totalScore = (int)commandTwo.ExecuteScalar();
-                        return avgScore = (totalScore / attempts)*10;
+                        return avgScore = (totalScore / attempts) * 10;
                     }
                 }
 
-               
+
             }
 
-                
+
         }
 
 
@@ -129,8 +128,7 @@ namespace LanguageApp
 
                 return totalPoints;
             }
-          
-        }
 
+        }
     }
 }

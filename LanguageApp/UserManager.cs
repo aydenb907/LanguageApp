@@ -43,7 +43,8 @@ namespace LanguageApp
             {
                 users.Remove(users[removeIndex]);
             }
-            
+
+          
             users.Add(new User(i, n));
         }
 
@@ -62,6 +63,7 @@ namespace LanguageApp
             return users[users.Count-1].AvgScore(lesson);
         }
 
+ 
         public void DeleteUser()
         {
             users.Remove(users[users.Count-1]);
@@ -99,11 +101,14 @@ namespace LanguageApp
                         {
                             names.Remove(user.GetName());
                         }
+
                     }
                    
                 }
               
             }
+
+            
 
             string list = "";
             int placing = 0;
@@ -184,6 +189,10 @@ namespace LanguageApp
 
             return text;
         }
+
+     
+
+
 
 
     }

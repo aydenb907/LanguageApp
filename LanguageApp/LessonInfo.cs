@@ -89,5 +89,7 @@ namespace LanguageApp
             l.FormClosed += (s, args) => this.Close();
             l.Show();
         }
+
+      
     }
 }

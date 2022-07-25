@@ -89,9 +89,9 @@ namespace LanguageApp
                 indexes.Remove(indexes[random]);
             }
 
-            //random indexes used to put questions in random order, based on what kind of lesson it is (what number, whether it's completing sentences or a vocab lesson)
             List<string> practiceQues = Lesson.GenQuestions(randomIndexes, type);
             practiceAns = Lesson.GenAnswers(randomIndexes, type);
+            
 
             //displays the first 5 of the random questions
             label1.Text = practiceQues[0];
