@@ -148,7 +148,8 @@ namespace LanguageApp
                 }
                 //Else, there will be a user in the database that matches exactly what they've typed in the form, so login will be successful - they can move onto the next form
                 else
-                { 
+                {
+                    u.Login(username);
                     //This form closes and Mainform appears
                     this.Hide();
                     MainForm m = new MainForm(u);

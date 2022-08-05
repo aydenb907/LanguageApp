@@ -97,6 +97,28 @@ namespace LanguageApp
            
        
         }
+        public void Login(string username)
+        {
+            int index = 0;
+            int userIndex = 0;
+            int id = 0;
+            foreach (User user in users)
+            {
+                if (user.GetName().Equals(username))
+                {
+                    userIndex = index;
+                    id = user.GetId();
+                }
+
+                index++;
+            }
+
+            users.Remove(users[userIndex]);
+
+            NewUser(id, username);
+
+
+        }
 
         public string GetUsername()
         {
