@@ -48,6 +48,56 @@ namespace LanguageApp
             users.Add(new User(i, n));
         }
 
+        public void AddAllUsers()
+        {
+            SqlConnection connection;
+            string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
+
+            List<string> usernames = new List<string>();
+
+            string query = $"SELECT username FROM UsersTable";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usernames.Add((string)reader[0]);
+                }
+                reader.Close();
+
+                
+            }
+            connection.Close();
+
+            
+            foreach (string u in usernames)
+            {
+                string query2 = $"SELECT UserID FROM UsersTable WHERE username = @username";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command2 = new SqlCommand(query2, connection))
+                {
+                    connection.Open();
+                    command2.Parameters.AddWithValue("@username", u);
+
+                    int id = (int)command2.ExecuteScalar();
+                    users.Add(new User(id, u));
+
+                }
+
+
+            }
+            
+           
+       
+        }
+
         public string GetUsername()
         {
             return users[users.Count - 1].GetName();

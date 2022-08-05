@@ -148,18 +148,7 @@ namespace LanguageApp
                 }
                 //Else, there will be a user in the database that matches exactly what they've typed in the form, so login will be successful - they can move onto the next form
                 else
-                {
-                    string queryTwo = "SELECT UserID FROM UsersTable WHERE username = @username";
-                    using (SqlCommand commandTwo = new SqlCommand(queryTwo, connection))
-                    {
-                        commandTwo.Parameters.AddWithValue("@username", username);
-
-                        int id = (int)commandTwo.ExecuteScalar();
-
-                        //Adds user's details again to the users list, so that they are in the last index of the list
-                        u.NewUser(id, username);
-                    }
-                      
+                { 
                     //This form closes and Mainform appears
                     this.Hide();
                     MainForm m = new MainForm(u);
