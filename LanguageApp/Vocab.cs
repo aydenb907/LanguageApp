@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,7 +27,11 @@ namespace LanguageApp
          
             btn1.Text = Lesson.GermanWord(0);
             btn2.Text = Lesson.GermanWord(1);
-            
+
+            lblUsername.Text = u.GetUsername();
+            lblTotalPoints.Text = u.DisplayTotalPoints();
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
+
         }
 
         private void btn1_Click(object sender, EventArgs e)

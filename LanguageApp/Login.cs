@@ -25,7 +25,7 @@ namespace LanguageApp
             InitializeComponent();
 
             connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString; //needed to connect to the database
-
+   
         }
 
         //Adds new person's username and password
@@ -184,7 +184,7 @@ namespace LanguageApp
 
         private void Login_Load(object sender, EventArgs e)
         {
-          
+            
         }
     }
 }

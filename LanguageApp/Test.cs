@@ -31,7 +31,8 @@ namespace LanguageApp
         private void Test_Load(object sender, EventArgs e)
         {
             lblUsername.Text = u.GetUsername();
-       
+            lblTotalPoints.Text = u.DisplayTotalPoints();
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
 
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();

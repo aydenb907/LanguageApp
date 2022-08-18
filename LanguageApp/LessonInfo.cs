@@ -42,6 +42,8 @@ namespace LanguageApp
             //Displays username, total points, vocabulary lists and lesson text when form loads
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
+            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
+
 
             lblEnglisch.Text = Lesson.EnglishWordsList();
           
@@ -51,8 +53,7 @@ namespace LanguageApp
 
             lblScore.Text += $"{u.GetAvgScore(MainForm.lesson)}%";
 
-            lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
-
+            
         }
 
         private void btnVocab_Click(object sender, EventArgs e)

@@ -119,6 +119,15 @@ namespace LanguageApp
 
 
         }
+        
+        public void ChangeUsername(string u)
+        {
+            int id = GetId();
+            users.Remove(users[users.Count-1]);
+
+            NewUser(id, u);
+        }
+
 
         public string GetUsername()
         {

@@ -51,9 +51,13 @@ namespace LanguageApp
             this.button6 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblUsers = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnUsernameChange = new System.Windows.Forms.Button();
+            this.btnPasswordChange = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +77,7 @@ namespace LanguageApp
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.menuStrip1.BackColor = System.Drawing.Color.Teal;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuInfo,
             this.grammarTermsToolStripMenuItem,
@@ -82,22 +86,22 @@ namespace LanguageApp
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1177, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1280, 44);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuInfo
             // 
-            this.menuInfo.BackColor = System.Drawing.Color.Black;
+            this.menuInfo.BackColor = System.Drawing.Color.Teal;
             this.menuInfo.Font = new System.Drawing.Font("Dubai", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuInfo.ForeColor = System.Drawing.Color.White;
+            this.menuInfo.ForeColor = System.Drawing.Color.Black;
             this.menuInfo.Name = "menuInfo";
             this.menuInfo.Size = new System.Drawing.Size(226, 40);
             this.menuInfo.Text = "What is This App About?";
             // 
             // grammarTermsToolStripMenuItem
             // 
-            this.grammarTermsToolStripMenuItem.BackColor = System.Drawing.Color.Red;
+            this.grammarTermsToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
             this.grammarTermsToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grammarTermsToolStripMenuItem.Name = "grammarTermsToolStripMenuItem";
             this.grammarTermsToolStripMenuItem.Size = new System.Drawing.Size(172, 40);
@@ -105,7 +109,7 @@ namespace LanguageApp
             // 
             // completeVocabularyListOfThisAppToolStripMenuItem
             // 
-            this.completeVocabularyListOfThisAppToolStripMenuItem.BackColor = System.Drawing.Color.Gold;
+            this.completeVocabularyListOfThisAppToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.completeVocabularyListOfThisAppToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.completeVocabularyListOfThisAppToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.completeVocabularyListOfThisAppToolStripMenuItem.Name = "completeVocabularyListOfThisAppToolStripMenuItem";
@@ -114,16 +118,16 @@ namespace LanguageApp
             // 
             // dToolStripMenuItem
             // 
-            this.dToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.dToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
             this.dToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.dToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
             this.dToolStripMenuItem.Size = new System.Drawing.Size(197, 40);
             this.dToolStripMenuItem.Text = "Why Learn German";
             // 
             // logoutToolStripMenuItem
             // 
-            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.Red;
+            this.logoutToolStripMenuItem.BackColor = System.Drawing.Color.Teal;
             this.logoutToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
@@ -163,10 +167,10 @@ namespace LanguageApp
             this.groupBox1.Controls.Add(this.lblPlace);
             this.groupBox1.Controls.Add(this.lblTotalScore);
             this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.ForeColor = System.Drawing.Color.LightSalmon;
-            this.groupBox1.Location = new System.Drawing.Point(745, 59);
+            this.groupBox1.ForeColor = System.Drawing.Color.Teal;
+            this.groupBox1.Location = new System.Drawing.Point(783, 59);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 121);
+            this.groupBox1.Size = new System.Drawing.Size(212, 121);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
@@ -174,7 +178,7 @@ namespace LanguageApp
             // 
             this.lblPlace.AutoSize = true;
             this.lblPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblPlace.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.lblPlace.ForeColor = System.Drawing.Color.Teal;
             this.lblPlace.Location = new System.Drawing.Point(18, 78);
             this.lblPlace.Name = "lblPlace";
             this.lblPlace.Size = new System.Drawing.Size(79, 31);
@@ -185,7 +189,7 @@ namespace LanguageApp
             // 
             this.lblTotalScore.AutoSize = true;
             this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblTotalScore.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.lblTotalScore.ForeColor = System.Drawing.Color.Teal;
             this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
             this.lblTotalScore.Name = "lblTotalScore";
             this.lblTotalScore.Size = new System.Drawing.Size(140, 31);
@@ -196,7 +200,7 @@ namespace LanguageApp
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblUsername.ForeColor = System.Drawing.Color.MediumSeaGreen;
+            this.lblUsername.ForeColor = System.Drawing.Color.Teal;
             this.lblUsername.Location = new System.Drawing.Point(18, 16);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(134, 31);
@@ -206,11 +210,11 @@ namespace LanguageApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightGreen;
-            this.label3.Location = new System.Drawing.Point(384, 59);
+            this.label3.Font = new System.Drawing.Font("Bahnschrift Condensed", 36F);
+            this.label3.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.label3.Location = new System.Drawing.Point(299, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 39);
+            this.label3.Size = new System.Drawing.Size(219, 58);
             this.label3.TabIndex = 10;
             this.label3.Text = "German App";
             // 
@@ -219,7 +223,7 @@ namespace LanguageApp
             this.button1.BackColor = System.Drawing.Color.Maroon;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.button1.Location = new System.Drawing.Point(12, 358);
+            this.button1.Location = new System.Drawing.Point(1078, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 44);
             this.button1.TabIndex = 11;
@@ -230,9 +234,13 @@ namespace LanguageApp
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkCyan;
-            this.button2.Location = new System.Drawing.Point(745, 236);
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(745, 233);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 36);
+            this.button2.Size = new System.Drawing.Size(293, 41);
             this.button2.TabIndex = 12;
             this.button2.Text = "Outstanding";
             this.button2.UseVisualStyleBackColor = false;
@@ -240,9 +248,11 @@ namespace LanguageApp
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.button3.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(745, 300);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(188, 36);
+            this.button3.Size = new System.Drawing.Size(293, 36);
             this.button3.TabIndex = 13;
             this.button3.Text = "Needs more practice";
             this.button3.UseVisualStyleBackColor = false;
@@ -250,9 +260,11 @@ namespace LanguageApp
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Brown;
+            this.button4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(745, 330);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(188, 36);
+            this.button4.Size = new System.Drawing.Size(293, 36);
             this.button4.TabIndex = 14;
             this.button4.Text = "Read through the lesson again";
             this.button4.UseVisualStyleBackColor = false;
@@ -260,9 +272,11 @@ namespace LanguageApp
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.SeaGreen;
+            this.button5.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(745, 268);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(188, 36);
+            this.button5.Size = new System.Drawing.Size(293, 36);
             this.button5.TabIndex = 15;
             this.button5.Text = "Good enough";
             this.button5.UseVisualStyleBackColor = false;
@@ -270,11 +284,13 @@ namespace LanguageApp
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.MintCream;
+            this.button6.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Location = new System.Drawing.Point(745, 365);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(188, 36);
+            this.button6.Size = new System.Drawing.Size(293, 36);
             this.button6.TabIndex = 16;
-            this.button6.Text = "Test not attempted/ Not  completed";
+            this.button6.Text = "Test not attempted";
             this.button6.UseVisualStyleBackColor = false;
             // 
             // btn4
@@ -293,29 +309,20 @@ namespace LanguageApp
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(765, 200);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.label1.Location = new System.Drawing.Point(777, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 24);
+            this.label1.Size = new System.Drawing.Size(218, 31);
             this.label1.TabIndex = 18;
             this.label1.Text = "Lesson Progress";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "label2";
             // 
             // lblUsers
             // 
             this.lblUsers.AutoSize = true;
             this.lblUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lblUsers.ForeColor = System.Drawing.Color.White;
-            this.lblUsers.Location = new System.Drawing.Point(978, 91);
+            this.lblUsers.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.lblUsers.Location = new System.Drawing.Point(1087, 96);
             this.lblUsers.Name = "lblUsers";
             this.lblUsers.Size = new System.Drawing.Size(60, 24);
             this.lblUsers.TabIndex = 20;
@@ -325,23 +332,74 @@ namespace LanguageApp
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Black;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(977, 44);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label4.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.label4.Location = new System.Drawing.Point(1085, 47);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 29);
+            this.label4.Size = new System.Drawing.Size(167, 31);
             this.label4.TabIndex = 21;
             this.label4.Text = "Leaderboard";
+            // 
+            // btnUsernameChange
+            // 
+            this.btnUsernameChange.Location = new System.Drawing.Point(30, 365);
+            this.btnUsernameChange.Name = "btnUsernameChange";
+            this.btnUsernameChange.Size = new System.Drawing.Size(160, 36);
+            this.btnUsernameChange.TabIndex = 22;
+            this.btnUsernameChange.Text = "Change Username";
+            this.btnUsernameChange.UseVisualStyleBackColor = true;
+            this.btnUsernameChange.Click += new System.EventHandler(this.btnUsernameChange_Click);
+            // 
+            // btnPasswordChange
+            // 
+            this.btnPasswordChange.Location = new System.Drawing.Point(217, 365);
+            this.btnPasswordChange.Name = "btnPasswordChange";
+            this.btnPasswordChange.Size = new System.Drawing.Size(160, 36);
+            this.btnPasswordChange.TabIndex = 23;
+            this.btnPasswordChange.Text = "Change Password";
+            this.btnPasswordChange.UseVisualStyleBackColor = true;
+            this.btnPasswordChange.Click += new System.EventHandler(this.btnPasswordChange_Click);
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(30, 325);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(159, 20);
+            this.txtUsername.TabIndex = 24;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.ForeColor = System.Drawing.Color.Transparent;
+            this.txtPassword.Location = new System.Drawing.Point(217, 325);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(160, 20);
+            this.txtPassword.TabIndex = 25;
+            // 
+            // button7
+            // 
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button7.Location = new System.Drawing.Point(398, 319);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(135, 29);
+            this.button7.TabIndex = 26;
+            this.button7.Text = "Show password";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1177, 411);
+            this.ClientSize = new System.Drawing.Size(1280, 411);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.btnPasswordChange);
+            this.Controls.Add(this.btnUsernameChange);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUsers);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn4);
             this.Controls.Add(this.button6);
@@ -395,9 +453,13 @@ namespace LanguageApp
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsers;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnUsernameChange;
+        private System.Windows.Forms.Button btnPasswordChange;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button button7;
     }
 }
 

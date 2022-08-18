@@ -43,13 +43,14 @@ namespace LanguageApp
             return id;
         }
       
+        //Calculates average score for a single lesson
         public float AvgScore(int lesson)
         {
             float avgScore = 0;
             int totalScore = 0;
             int attempts = 0;
 
-            string query = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
+            string query = "SELECT Count(*) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID"; //Gets number of tests attempted for one lesson
 
 
             using (connection = new SqlConnection(connectionString))
@@ -61,11 +62,11 @@ namespace LanguageApp
                 command.Parameters.AddWithValue("@LessonID", lesson);
                 attempts = (int)command.ExecuteScalar();
 
-                if (attempts == 0)
+                if (attempts == 0) //if there have been no test attempts then average score is automatically 0
                 {
                     return avgScore;
                 }
-                else
+                else  //if the test has been attempted, then each attempt's score is collected to get the total score, which is then divided by number of attempts to calculate the average score
                 {
                     string queryTwo = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID AND LessonID = @LessonID";
 
@@ -85,12 +86,13 @@ namespace LanguageApp
 
         }
 
-
+        //gets total points of user by adding up the total score for every lesson
         public int TotalPoints()
         {
 
 
-            string queryy = "SELECT Count (*) FROM TestTable WHERE UserID = @UserID";
+            string queryy = "SELECT Count (*) FROM TestTable WHERE UserID = @UserID"; //checks to see if the user has attempted any tests first, because if it attempts to calculate the sum without there being any scores for the user,
+            //there will be an exception unhandled message
             int count = 0;
 
             using (connection = new SqlConnection(connectionString))
@@ -111,7 +113,7 @@ namespace LanguageApp
             {
                 return totalPoints;
             }
-            else
+            else //if there are test attempts stored for that user, then the sum of the scores will be received, which equals the total points
             {
                 string query = "SELECT SUM (score) FROM TestTable WHERE UserID = @UserID";
 
@@ -128,7 +130,6 @@ namespace LanguageApp
 
                 return totalPoints;
             }
-
         }
     }
 }

@@ -48,17 +48,13 @@ namespace LanguageApp
             this.lblEnglisch = new System.Windows.Forms.Label();
             this.lblDeutsch = new System.Windows.Forms.Label();
             this.btnMoreQuestions = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTotalPoints = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblTotalScore = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.txtAnswer1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPlace = new System.Windows.Forms.Label();
+            this.lblTotalPoints = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
@@ -263,68 +259,6 @@ namespace LanguageApp
             this.btnMoreQuestions.UseVisualStyleBackColor = false;
             this.btnMoreQuestions.Click += new System.EventHandler(this.btnMoreQuestions_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.lblTotalScore);
-            this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.Location = new System.Drawing.Point(859, 33);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 80);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblTotalPoints);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(125, 107);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            // 
-            // lblTotalPoints
-            // 
-            this.lblTotalPoints.AutoSize = true;
-            this.lblTotalPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblTotalPoints.Location = new System.Drawing.Point(18, 47);
-            this.lblTotalPoints.Name = "lblTotalPoints";
-            this.lblTotalPoints.Size = new System.Drawing.Size(78, 18);
-            this.lblTotalPoints.TabIndex = 9;
-            this.lblTotalPoints.Text = "total score";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label7.Location = new System.Drawing.Point(18, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 18);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "username";
-            // 
-            // lblTotalScore
-            // 
-            this.lblTotalScore.AutoSize = true;
-            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
-            this.lblTotalScore.Name = "lblTotalScore";
-            this.lblTotalScore.Size = new System.Drawing.Size(78, 18);
-            this.lblTotalScore.TabIndex = 9;
-            this.lblTotalScore.Text = "total score";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblUsername.Location = new System.Drawing.Point(18, 16);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(74, 18);
-            this.lblUsername.TabIndex = 8;
-            this.lblUsername.Text = "username";
-            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Maroon;
@@ -346,16 +280,47 @@ namespace LanguageApp
             this.txtAnswer1.TabIndex = 26;
             this.txtAnswer1.TextChanged += new System.EventHandler(this.txtAnswer1_TextChanged_1);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPlace);
+            this.groupBox1.Controls.Add(this.lblTotalPoints);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(834, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(150, 106);
+            this.groupBox1.TabIndex = 27;
+            this.groupBox1.TabStop = false;
+            // 
             // lblPlace
             // 
             this.lblPlace.AutoSize = true;
-            this.lblPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblPlace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlace.Location = new System.Drawing.Point(877, 105);
+            this.lblPlace.Location = new System.Drawing.Point(20, 78);
             this.lblPlace.Name = "lblPlace";
-            this.lblPlace.Size = new System.Drawing.Size(54, 18);
+            this.lblPlace.Size = new System.Drawing.Size(60, 24);
             this.lblPlace.TabIndex = 10;
-            this.lblPlace.Text = "placing";
+            this.lblPlace.Text = "label1";
+            // 
+            // lblTotalPoints
+            // 
+            this.lblTotalPoints.AutoSize = true;
+            this.lblTotalPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPoints.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalPoints.Name = "lblTotalPoints";
+            this.lblTotalPoints.Size = new System.Drawing.Size(87, 20);
+            this.lblTotalPoints.TabIndex = 9;
+            this.lblTotalPoints.Text = "total points";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(80, 20);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
             // 
             // PractiseForm
             // 
@@ -363,10 +328,9 @@ namespace LanguageApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(984, 367);
-            this.Controls.Add(this.lblPlace);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtAnswer1);
             this.Controls.Add(this.btnLogOut);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnMoreQuestions);
             this.Controls.Add(this.lblDeutsch);
             this.Controls.Add(this.lblEnglisch);
@@ -391,8 +355,6 @@ namespace LanguageApp
             this.Load += new System.EventHandler(this.PractiseForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,14 +381,11 @@ namespace LanguageApp
         private System.Windows.Forms.Label lblEnglisch;
         private System.Windows.Forms.Label lblDeutsch;
         private System.Windows.Forms.Button btnMoreQuestions;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblTotalScore;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblTotalPoints;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.TextBox txtAnswer1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblPlace;
+        private System.Windows.Forms.Label lblTotalPoints;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

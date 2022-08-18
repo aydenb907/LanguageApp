@@ -14,6 +14,7 @@ namespace LanguageApp
         private static SqlConnection connection;
         private static string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
 
+        //Gets the number of practice questions needed (5) for the practice form. Practice questions are either based on vocabulary or sentences for learning grammar
         public static List<string> GenQuestions(List<int> randomIndexes, string lessonType)
         {
             List<string> questions = new List<string>();
@@ -29,8 +30,10 @@ namespace LanguageApp
                 command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", lessonType);
 
+                //Gets the questions
                 SqlDataReader reader = command.ExecuteReader();
 
+                //Adds each question to a list, only for the first index of the reader because otherwise thelist of questions will repeat
                 while (reader.Read())
                 {
                     questions.Add((string)reader[0]); 
@@ -43,7 +46,7 @@ namespace LanguageApp
 
             List<string> selectedQues = new List<string>();
 
-
+            //selectedQues adds the questions in random order
             foreach (int index in randomIndexes)
             {
                 selectedQues.Add(questions[index]);

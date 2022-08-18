@@ -52,10 +52,11 @@ namespace LanguageApp
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnLesson = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTotalScore = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPlace = new System.Windows.Forms.Label();
+            this.lblTotalPoints = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -272,40 +273,6 @@ namespace LanguageApp
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblTotalScore);
-            this.groupBox1.Controls.Add(this.lblUsername);
-            this.groupBox1.Location = new System.Drawing.Point(480, 31);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 80);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            // 
-            // lblTotalScore
-            // 
-            this.lblTotalScore.AutoSize = true;
-            this.lblTotalScore.BackColor = System.Drawing.Color.Black;
-            this.lblTotalScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblTotalScore.ForeColor = System.Drawing.Color.White;
-            this.lblTotalScore.Location = new System.Drawing.Point(18, 47);
-            this.lblTotalScore.Name = "lblTotalScore";
-            this.lblTotalScore.Size = new System.Drawing.Size(78, 18);
-            this.lblTotalScore.TabIndex = 9;
-            this.lblTotalScore.Text = "total score";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.Black;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(18, 16);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(74, 18);
-            this.lblUsername.TabIndex = 8;
-            this.lblUsername.Text = "username";
-            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.DarkRed;
@@ -318,14 +285,56 @@ namespace LanguageApp
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPlace);
+            this.groupBox1.Controls.Add(this.lblTotalPoints);
+            this.groupBox1.Controls.Add(this.lblUsername);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(480, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(125, 107);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblPlace
+            // 
+            this.lblPlace.AutoSize = true;
+            this.lblPlace.Location = new System.Drawing.Point(20, 78);
+            this.lblPlace.Name = "lblPlace";
+            this.lblPlace.Size = new System.Drawing.Size(60, 24);
+            this.lblPlace.TabIndex = 10;
+            this.lblPlace.Text = "label1";
+            // 
+            // lblTotalPoints
+            // 
+            this.lblTotalPoints.AutoSize = true;
+            this.lblTotalPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPoints.Location = new System.Drawing.Point(18, 47);
+            this.lblTotalPoints.Name = "lblTotalPoints";
+            this.lblTotalPoints.Size = new System.Drawing.Size(87, 20);
+            this.lblTotalPoints.TabIndex = 9;
+            this.lblTotalPoints.Text = "total points";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(18, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(80, 20);
+            this.lblUsername.TabIndex = 8;
+            this.lblUsername.Text = "username";
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(603, 693);
-            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnLesson);
             this.Controls.Add(this.btnSubmit);
@@ -384,9 +393,10 @@ namespace LanguageApp
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnLesson;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblTotalScore;
-        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblPlace;
+        private System.Windows.Forms.Label lblTotalPoints;
+        private System.Windows.Forms.Label lblUsername;
     }
 }

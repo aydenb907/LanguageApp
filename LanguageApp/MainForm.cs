@@ -17,6 +17,8 @@ namespace LanguageApp
         UserManager u = new UserManager();
         public static int lesson;
 
+        private string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
+        SqlConnection connection;
         public MainForm(UserManager u)
         {
 
@@ -132,10 +134,10 @@ namespace LanguageApp
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this account?", "Delete Account", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
+                
                 string query = "DELETE FROM UsersTable WHERE UserID = @UserID";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (connection = new SqlConnection(connectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     connection.Open();
@@ -156,6 +158,89 @@ namespace LanguageApp
             
         }
 
-     
+        private void btnUsernameChange_Click(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Your new username can't be blank.");
+                return;
+            }
+
+           
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to change your username?", "Change Username", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "UPDATE UsersTable SET username = @username WHERE UserID = @UserID";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@username", txtUsername.Text);
+                    command.Parameters.AddWithValue("@UserID", u.GetId());
+                    command.ExecuteScalar();
+                }
+
+                u.ChangeUsername(txtUsername.Text);
+
+                this.Hide();
+                MainForm m = new MainForm(u);
+                m.FormClosed += (s, args) => this.Close();
+                m.Show();
+            }
+        
+        }
+
+        private void btnPasswordChange_Click(object sender, EventArgs e)
+        {
+
+            //makes sure password is not blank
+            if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Your new password can't be blank.");
+                return;
+            }
+            //makes sure password is at least 6 characters
+            if (txtPassword.TextLength < 6)
+            {
+                MessageBox.Show("Make sure your new password is at least 6 characters long.");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to change your password?", "Change Password", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                string query = "UPDATE UsersTable SET password = @password WHERE UserID = @UserID";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@password", txtPassword.Text);
+                    command.Parameters.AddWithValue("@UserID", u.GetId());
+                    command.ExecuteScalar();
+                }
+                
+
+                this.Hide();
+                MainForm m = new MainForm(u);
+                m.FormClosed += (s, args) => this.Close();
+                m.Show();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.ForeColor == Color.Transparent)
+            {
+                txtPassword.ForeColor = Color.Black;
+                button7.Text = "Hide password"; //Button text changes as well so they know what will happen if they press the button again, which is change back to transparent font colour
+            }
+            else //If they click again to hide the password once more, the font colour will go back to the original
+            {
+                txtPassword.ForeColor = Color.Transparent;
+                button7.Text = "Show password";
+            }
+        }
     }
 }

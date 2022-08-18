@@ -60,7 +60,7 @@ namespace LanguageApp
                 lblEnglisch.Text = "";
                 lblDeutsch.Text = "";
             }
-       
+
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
