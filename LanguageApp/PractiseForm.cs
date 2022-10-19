@@ -26,7 +26,7 @@ namespace LanguageApp
            
     }
 
-        //Go to main form
+        //Goes to mainform
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,7 +35,7 @@ namespace LanguageApp
             m.Show();
         }
 
-        //Go to lesson form to read lesson again
+        //Goes to lesson form to read lesson again
         private void btnLesson_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -44,35 +44,45 @@ namespace LanguageApp
             i.Show();
         }
 
-        
+        //When the form loads, questions are selected and displayed based on which form they've come from
+        //Sentences if they came from LessonInfo
+        //English words if they've come from Vocab form
         private void PractiseForm_Load(object sender, EventArgs e)
         {
        
-           
+           //displays vocabulary list if it's just practice questions, and not a vocab lesson
             if (type.Equals("practice"))
             {
                 lblEnglisch.Text = Lesson.EnglishWordsList();
 
                 lblDeutsch.Text = Lesson.GermanWordsList();
             }
-            else
+            else //makes sure vocabulary list isn't shown when English words are the questions, or else the user can cheat when trying to memorise unfamiliar words
             {
+                label6.Text = "";
+                label7.Text = "";
                 lblEnglisch.Text = "";
                 lblDeutsch.Text = "";
             }
 
+            //displays user's details, same as every other form apart from login
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
 
+            
             Random rand = new Random();
             List<int> randomIndexes = new List<int>();
-         
+  
+            //Rather than having to make sure the number of questions stored in the database is a factor of 5, so that the program doesn't break when the form loads, when the number of questions that have not been used yet
+            //in one cycle is less than 5, then the indexes list will be emptied and be populated again with all the indexes possible for the lesson. 
             if (indexes.Count <5)
             {
+                indexes = new List<int>();  //Indexes list is made new again rather than keep the question indexes that are not used yet, otherwise they could be displaced twice on the form when it loads again
+                //Questions are shown in random order so the ones that have not been used for one cycle will not always be the ones that aren't used. 
 
-
-                for (int n = 0; n < Lesson.QuestionsNumber(type); n++)
+                //Each index is added no matter how many questions there are
+                for (int n = 0; n < Lesson.QuestionsNumber(type)+1; n++) // +1 so that last question is added as well
                 {
                    
                    indexes.Add(n);
@@ -81,19 +91,21 @@ namespace LanguageApp
                     
 
             }
-            //Randomly assorts indexes in list 
+            //Randomly picks 5 indexes and adds them to another list, randomIndexes
+            //randomIndexes will be used to get the 5 random questions from Lesson class
             for (int i = 0; i < 5; i++)
             {
                 int random = rand.Next(0, indexes.Count - 1);
                 randomIndexes.Add(indexes[random]);
-                indexes.Remove(indexes[random]);
+                indexes.Remove(indexes[random]); //after random index is picked it is removed from indexes so that it is not used again. Otherwise a question could be displayed multiple times when the form is loaded
             }
 
+            //gets the practice questions needed, and their respective answers, for this load
             List<string> practiceQues = Lesson.GenQuestions(randomIndexes, type);
-            practiceAns = Lesson.GenAnswers(randomIndexes, type);
-            
+            practiceAns = Lesson.GenAnswers(randomIndexes, type); //randomIndexes used for practiceAns as well to get answers in the same order as the questions, otherwise the marking will be inaccurate
+            //type is needed to get the questions from the right lesson - either vocabulary words of practice questions
 
-            //displays the first 5 of the random questions
+            //displays the 5 randomly selected questions in the order they were picked
             label1.Text = practiceQues[0];
             label2.Text = practiceQues[1];
             label3.Text = practiceQues[2];
@@ -107,7 +119,7 @@ namespace LanguageApp
         {
             string userAnswer = txtAnswer1.Text;
 
-         //if the user's answer is the same as the correct answer, then a message box will show saying correct. If the user is wrong, the message box will say incorrect and will display what the correct answer instead.
+         //if the user's answer is the same as the correct answer, then a message box will show saying correct. If the user is wrong, the message box will say incorrect and will display what the correct answer is.
             if (Lesson.MarkQuestions(0, userAnswer, practiceAns))
             {
 
@@ -186,7 +198,7 @@ namespace LanguageApp
             }
         }
         
-        //Loads more random questions, by loading the practice form again. Same questions may appear again.
+        //Loads more random questions, by loading the practice form again. Questions wwon't repeat until there are less than 5 indexes left in the indexes list
         private void btnMoreQuestions_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -206,7 +218,7 @@ namespace LanguageApp
         {
 
         }
-
+    //Goes to login form
         private void btnLogOut_Click(object sender, EventArgs e)
         {
            

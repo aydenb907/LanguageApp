@@ -11,8 +11,6 @@ namespace LanguageApp
     class User
     {
         // Object properties
-
-
         private string username;
         private int id;
       

@@ -8,19 +8,20 @@ using System.Threading.Tasks;
 
 namespace LanguageApp
 {
-    class Lesson
+    class Lesson //generates questions for each lesson, marks user's answers, gets lesson's text
     {
 
         private static SqlConnection connection;
         private static string connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString;
 
-        //Gets the number of practice questions needed (5) for the practice form. Practice questions are either based on vocabulary or sentences for learning grammar
+        //Gets the number of practice questions (5) needed for the practice form, or 10 questions for the test form, in random order, with none repeating
         public static List<string> GenQuestions(List<int> randomIndexes, string lessonType)
         {
             List<string> questions = new List<string>();
 
             string query = $"SELECT question FROM QuestionsTable WHERE LessonID = @LessonID AND type = @type";
 
+            //Gets the questions from the database based on if it's a vocabulary or grammar lesson, or a test, and what lesson number it is
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
 
@@ -30,10 +31,10 @@ namespace LanguageApp
                 command.Parameters.AddWithValue("@LessonID", MainForm.lesson);
                 command.Parameters.AddWithValue("@type", lessonType);
 
-                //Gets the questions
+              
                 SqlDataReader reader = command.ExecuteReader();
 
-                //Adds each question to a list, only for the first index of the reader because otherwise thelist of questions will repeat
+                //Adds each question to a list, only for the first index of the reader because otherwise the list of questions will repeat
                 while (reader.Read())
                 {
                     questions.Add((string)reader[0]); 
@@ -44,9 +45,8 @@ namespace LanguageApp
             }
             connection.Close();
 
-            List<string> selectedQues = new List<string>();
-
-            //selectedQues adds the questions in random order
+            //new list for the practice questions, so that it can add them in random order
+            List<string> selectedQues = new List<string>();   
             foreach (int index in randomIndexes)
             {
                 selectedQues.Add(questions[index]);
@@ -55,7 +55,7 @@ namespace LanguageApp
             return selectedQues;
         }
 
-
+        //gets total number of vocabulary or grammar questions for a lesson
         public static int QuestionsNumber(string lessonType)
         {
             int count = 0;
@@ -76,7 +76,8 @@ namespace LanguageApp
             connection.Close();
             return count;
         }
-
+        
+        //Gets a list of all the German words from the database
         public static List<string> GetGermanWords()
         {
             List<string> germanWords = new List<string>();
@@ -108,8 +109,10 @@ namespace LanguageApp
             return germanWords;
         }
 
+        //Once all the German words are pulled from the database, they are sorted into a string so that a vocabulary list can be displayed on the forms.
         public static string GermanWordsList()
         {
+            //Adds each German word one by one to string.
             string list = "";
             foreach (string germanWord in GetGermanWords())
             {
@@ -119,11 +122,13 @@ namespace LanguageApp
             return list;
         }
 
+        //gets a specific German word for a lesson. Method used to get a German word for a single button the Vocab form
         public static string GermanWord(int index)
         {
             return GetGermanWords()[index];
         }
 
+        //Following three methods is the same as the three above, but for English. 
         public static List<string> GetEnglishWords()
         {
             List<string> englishWords = new List<string>();
@@ -170,6 +175,7 @@ namespace LanguageApp
             return GetEnglishWords()[index];
         }
 
+        //Gets answers for the questions from the same lesson
         public static List<string> GenAnswers(List<int> randomIndex, string type)
         {
             List<string> answers = new List<string>();
@@ -197,6 +203,7 @@ namespace LanguageApp
             }
             connection.Close();
 
+            //Because randomindexes list received is the same as the list used in GenQuestions(), the answers and questions lists are linked - they'll be marked in the right order
             List<string> selectedAns = new List<string>();
 
             foreach (int index in randomIndex)
@@ -209,18 +216,19 @@ namespace LanguageApp
             return selectedAns;
         }
 
-
+        //marks the questions for any type
         public static bool MarkQuestions(int index, string userAnswer, List<string> chosenAnswers)
         {
-            if (userAnswer.Equals(chosenAnswers[index]))
+            if (userAnswer.Equals(chosenAnswers[index])) //If the user answer matches the correct answer then  
             {
-                return true;
+                return true; //it will be true 
             }
 
+            //don't need else statement
             return false;
         }
 
- 
+        //Gets the text for a specific lesson, which explains a new grammar concept
         public static string GetLessonText(int lesson)
         {
             string lessonText = "";

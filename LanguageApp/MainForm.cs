@@ -46,6 +46,7 @@ namespace LanguageApp
 
         }
 
+        //generates colour based on how well they've done in the test for a lesson
         private Color ButtonColour(float a)
         {
            
@@ -63,11 +64,11 @@ namespace LanguageApp
             }
             else if(a>0)
             {
-                return Color.Brown;
+                return Color.Brown; //reddish colour for a bad average score
             }
             else
             {
-                return Color.MintCream;
+                return Color.MintCream; //if there is no average score the colour will be white to show they haven't attempted it yet
             }
            
         }
@@ -87,39 +88,41 @@ namespace LanguageApp
             i.FormClosed += (s, args) => this.Close();
             i.Show();
         }
+        //Other buttons don't have complete lessons in the database yet, which means the program would break if they are clicked and the other forms are opened. 
+        //So for now, nothing will happen when the other 3 buttons are clicked. These buttons are added on the mainform to show the layout.
         private void btn2_Click(object sender, EventArgs e)
         {
-            lesson = 2;
+           /* lesson = 2;
 
             this.Hide();
 
             LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
-            i.Show();
+            i.Show();*/
         }
         private void btn3_Click(object sender, EventArgs e)
         {
-            lesson = 3;
+           /* lesson = 3;
 
             this.Hide();
 
             LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
-            i.Show();
+            i.Show();*/
         }
         private void btn4_Click(object sender, EventArgs e)
         {
-            lesson = 4;
+           /* lesson = 4;
 
             this.Hide();
 
             LessonInfo i = new LessonInfo(u);
             i.FormClosed += (s, args) => this.Close();
-            i.Show();
+            i.Show();*/
         }
 
 
-
+        //Logs the user out. Returns to Login Form
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
          
@@ -129,12 +132,15 @@ namespace LanguageApp
             i.Show();
         }
 
+        //When the delete account button is clicked, it removes the user from the database and from the users list
         private void button1_Click(object sender, EventArgs e)
         {
+            //Message box pops up whenever they click the button to confirm they really want to delete their account
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this account?", "Delete Account", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)    // if they press yes then they will be deleted, and it will return to the login form because they can no longer continue with their lessons
             {
-                
+              
+                //Deletes user from UsersTable. If they remain in the database, then they will be added again to the users list when the program starts again.
                 string query = "DELETE FROM UsersTable WHERE UserID = @UserID";
 
                 using (connection = new SqlConnection(connectionString))
@@ -142,14 +148,28 @@ namespace LanguageApp
                 {
                     connection.Open();
 
-                    command.Parameters.AddWithValue("@UserID", u.GetId());
+                    command.Parameters.AddWithValue("@UserID", u.GetId()); //
                     command.ExecuteScalar();
                 }
 
+                //Deletes all of the user's scores from TestTable, because it's unnecessary to store them now.
+                string queryTwo = "DELETE FROM TestTable WHERE UserID = @UserID";
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command2 = new SqlCommand(queryTwo, connection))
+                {
+                    connection.Open();
+                    command2.Parameters.AddWithValue("@UserID", u.GetId()); //
+                    command2.ExecuteScalar();
+                }
+
+
+                //Message box states that their account has been deleted before actually being deleted from the users list, because their username is still needed for this message. 
+                //Username is placed in the message box to confirm their account has been the one deleted.
                 MessageBox.Show($"Your account {u.GetUsername()} has been deleted.");
 
                 u.DeleteUser();
-               
+
+             
                 this.Hide();
                 Login i = new Login(u);
                 i.FormClosed += (s, args) => this.Close();
@@ -158,8 +178,11 @@ namespace LanguageApp
             
         }
 
+        //Changes username, in database and users list 
         private void btnUsernameChange_Click(object sender, EventArgs e)
         {
+
+            //if they've typed nothing in, they won't be allowed to change their username. Otherwise if they have a high total of points the leaderboard will appear blank
             if (txtUsername.Text == "")
             {
                 MessageBox.Show("Your new username can't be blank.");
@@ -167,10 +190,11 @@ namespace LanguageApp
             }
 
            
-
+            //Makes sure they actually want to change their username
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to change your username?", "Change Username", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                //if yes, then the database is updated, rather than have the user's account removed and then added again with the new username
                 string query = "UPDATE UsersTable SET username = @username WHERE UserID = @UserID";
 
                 using (connection = new SqlConnection(connectionString))
@@ -182,8 +206,11 @@ namespace LanguageApp
                     command.ExecuteScalar();
                 }
 
+                //UserManager changes username for the user stored in the list
                 u.ChangeUsername(txtUsername.Text);
 
+                //Reloads mainform, so that the new username is seen in the group box with the placing and total points. Also on the leaderboard if they're high enough on it
+                //If the mainform doesn't relaod then they won't be able to tell if the change has actually occurred.
                 this.Hide();
                 MainForm m = new MainForm(u);
                 m.FormClosed += (s, args) => this.Close();
@@ -192,6 +219,7 @@ namespace LanguageApp
         
         }
 
+        //Changes password, same for when changing username, except makes sure their password is a certain length just like the login form. Maintains consistency and to help make their account more secure
         private void btnPasswordChange_Click(object sender, EventArgs e)
         {
 
@@ -229,6 +257,8 @@ namespace LanguageApp
             }
         }
 
+        //This button has exactly same function as one in login. Hides or reveals password depending on how many times they click the button. When they change their password, just like with
+        //signing up or logging in, they may not want someone else to see their password
         private void button7_Click(object sender, EventArgs e)
         {
             if (txtPassword.ForeColor == Color.Transparent)
@@ -241,6 +271,80 @@ namespace LanguageApp
                 txtPassword.ForeColor = Color.Transparent;
                 button7.Text = "Show password";
             }
+        }
+
+        private void lblUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Adds all of the German words, from every lesson, into one list with their English meaning beside them
+        private void completeVocabularyListOfThisAppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            List<string> englishWords = new List<string>();
+
+            //gets all of the german words from the database
+            List<string> germanWords = new List<string>();
+            string query = "SELECT answer from QuestionsTable WHERE type = @type";
+
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@type", "words");
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                //adds German words into list
+                while (reader.Read())
+                {
+                    germanWords.Add((string)reader[0]);
+                }
+                reader.Close();
+
+
+            }
+            connection.Close();
+
+            //Sorts German words alphabetically
+            germanWords.Sort();
+
+            //for each German word, its English word is added to the englishWords list, to make sure each German word is matched with its correct English translation when displaying them
+            foreach(string word in germanWords)
+            {
+                //selects the English word where a German word in the database is the same as the German word that has been added to the list
+                string query2 = "SELECT question from QuestionsTable WHERE answer = @answer";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command2 = new SqlCommand(query2, connection))
+                {
+                    connection.Open();
+                    command2.Parameters.AddWithValue("@answer", word);
+
+
+                    SqlDataReader reader = command2.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        englishWords.Add((string)reader[0]);
+                    }
+                    reader.Close();
+
+
+                }
+            }
+
+            //Combines the english words and German words into one list
+            string message = "German to English Vocabulary List\n\n";
+
+            for(int i = 0; i<germanWords.Count; i++)
+            {
+                message += germanWords[i] + " | " + englishWords[i] + "\n";
+            }
+
+            //shows list
+            MessageBox.Show(message);
         }
     }
 }

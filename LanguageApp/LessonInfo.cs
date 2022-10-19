@@ -39,7 +39,7 @@ namespace LanguageApp
 
         private void Info_Load(object sender, EventArgs e)
         {
-            //Displays username, total points, vocabulary lists and lesson text when form loads
+            //Displays username, total points, vocabulary lists, average score for the lesson, and the lesson theory when form loads
             lblUsername.Text = u.GetUsername();
             lblTotalPoints.Text = u.DisplayTotalPoints();
             lblPlace.Text = u.CalculatePlacingForUser(lblUsername.Text);
@@ -56,6 +56,7 @@ namespace LanguageApp
             
         }
 
+        //Goes to vocab form to learn words set for the lesson
         private void btnVocab_Click(object sender, EventArgs e)
         {
      
@@ -65,6 +66,7 @@ namespace LanguageApp
             v.Show();
         }
 
+        //Goes to practice form to learn how to use the correct grammar in sentences.
         private void btnPractise_Click(object sender, EventArgs e)
         {
            
@@ -74,6 +76,7 @@ namespace LanguageApp
             p.Show();
 
         }
+        //If the user is confident with the lesson material they can go to the test form, without having to do practice questions first
         private void btnGrammarTest_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -82,6 +85,7 @@ namespace LanguageApp
             t.Show();
         }
 
+        //Signs the user out. Returns to login form
         private void button1_Click(object sender, EventArgs e)
         {
       

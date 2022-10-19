@@ -119,6 +119,7 @@ namespace LanguageApp
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.Location = new System.Drawing.Point(320, 122);
@@ -126,7 +127,7 @@ namespace LanguageApp
             this.button1.Size = new System.Drawing.Size(135, 29);
             this.button1.TabIndex = 7;
             this.button1.Text = "Show password";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Login

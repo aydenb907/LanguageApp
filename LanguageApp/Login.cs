@@ -17,8 +17,8 @@ namespace LanguageApp
         public Login(UserManager u)
         {
             //when the Login form opens, the UserManager from program.cs or the previous form 
-            //will be passed through to this form so that the list of users in UserManager is kept the same
-            //just stating UserManager u = new UserManager(); will mean the list of users will empty, and so the users won't be able to login and keep their progress
+            //will be passed through to this form so that the list of users in UserManager isn't lost
+            //just stating UserManager u = new UserManager(); for every form will mean the list of users will empty, and so the users won't be able to login and keep their progress
 
             //this is the same for each form, in order for all the users to be stored
             this.u = u;
@@ -92,7 +92,7 @@ namespace LanguageApp
 
                         commandTwo.ExecuteScalar();
 
-                        //Selects id of new user so that it can be added along with the username to the user class. Id and username is needed for other methods, but not the password. 
+                        //Selects id of new user so that it can be added along with the username to the user class. Id and username is needed for other methods, but not the password. Password will have been stored in the databse in case they log in again
                         string queryThree = "SELECT UserID FROM UsersTable WHERE username = @username";
 
                         using (SqlCommand commandThree = new SqlCommand(queryThree, connection))
@@ -103,6 +103,8 @@ namespace LanguageApp
 
                             u.NewUser(id, username);
                         }
+
+                        MessageBox.Show("User has been added.");
 
                             
                       //Once the new user had been added to the database and the users list in UserManager:
@@ -121,7 +123,7 @@ namespace LanguageApp
 
         }
 
-        //Finds user's account so they can log in and add to their progress
+        //Finds user's account in the database so they can log in and add to their progress
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUserName.Text;
@@ -141,15 +143,16 @@ namespace LanguageApp
                 command.Parameters.AddWithValue("@password", password);
                 count = (int)command.ExecuteScalar();
 
-                //If the number is zero, then login will be unsuccessful and they'll have to try again
+                //If the number is zero, then that means they haven't signed up yet or they typed in the username or password incorrectly, so that there are no matches in the database. 
                 if (count == 0)
                 {
                     MessageBox.Show("Sorry but the username and/or password is incorrect");
                 }
-                //Else, there will be a user in the database that matches exactly what they've typed in the form, so login will be successful - they can move onto the next form
+                //Else, there will be one user in the database that matches exactly what they've typed in the form, so login will be successful. They will move onto the next form, the mainform. 
+                //There shouldn't be more than one of the same username with the same password in the database, because when they sign up it prevents that 
                 else
                 {
-                    u.Login(username);
+                    u.Login(username); //Method removes user if they've logged in already since the program started, and adds them again so they are in the last index
                     //This form closes and Mainform appears
                     this.Hide();
                     MainForm m = new MainForm(u);
@@ -162,8 +165,8 @@ namespace LanguageApp
 
         }
 
-        //When button is clicked, it controls whether the user can see the password they're typing in or not
-
+        
+        //When this button is clicked, it controls whether the user can see the password they're typing in or not
         private void button1_Click(object sender, EventArgs e)
         {
             //Before they press the button, password's text colour is already transparent.

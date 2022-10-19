@@ -19,35 +19,9 @@ namespace LanguageApp
 
         }
 
-        //Adds users to users list when they successfully sign up. If the user has already signed up and is logging in, user is removed from users list and added again, to make sure they're in the last index for the other methods.
-        public void NewUser(int i, string n)
-        {
-            string message = "";
-            int index = 0;
-            int removeIndex = 0;
-            foreach(User user in users)
-            {
-                
-
-                if (n.Equals(user.GetName()))
-                {
-                    message = "Already added";
-                    removeIndex = index;
-                }
-
-                index++;
-
-            }
-
-            if(message.Equals("Already added"))
-            {
-                users.Remove(users[removeIndex]);
-            }
-
-          
-            users.Add(new User(i, n));
-        }
-
+        
+        //Adds all the users stored in the database to the users list
+        //Method used for when program starts
         public void AddAllUsers()
         {
             SqlConnection connection;
@@ -55,6 +29,7 @@ namespace LanguageApp
 
             List<string> usernames = new List<string>();
 
+            //gets all the usernames in the database and puts them into one list
             string query = $"SELECT username FROM UsersTable";
 
             using (connection = new SqlConnection(connectionString))
@@ -75,7 +50,7 @@ namespace LanguageApp
             }
             connection.Close();
 
-            
+            //for each username, the corresponding UserID for it is selected and added along with its username into the users list
             foreach (string u in usernames)
             {
                 string query2 = $"SELECT UserID FROM UsersTable WHERE username = @username";
@@ -92,16 +67,17 @@ namespace LanguageApp
                 }
 
 
-            }
-            
-           
-       
+            }       
         }
+
+        //Makes sure user isn't already added in users list when they click login
         public void Login(string username)
         {
             int index = 0;
             int userIndex = 0;
             int id = 0;
+
+            //Compares 
             foreach (User user in users)
             {
                 if (user.GetName().Equals(username))
@@ -120,6 +96,13 @@ namespace LanguageApp
 
         }
         
+        //Adds users to users list once they've successfully signed up or logged in
+        public void NewUser(int i, string n)
+        {
+            users.Add(new User(i, n));
+        }
+
+
         public void ChangeUsername(string u)
         {
             int id = GetId();
