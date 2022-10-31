@@ -42,9 +42,9 @@ namespace LanguageApp
         }
       
         //Calculates average score for a single lesson
-        public decimal AvgScore(int lesson)
+        public float AvgScore(int lesson)
         {
-            decimal avgScore = 0;
+            float avgScore = 0;
             int totalScore = 0;
             int attempts = 0;
 
@@ -74,10 +74,7 @@ namespace LanguageApp
                         commandTwo.Parameters.AddWithValue("@LessonID", lesson);
 
                         totalScore = (int)commandTwo.ExecuteScalar();
-                        avgScore = (totalScore / attempts) * 10;
-
-                        avgScore = Math.Round(avgScore, 1);
-                        return avgScore;
+                        return avgScore = (totalScore / attempts) * 10;
                     }
                 }
 

@@ -58,8 +58,6 @@ namespace LanguageApp
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.germanToEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToGermanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -100,14 +98,10 @@ namespace LanguageApp
             this.menuInfo.Name = "menuInfo";
             this.menuInfo.Size = new System.Drawing.Size(265, 41);
             this.menuInfo.Text = "What is This App About?";
-            this.menuInfo.Click += new System.EventHandler(this.menuInfo_Click);
             // 
             // completeVocabularyListOfThisAppToolStripMenuItem
             // 
             this.completeVocabularyListOfThisAppToolStripMenuItem.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.completeVocabularyListOfThisAppToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.germanToEnglishToolStripMenuItem,
-            this.englishToGermanToolStripMenuItem});
             this.completeVocabularyListOfThisAppToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 16F, System.Drawing.FontStyle.Bold);
             this.completeVocabularyListOfThisAppToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.completeVocabularyListOfThisAppToolStripMenuItem.Name = "completeVocabularyListOfThisAppToolStripMenuItem";
@@ -123,7 +117,6 @@ namespace LanguageApp
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
             this.dToolStripMenuItem.Size = new System.Drawing.Size(208, 41);
             this.dToolStripMenuItem.Text = "Why Learn German";
-            this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -407,20 +400,6 @@ namespace LanguageApp
             this.label2.TabIndex = 27;
             this.label2.Text = "Update Account";
             // 
-            // germanToEnglishToolStripMenuItem
-            // 
-            this.germanToEnglishToolStripMenuItem.Name = "germanToEnglishToolStripMenuItem";
-            this.germanToEnglishToolStripMenuItem.Size = new System.Drawing.Size(268, 42);
-            this.germanToEnglishToolStripMenuItem.Text = "German to English";
-            this.germanToEnglishToolStripMenuItem.Click += new System.EventHandler(this.germanToEnglishToolStripMenuItem_Click);
-            // 
-            // englishToGermanToolStripMenuItem
-            // 
-            this.englishToGermanToolStripMenuItem.Name = "englishToGermanToolStripMenuItem";
-            this.englishToGermanToolStripMenuItem.Size = new System.Drawing.Size(268, 42);
-            this.englishToGermanToolStripMenuItem.Text = "English to German";
-            this.englishToGermanToolStripMenuItem.Click += new System.EventHandler(this.englishToGermanToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,8 +474,6 @@ namespace LanguageApp
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem germanToEnglishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToGermanToolStripMenuItem;
     }
 }
 

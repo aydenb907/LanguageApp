@@ -77,21 +77,18 @@ namespace LanguageApp
             int userIndex = 0;
             int id = 0;
 
-            //Compares the username they've typed into to every username stored
+            //Compares 
             foreach (User user in users)
             {
-                //if there is a match, that means they have signed up and their login will be successful
                 if (user.GetName().Equals(username))
                 {
-                    userIndex = index; //userIndex will remain the same index that the user is in, while the loop is being completed
+                    userIndex = index;
                     id = user.GetId();
                 }
 
                 index++;
             }
-            
-            //index is used to remove the same user from the list so that they can be added again
-            //this is to make sure they are in the last index of the users list, since the other methods use the last index
+
             users.Remove(users[userIndex]);
 
             NewUser(id, username);
@@ -106,17 +103,15 @@ namespace LanguageApp
         }
 
 
-        //changes username for the account that is logged in
         public void ChangeUsername(string u)
         {
             int id = GetId();
-            users.Remove(users[users.Count-1]); //account is removed and then added again with the new username 
+            users.Remove(users[users.Count-1]);
 
             NewUser(id, u);
         }
 
-        //Following methods gets the information for an account needed from User class
-        //Always gets it from the last index in the user list
+
         public string GetUsername()
         {
             return users[users.Count - 1].GetName();
@@ -127,51 +122,46 @@ namespace LanguageApp
             return users[users.Count - 1].GetId();
         }
 
-        public decimal GetAvgScore(int lesson)
+        public float GetAvgScore(int lesson)
         {
             return users[users.Count-1].AvgScore(lesson);
         }
 
-        //gets the user's total points
+ 
+        public void DeleteUser()
+        {
+            users.Remove(users[users.Count-1]);
+        }
+
+
         public string DisplayTotalPoints()
         {
-            if (users[users.Count - 1].TotalPoints() == 1)
+            if(users[users.Count - 1].TotalPoints() == 1)
             {
-                return $"{users[users.Count - 1].TotalPoints()} point"; //if they only have 1 point then it will read "1 point" on the form instead of "1 points", to be gramatically correct
+                return $"{users[users.Count - 1].TotalPoints()} point";
             }
             else
             {
                 return $"{users[users.Count - 1].TotalPoints()} points";
             }
-
-
-        }
-
-        //removes user from the users list once they've been deleted from the database
-        public void DeleteUser() 
-        {
-            users.Remove(users[users.Count-1]);
             
+
         }
 
-       
-        //sorts users by their total points - most points to least, and gives all of their placings
         public string SortUsers()
         {
-            List<int> totalPoints = TotalPointsEachUser(); //total points are already sorted from highest to lowest
+            List<int> totalPoints = TotalPointsEachUser();
             List<string> names = new List<string>();
 
-            //sorts the usernames so that each username can linked to the correct total of points for their account
             for (int n = 0; n < totalPoints.Count; n++)
             {
-                foreach(User user in users) 
+                foreach(User user in users)
                 {
-                    if (totalPoints[n] == user.TotalPoints()) 
+                    if (totalPoints[n] == user.TotalPoints())
                     {
-                        names.Add(user.GetName()); //if there is a match username will be added
+                        names.Add(user.GetName());
 
-                        if(names.Count>users.Count) //prevents the username being added multiple times, since some users will share the same number of points. 
-                            //Makes sure the next username with the same number of points is added instead. The user who signed up first will go before other users with the same total of points
+                        if(names.Count>users.Count)
                         {
                             names.Remove(user.GetName());
                         }
@@ -183,11 +173,10 @@ namespace LanguageApp
             }
 
             
+
             string list = "";
             int placing = 0;
 
-            //for each username, it is added to the summary list with its number of total points
-            //placing increases by 1 for each user
             foreach (string name in names)
             {
                 placing++;
@@ -203,11 +192,10 @@ namespace LanguageApp
 
             }
 
-            return list; //returns the list of users to be used for the leaderboard
+            return list;
 
         }
 
-        //adds the total number of points for each individual user into one list
         public List<int> TotalPointsEachUser()
         {
             List<int> totalPoints = new List<int>();
@@ -217,26 +205,18 @@ namespace LanguageApp
                 totalPoints.Add(user.TotalPoints());
             }
 
-            //sorts the list from lowest number of points to highest
             totalPoints.Sort();
-
-            //reverses order of points, so it changes from highest to lowest 
-            totalPoints.Reverse(); //Sort method is used first because just using Reverse would cause the order of points to be last user added's total points to first user. Reverse does not mean it sorts numbers from highest to lowest.
-
-
-            return totalPoints; 
+            totalPoints.Reverse();
+            return totalPoints;
         }
 
-        //determines the placing for the user that is logged in
         public string CalculatePlacingForUser(string name)
         {
-            //total points from highest to lowest
+
             List<int> totalPoints = TotalPointsEachUser();
 
             int placing = 0;
 
-            //for each user, placing increases by 1
-            //only the user with the username that matches will have their placing 
             foreach(User user in users)
             {
                 if(user.GetName() == name)
@@ -253,7 +233,6 @@ namespace LanguageApp
 
             string text = "";
            
-            //gives the correct ending to the place number
             if (placing == 1)
             {
                 text = $"1st place";

@@ -156,7 +156,7 @@ namespace LanguageApp
             }
             connection.Close();
 
-            
+
             return englishWords;
         }
         public static string EnglishWordsList()
@@ -248,7 +248,5 @@ namespace LanguageApp
             return lessonText;
         }
 
-    
-      
     }
 }
