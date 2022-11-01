@@ -22,10 +22,12 @@ namespace LanguageApp
 
             //this is the same for each form, in order for all the users to be stored
             this.u = u;
+            
             InitializeComponent();
 
             connectionString = ConfigurationManager.ConnectionStrings["LanguageApp.Properties.Settings.Database1ConnectionString"].ConnectionString; //needed to connect to the database
-   
+
+
         }
 
         //Adds new person's username and password

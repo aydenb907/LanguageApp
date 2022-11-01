@@ -86,15 +86,12 @@ namespace LanguageApp
         }
 
         //Signs the user out. Returns to login form
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-      
             this.Hide();
-            Login l = new Login(u);
-            l.FormClosed += (s, args) => this.Close();
-            l.Show();
+            Login i = new Login(u);
+            i.FormClosed += (s, args) => this.Close();
+            i.Show();
         }
-
-      
     }
 }

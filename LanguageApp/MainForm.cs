@@ -278,25 +278,30 @@ namespace LanguageApp
 
         }
 
-        //Adds all of the German words, from every lesson, into one list with their English meaning beside them
+        //Will display 2 options for complete vocabulary list when clicked, either German to English or English To German
         private void completeVocabularyListOfThisAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Adds all of the German words, from every lesson, into one list in alphabetical order with their English meaning beside them
+        private void germanToEnglishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             List<string> englishWords = new List<string>();
-
-            //gets all of the german words from the database
             List<string> germanWords = new List<string>();
-            string query = "SELECT answer from QuestionsTable WHERE type = @type";
 
+
+            string query = "SELECT answer from QuestionsTable WHERE type = @type";
             using (connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 connection.Open();
                 command.Parameters.AddWithValue("@type", "words");
 
+
                 SqlDataReader reader = command.ExecuteReader();
 
-                //adds German words into list
+                //adds English word, so that the indexes in both lists are linked 
                 while (reader.Read())
                 {
                     germanWords.Add((string)reader[0]);
@@ -305,15 +310,12 @@ namespace LanguageApp
 
 
             }
-            connection.Close();
 
-            //Sorts German words alphabetically
             germanWords.Sort();
 
-            //for each German word, its English word is added to the englishWords list, to make sure each German word is matched with its correct English translation when displaying them
-            foreach(string word in germanWords)
+            foreach (string word in germanWords)
             {
-                //selects the English word where a German word in the database is the same as the German word that has been added to the list
+                //selects the English word where a German word in the database is the same as the German word in the list
                 string query2 = "SELECT question from QuestionsTable WHERE answer = @answer";
 
                 using (connection = new SqlConnection(connectionString))
@@ -325,6 +327,7 @@ namespace LanguageApp
 
                     SqlDataReader reader = command2.ExecuteReader();
 
+                    //adds English word, so that the indexes in both lists are linked 
                     while (reader.Read())
                     {
                         englishWords.Add((string)reader[0]);
@@ -335,16 +338,85 @@ namespace LanguageApp
                 }
             }
 
-            //Combines the english words and German words into one list
+
+            //Combines the english words and German words into one list, German word before English word
             string message = "German to English Vocabulary List\n\n";
 
-            for(int i = 0; i<germanWords.Count; i++)
+            for (int i = 0; i < germanWords.Count; i++)
             {
                 message += germanWords[i] + " | " + englishWords[i] + "\n";
             }
-
-            //shows list
             MessageBox.Show(message);
         }
+
+        //same as before but English and German are swapped around
+        private void englishToGermanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<string> germanWords = new List<string>();
+            List<string> englishWords = new List<string>();
+
+            string query = "SELECT question from QuestionsTable WHERE type = @type";
+            using (connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@type", "words");
+
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                //adds English word, so that the indexes in both lists are linked 
+                while (reader.Read())
+                {
+                    englishWords.Add((string)reader[0]);
+                }
+                reader.Close();
+
+
+            }
+            englishWords.Sort();
+
+            foreach (string word in englishWords)
+            {
+                //selects the English word where a German word in the database is the same as the German word in the list
+                string query2 = "SELECT answer from QuestionsTable WHERE question = @question";
+
+                using (connection = new SqlConnection(connectionString))
+                using (SqlCommand command2 = new SqlCommand(query2, connection))
+                {
+                    connection.Open();
+                    command2.Parameters.AddWithValue("@question", word);
+
+
+                    SqlDataReader reader = command2.ExecuteReader();
+
+                    //adds English word, so that the indexes in both lists are linked 
+                    while (reader.Read())
+                    {
+                        germanWords.Add((string)reader[0]);
+                    }
+                    reader.Close();
+
+
+                }
+            }
+
+
+            //Combines the english words and German words into one list, German word before English word
+            string message = "English to German Vocabulary List\n\n";
+
+            for (int i = 0; i < germanWords.Count; i++)
+            {
+                message += englishWords[i] + " | " + germanWords[i] + "\n";
+            }
+
+
+
+            MessageBox.Show(message);
+
+
+
+        }
     }
+    
 }
